@@ -20,27 +20,27 @@ public class Usuario {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "idUsuario")
-	public int idUsuario;
-	
-	@Column(name = "nomrbe")
-	public String nombre;
-	
+	private int idUsuario;
+
+	@Column(name = "nombre")
+	private String nombre;
+
 	@Column(name = "apellido")
-	public String apellido;
-	
+	private String apellido;
+
 	@Column(name = "avatarPath")
-	public String avatarPath;
-	
+	private String avatarPath;
+
 	@Enumerated(EnumType.STRING)
 	@Column (name = "carrera")
-	public Carrera carrera;
-	
+	private Carrera carrera;
+
 	@Column(name = "puntos")
-	public int puntos;
-	
+	private int puntos;
+
 	@Column(name = "email")
-	public String email;
-	
+	private String email;
+
 	@Column(name = "contrasenia")
-	public String contrasenia;
+	private String contrasenia;
 }
