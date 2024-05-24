@@ -14,18 +14,18 @@ import lombok.Data;
 @Data
 @Entity
 @Table(name = "prediccion")
-@PrimaryKeyJoinColumn(name = "idPrediccion")
+@PrimaryKeyJoinColumn(name = "id_prediccion")
 public class Prediccion {
     
     @Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "idPrediccion")
+	@Column(name = "id_prediccion")
 	public int idPrediccion;
 
-    @Column(name = "prediccionE1")
+    @Column(name = "prediccion_e1")
 	public int prediccionE1;
 
-    @Column(name = "prediccionE2")
+    @Column(name = "prediccion_e2")
     public int prediccionE2;
 
     @Column(name="ganador")
