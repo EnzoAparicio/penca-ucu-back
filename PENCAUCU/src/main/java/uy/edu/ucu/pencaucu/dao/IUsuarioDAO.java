@@ -1,8 +1,8 @@
-package uy.edu.ucu.PENCAUCU.dao;
+package uy.edu.ucu.pencaucu.dao;
 
 import java.util.List;
 
-import uy.edu.ucu.PENCAUCU.dto.UsuarioDTO;
+import uy.edu.ucu.pencaucu.dto.UsuarioDTO;
 
 public interface IUsuarioDAO {
 

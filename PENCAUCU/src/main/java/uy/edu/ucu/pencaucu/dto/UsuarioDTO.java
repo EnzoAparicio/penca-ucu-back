@@ -1,7 +1,7 @@
-package uy.edu.ucu.PENCAUCU.dto;
+package uy.edu.ucu.pencaucu.dto;
 
 import lombok.Data;
-import uy.edu.ucu.PENCAUCU.model.Carrera;
+import uy.edu.ucu.pencaucu.model.Carrera;
 
 @Data
 public class UsuarioDTO {

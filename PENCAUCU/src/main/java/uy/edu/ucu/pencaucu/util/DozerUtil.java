@@ -1,4 +1,4 @@
-package uy.edu.ucu.PENCAUCU.util;
+package uy.edu.ucu.pencaucu.util;
 
 import org.dozer.DozerBeanMapper;
 

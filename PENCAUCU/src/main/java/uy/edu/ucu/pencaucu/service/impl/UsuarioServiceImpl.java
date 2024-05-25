@@ -1,13 +1,13 @@
-package uy.edu.ucu.PENCAUCU.service.impl;
+package uy.edu.ucu.pencaucu.service.impl;
 
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import uy.edu.ucu.PENCAUCU.dao.IUsuarioDAO;
-import uy.edu.ucu.PENCAUCU.dto.UsuarioDTO;
-import uy.edu.ucu.PENCAUCU.service.IUsuarioService;
+import uy.edu.ucu.pencaucu.dao.IUsuarioDAO;
+import uy.edu.ucu.pencaucu.dto.UsuarioDTO;
+import uy.edu.ucu.pencaucu.service.IUsuarioService;
 
 @Service
 public class UsuarioServiceImpl implements IUsuarioService {

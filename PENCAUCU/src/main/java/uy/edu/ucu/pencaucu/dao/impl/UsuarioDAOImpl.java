@@ -1,20 +1,20 @@
-package uy.edu.ucu.PENCAUCU.dao.impl;
+package uy.edu.ucu.pencaucu.dao.impl;
 
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import uy.edu.ucu.PENCAUCU.dao.IUsuarioDAO;
-import uy.edu.ucu.PENCAUCU.dto.UsuarioDTO;
-import uy.edu.ucu.PENCAUCU.repo.IUsuarioRepo;
-import uy.edu.ucu.PENCAUCU.util.DozerUtil;
+import uy.edu.ucu.pencaucu.dao.IUsuarioDAO;
+import uy.edu.ucu.pencaucu.dto.UsuarioDTO;
+import uy.edu.ucu.pencaucu.repo.IUsuarioRepo;
+import uy.edu.ucu.pencaucu.util.DozerUtil;
 
 @Repository
 public class UsuarioDAOImpl implements IUsuarioDAO {
 
 	@Autowired
-	private IUsuarioRepo repo;
+	private IUsuarioRepo iUsuarioRepo;
 	
 	@Override
 	public UsuarioDTO createUsuario(UsuarioDTO usuarioDTO) {
@@ -36,7 +36,7 @@ public class UsuarioDAOImpl implements IUsuarioDAO {
 
 	@Override
 	public UsuarioDTO getUsuario(Integer idUsuario) {
-		return DozerUtil.GetINSTANCE().getMapper().map(repo.findById(idUsuario), UsuarioDTO.class);
+		return DozerUtil.GetINSTANCE().getMapper().map(iUsuarioRepo.findById(idUsuario), UsuarioDTO.class);
 	}
 
 	@Override

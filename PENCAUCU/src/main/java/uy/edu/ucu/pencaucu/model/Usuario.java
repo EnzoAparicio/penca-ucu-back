@@ -1,4 +1,4 @@
-package uy.edu.ucu.PENCAUCU.model;
+package uy.edu.ucu.pencaucu.model;
 
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -12,9 +12,9 @@ import javax.persistence.Column;
 import lombok.Data;
 
 @Data
-@Entity
 @Table(name = "usuario")
 @PrimaryKeyJoinColumn(name = "id_usuario")
+@Entity
 public class Usuario {
 
 	@Id
@@ -22,13 +22,13 @@ public class Usuario {
 	@Column(name = "id_usuario")
 	private Integer id_usuario;
 
-	@Column(name = "nombre")
+	@Column(name = "nombre", length=50, nullable=false)
 	private String nombre;
 
-	@Column(name = "apellido")
+	@Column(name = "apellido", length=50, nullable=false)
 	private String apellido;
 
-	@Column(name = "avatar_path")
+	@Column(name = "avatar_path", length=50)
 	private String avatar_path;
 
 	//@Enumerated(EnumType.STRING)
@@ -38,9 +38,9 @@ public class Usuario {
 	@Column(name = "puntos")
 	private Integer puntos;
 
-	@Column(name = "email")
+	@Column(name = "email", length=50, nullable=false)
 	private String email;
 
-	@Column(name = "contrasenia")
+	@Column(name = "contrasenia", length=50, nullable=false)
 	private String contrasenia;
 }
