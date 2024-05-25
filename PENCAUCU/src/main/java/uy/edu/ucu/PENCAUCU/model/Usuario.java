@@ -14,13 +14,13 @@ import lombok.Data;
 @Data
 @Entity
 @Table(name = "usuario")
-@PrimaryKeyJoinColumn(name = "idUsuario")
+@PrimaryKeyJoinColumn(name = "id_usuario")
 public class Usuario {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "idUsuario")
-	private int idUsuario;
+	@Column(name = "id_usuario")
+	private Integer id_usuario;
 
 	@Column(name = "nombre")
 	private String nombre;
@@ -28,15 +28,15 @@ public class Usuario {
 	@Column(name = "apellido")
 	private String apellido;
 
-	@Column(name = "avatarPath")
-	private String avatarPath;
+	@Column(name = "avatar_path")
+	private String avatar_path;
 
-	@Enumerated(EnumType.STRING)
-	@Column (name = "carrera")
-	private Carrera carrera;
+	//@Enumerated(EnumType.STRING)
+	//@Column (name = "carrera")
+	//private Carrera carrera;
 
 	@Column(name = "puntos")
-	private int puntos;
+	private Integer puntos;
 
 	@Column(name = "email")
 	private String email;
