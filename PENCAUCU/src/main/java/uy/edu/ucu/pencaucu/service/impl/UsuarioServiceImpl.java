@@ -37,7 +37,11 @@ public class UsuarioServiceImpl implements IUsuarioService {
 
 	@Override
 	public List<UsuarioDTO> getAllUsuario(UsuarioDTO usuarioDTO) {
-		return iUsuarioDAO.getAllUsuario(usuarioDTO);
+		if (usuarioDTO == null) {
+			return iUsuarioDAO.getAllUsuario();
+		} else {
+			return iUsuarioDAO.getAllUsuarioByFilter(usuarioDTO);
+		}
 	}
 
 }

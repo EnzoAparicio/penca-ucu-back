@@ -1,19 +1,16 @@
 package uy.edu.ucu.pencaucu.model;
 
-import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
-import javax.persistence.Table;
-import javax.persistence.PrimaryKeyJoinColumn;
-import javax.persistence.Id;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Column;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.PrimaryKeyJoinColumn;
+import jakarta.persistence.Table;
 import lombok.Data;
 
 @Data
 @Table(name = "usuario")
-@PrimaryKeyJoinColumn(name = "id_usuario")
 @Entity
 public class Usuario {
 
@@ -25,7 +22,7 @@ public class Usuario {
 	@Column(name = "nombre", length=50, nullable=false)
 	private String nombre;
 
-	@Column(name = "apellido", length=50, nullable=false)
+	@Column(name = "apellido", length=50)
 	private String apellido;
 
 	@Column(name = "avatar_path", length=50)
