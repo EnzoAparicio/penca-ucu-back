@@ -1,4 +1,4 @@
-package uy.edu.ucu.PENCAUCU.model;
+package uy.edu.ucu.pencaucu.model;
 
 public enum Carrera {
 	ABOGACIA,
