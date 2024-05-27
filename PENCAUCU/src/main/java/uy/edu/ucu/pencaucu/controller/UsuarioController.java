@@ -22,7 +22,7 @@ public class UsuarioController {
 	
 	@PostMapping("/usuario/create")
 	public UsuarioDTO createUsuario(@RequestBody UsuarioDTO usuarioDTO) {
-		return null;
+		return iUsuarioService.createUsuario(usuarioDTO);
 	}
 	
 	@PutMapping("/usuario/update")
