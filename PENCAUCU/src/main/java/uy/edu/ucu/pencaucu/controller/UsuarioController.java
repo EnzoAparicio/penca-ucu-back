@@ -42,8 +42,6 @@ public class UsuarioController {
 	
 	@GetMapping("/usuario/getAll")
 	public List<UsuarioDTO> getAllUsuario(@RequestBody(required = false) UsuarioDTO usuarioDTO) {
-		System.out.println("\nUsuario in: " + usuarioDTO.toString());
-		
 		return iUsuarioService.getAllUsuario(usuarioDTO);
 	}
 }

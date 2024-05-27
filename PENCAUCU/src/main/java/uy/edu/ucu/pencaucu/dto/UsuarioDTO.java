@@ -14,7 +14,7 @@ public class UsuarioDTO {
 	
 	private String avatar_path;
 	
-	//private Carrera carrera;
+	private Carrera carrera;
 	
 	private Integer puntos;
 	

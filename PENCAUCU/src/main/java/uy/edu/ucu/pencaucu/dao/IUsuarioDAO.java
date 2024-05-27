@@ -2,8 +2,6 @@ package uy.edu.ucu.pencaucu.dao;
 
 import java.util.List;
 
-import org.springframework.data.domain.ExampleMatcher;
-
 import uy.edu.ucu.pencaucu.dto.UsuarioDTO;
 
 public interface IUsuarioDAO {

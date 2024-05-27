@@ -1,12 +1,10 @@
 package uy.edu.ucu.pencaucu.dao.impl;
 
 import java.util.List;
-import java.util.Optional;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Example;
-import org.springframework.data.domain.ExampleMatcher;
 import org.springframework.stereotype.Repository;
 
 import uy.edu.ucu.pencaucu.dao.IUsuarioDAO;
@@ -35,8 +33,7 @@ public class UsuarioDAOImpl implements IUsuarioDAO {
 
 	@Override
 	public void deleteUsuario(UsuarioDTO usuarioDTO) {
-		// TODO Auto-generated method stub
-		
+		iUsuarioRepo.deleteById(usuarioDTO.getId_usuario());
 	}
 
 	@Override

@@ -5,8 +5,9 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.PrimaryKeyJoinColumn;
 import jakarta.persistence.Table;
+import jakarta.persistence.Enumerated;
+import jakarta.persistence.EnumType;
 import lombok.Data;
 
 @Data
@@ -28,9 +29,19 @@ public class Usuario {
 	@Column(name = "avatar_path", length=50)
 	private String avatar_path;
 
-	//@Enumerated(EnumType.STRING)
-	//@Column (name = "carrera")
-	//private Carrera carrera;
+	/**
+	 *  SQL Query to add Carrera:
+	 * 
+	 * alter table usuario 
+	 * add column carrera enum
+	 * 
+	 *  Didn't it need to be a separate table?
+	 *  Is it well represented if it were a separate table? 
+	 */
+	
+	@Enumerated(EnumType.STRING)
+	@Column (name = "carrera")
+	private Carrera carrera;
 
 	@Column(name = "puntos")
 	private Integer puntos;
