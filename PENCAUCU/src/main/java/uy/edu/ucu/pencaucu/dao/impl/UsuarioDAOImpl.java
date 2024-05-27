@@ -21,8 +21,14 @@ public class UsuarioDAOImpl implements IUsuarioDAO {
 	
 	@Override
 	public UsuarioDTO createUsuario(UsuarioDTO usuarioDTO) {
-		// TODO Auto-generated method stub
-		return null;
+		// Usar Dozer para mapear DTO a entidad
+	    Usuario usuario = DozerUtil.GetINSTANCE().getMapper().map(usuarioDTO, Usuario.class);
+	    
+	    // Guardar el objeto usuario en la base de datos
+	    Usuario savedUsuario = iUsuarioRepo.save(usuario);
+
+	    // Mapear la entidad guardada de vuelta a DTO
+	    return DozerUtil.GetINSTANCE().getMapper().map(savedUsuario, UsuarioDTO.class);		
 	}
 
 	@Override
