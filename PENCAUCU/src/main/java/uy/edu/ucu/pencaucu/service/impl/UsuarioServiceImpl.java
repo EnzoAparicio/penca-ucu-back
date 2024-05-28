@@ -19,6 +19,11 @@ public class UsuarioServiceImpl implements IUsuarioService {
 	public UsuarioDTO createUsuario(UsuarioDTO usuarioDTO) {
 		return iUsuarioDAO.createUsuario(usuarioDTO);
 	}
+	
+	@Override
+	public UsuarioDTO loginUsuario(String email, String password) {
+		return iUsuarioDAO.loginUsuario(email, password);
+	}
 
 	@Override
 	public UsuarioDTO updateUsuario(UsuarioDTO usuarioDTO) {

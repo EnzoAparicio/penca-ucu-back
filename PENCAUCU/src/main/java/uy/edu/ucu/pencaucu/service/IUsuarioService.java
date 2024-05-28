@@ -8,6 +8,8 @@ public interface IUsuarioService {
 
 	UsuarioDTO createUsuario(UsuarioDTO usuarioDTO);
 	
+	UsuarioDTO loginUsuario(String email, String password);
+	
 	UsuarioDTO updateUsuario(UsuarioDTO usuarioDTO);
 	
 	void deleteUsuario(UsuarioDTO usuarioDTO);

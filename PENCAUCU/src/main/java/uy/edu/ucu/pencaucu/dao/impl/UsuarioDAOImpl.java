@@ -12,6 +12,7 @@ import uy.edu.ucu.pencaucu.dto.UsuarioDTO;
 import uy.edu.ucu.pencaucu.model.Usuario;
 import uy.edu.ucu.pencaucu.repo.IUsuarioRepo;
 import uy.edu.ucu.pencaucu.util.DozerUtil;
+import uy.edu.ucu.pencaucu.util.HasherUtil;
 
 @Repository
 public class UsuarioDAOImpl implements IUsuarioDAO {
@@ -24,11 +25,21 @@ public class UsuarioDAOImpl implements IUsuarioDAO {
 		// Usar Dozer para mapear DTO a entidad
 	    Usuario usuario = DozerUtil.GetINSTANCE().getMapper().map(usuarioDTO, Usuario.class);
 	    
+	    System.out.println(HasherUtil.getSHA256Hash(usuario.getContrasenia()));
+	    
 	    // Guardar el objeto usuario en la base de datos
 	    Usuario savedUsuario = iUsuarioRepo.save(usuario);
 
 	    // Mapear la entidad guardada de vuelta a DTO
 	    return DozerUtil.GetINSTANCE().getMapper().map(savedUsuario, UsuarioDTO.class);		
+	}
+	
+	@Override
+	public UsuarioDTO loginUsuario(String email, String password) {
+		UsuarioDTO logger = new UsuarioDTO();
+		logger = DozerUtil.GetINSTANCE().getMapper().map(iUsuarioRepo.findByEmail(email).get(), UsuarioDTO.class);
+		return logger;
+		
 	}
 
 	@Override

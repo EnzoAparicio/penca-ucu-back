@@ -20,9 +20,14 @@ public class UsuarioController {
 	@Autowired
 	private IUsuarioService iUsuarioService;
 	
-	@PostMapping("/usuario/create")
+	@PostMapping("/usuario/create") // Enviar un json con los atributos de un usuario y sus respectivos valores.
 	public UsuarioDTO createUsuario(@RequestBody UsuarioDTO usuarioDTO) {
 		return iUsuarioService.createUsuario(usuarioDTO);
+	}
+	
+	@GetMapping("/usuario/login/{email}/{password}") // Enviar un json con los atributos para logear y sus valores.
+	public UsuarioDTO loginUsuario(@PathVariable String email, @PathVariable String password) {
+		return iUsuarioService.loginUsuario(email, password);
 	}
 	
 	@PutMapping("/usuario/update")
