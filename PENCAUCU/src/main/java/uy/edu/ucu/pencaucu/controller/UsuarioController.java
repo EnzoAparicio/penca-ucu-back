@@ -32,12 +32,12 @@ public class UsuarioController {
 	
 	@PutMapping("/usuario/update")
 	public UsuarioDTO updateUsuario(@RequestBody UsuarioDTO usuarioDTO) {
-		return null;
+		return iUsuarioService.updateUsuario(usuarioDTO);
 	}
 	
 	@DeleteMapping("/usuario/delete")
 	public void deleteUsuario(@RequestBody UsuarioDTO usuarioDTO) {
-		
+		iUsuarioService.deleteUsuario(usuarioDTO);
 	}
 	
 	@GetMapping("/usuario/{id_usuario}")

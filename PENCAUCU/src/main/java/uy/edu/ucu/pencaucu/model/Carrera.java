@@ -13,7 +13,7 @@ public class Carrera {
 	@Column(name="id_carrera")
 	private Integer id_carrera;
 	
-	@Column(name="nombre", length=50)
+	@Column(name="nombre", length=50, nullable=false, unique=true)
 	private String nombre;
 	
 	@Column(name="anios", length=30)
