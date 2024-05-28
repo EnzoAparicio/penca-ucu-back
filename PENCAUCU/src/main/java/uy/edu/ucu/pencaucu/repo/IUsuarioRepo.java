@@ -11,4 +11,6 @@ import uy.edu.ucu.pencaucu.model.Usuario;
 public interface IUsuarioRepo extends JpaRepository<Usuario, Integer>{
 
 	Optional<Usuario> findById(Integer id_usuario);
+	
+	Optional<Usuario> findByEmail(String email);
 }
