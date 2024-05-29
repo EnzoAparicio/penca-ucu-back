@@ -5,9 +5,9 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
-import jakarta.persistence.Enumerated;
-import jakarta.persistence.EnumType;
 import lombok.Data;
 
 @Data
@@ -19,6 +19,12 @@ public class Usuario {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id_usuario")
 	private Integer id_usuario;
+	
+	@Column(name = "email", length=100, nullable=false, unique=true)
+	private String email;
+
+	@Column(name = "contrasenia", length=255, nullable=false)
+	private String contrasenia;
 
 	@Column(name = "nombre", length=50, nullable=false)
 	private String nombre;
@@ -28,27 +34,11 @@ public class Usuario {
 
 	@Column(name = "avatar_path", length=50)
 	private String avatar_path;
-
-	/**
-	 *  SQL Query to add Carrera:
-	 * 
-	 * alter table usuario 
-	 * add column carrera enum
-	 * 
-	 *  Didn't it need to be a separate table?
-	 *  Is it well represented if it were a separate table? 
-	 */
 	
-	@Enumerated(EnumType.STRING)
-	@Column (name = "carrera")
+	@ManyToOne
+	@JoinColumn(name="id_carrera", nullable=false)
 	private Carrera carrera;
 
 	@Column(name = "puntos")
 	private Integer puntos;
-
-	@Column(name = "email", length=50, nullable=false)
-	private String email;
-
-	@Column(name = "contrasenia", length=50, nullable=false)
-	private String contrasenia;
 }
