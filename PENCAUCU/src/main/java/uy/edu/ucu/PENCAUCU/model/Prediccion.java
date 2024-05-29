@@ -12,7 +12,6 @@ import lombok.Data;
 @Data
 @Entity
 @Table(name = "prediccion")
-@PrimaryKeyJoinColumn(name = "id_prediccion")
 public class Prediccion {
     
     @Id

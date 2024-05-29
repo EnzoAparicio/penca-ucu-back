@@ -1,6 +1,6 @@
 package uy.edu.ucu.pencaucu.service;
 
-import java.util.List;
+import java.util.ArrayList;
 
 import uy.edu.ucu.pencaucu.dto.PrediccionDTO;
 
@@ -10,9 +10,9 @@ public interface IPrediccionService {
 
     PrediccionDTO updatePrediccion(PrediccionDTO prediccionDTO);
 
-    PrediccionDTO deletePrediccion(Integer id_prediccion);
+    void deletePrediccion(Integer id_prediccion);
 
     PrediccionDTO getPrediccion(Integer id_prediccion);
 
-    List<PrediccionDTO> getAllPrediccion(PrediccionDTO prediccionDTO);
+    ArrayList<PrediccionDTO> getAllPrediccion(PrediccionDTO prediccionDTO);
 }

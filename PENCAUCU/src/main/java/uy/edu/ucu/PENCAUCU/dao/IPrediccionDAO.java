@@ -14,6 +14,6 @@ public interface IPrediccionDAO {
 
         PrediccionDTO updatePrediccion (PrediccionDTO prediccionDTO);
 
-        PrediccionDTO deletePrediccion (Integer id_prediccion);
+        void deletePrediccion (Integer id_prediccion);
         
 }
