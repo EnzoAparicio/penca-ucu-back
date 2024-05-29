@@ -1,12 +1,12 @@
-package uy.edu.ucu.PENCAUCU.model;
+package uy.edu.ucu.pencaucu.model;
 
-import javax.persistence.Entity;
-import javax.persistence.Table;
-import javax.persistence.PrimaryKeyJoinColumn;
-import javax.persistence.Id;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Column;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.PrimaryKeyJoinColumn;
+import jakarta.persistence.Table;
 import lombok.Data;
 
 @Data
@@ -18,15 +18,15 @@ public class Prediccion {
     @Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id_prediccion")
-	public int idPrediccion;
+	private Integer idPrediccion;
 
     @Column(name = "prediccion_e1")
-	public int prediccion_e1;
+	private Integer prediccion_e1;
 
     @Column(name = "prediccion_e2")
-    public int prediccion_e2;
+    private Integer prediccion_e2;
 
-    @Column(name="ganador")
-    public String ganador;
+    @Column(name="ganador", length=50)
+    private String ganador;
 
 }

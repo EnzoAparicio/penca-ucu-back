@@ -1,19 +1,19 @@
-package uy.edu.ucu.PENCAUCU.dao;
+package uy.edu.ucu.pencaucu.dao;
 
 import java.util.ArrayList;
 
-import uy.edu.ucu.PENCAUCU.dto.PrediccionDTO;
+import uy.edu.ucu.pencaucu.dto.PrediccionDTO;
 
 public interface IPrediccionDAO {
     
-        public PrediccionDTO findPrediccion (int id_prediccion);
+        PrediccionDTO createPrediccion (PrediccionDTO prediccionDTO);
 
-        public ArrayList<PrediccionDTO> findAllPredicciones();
+        PrediccionDTO getPrediccionById (Integer id_prediccion);
 
-        public void savePrediccion(PrediccionDTO prediccion);
+        public ArrayList<PrediccionDTO> getAllPrediccion();
 
-        public void updatePrediccion(PrediccionDTO prediccion);
+        PrediccionDTO updatePrediccion (PrediccionDTO prediccionDTO);
 
-        public void deletePrediccion(int id_prediccion);
+        PrediccionDTO deletePrediccion (Integer id_prediccion);
         
 }

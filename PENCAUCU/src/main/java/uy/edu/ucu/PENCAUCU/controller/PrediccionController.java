@@ -1,4 +1,4 @@
-package uy.edu.ucu.PENCAUCU.controller;
+package uy.edu.ucu.pencaucu.controller;
 
 import java.util.List;
 
@@ -12,39 +12,39 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import uy.edu.ucu.PENCAUCU.model.Prediccion;
-import uy.edu.ucu.PENCAUCU.repo.IPrediccionRepo;
+import uy.edu.ucu.pencaucu.dto.PrediccionDTO;
+import uy.edu.ucu.pencaucu.service.IPrediccionService;
 
 @RestController
 @RequestMapping("/api")
 public class PrediccionController {
+
     @Autowired
-    private IPrediccionRepo repo;
+    private IPrediccionService iPrediccionService;
 
-    @GetMapping("/prediccion")
-    public List<Prediccion> allPredicciones() {
-        return repo.findAll();
+    @GetMapping("/prediccion/getAll")
+    public List<PrediccionDTO> getAllPrediccion(@RequestBody(required = false) PrediccionDTO prediccionDTO) {
+		return iPrediccionService.getAllPrediccion(prediccionDTO);
     }
 
-    @GetMapping("/prediccion/{id}")
-    public Prediccion getPrediccion(@PathVariable Integer id) {
-        return repo.findById(id).get();
+    @GetMapping("/prediccion/{id_prediccion}")
+    public PrediccionDTO getPrediccion(@PathVariable Integer id_prediccion) {
+		return iPrediccionService.getPrediccion(id_prediccion);
+	}
+    
+    @PostMapping("/prediccion/create")
+	public PrediccionDTO createPrediccion(@RequestBody PrediccionDTO prediccionDTO) {
+		return iPrediccionService.createPrediccion(prediccionDTO);
+	}
+    
+    @DeleteMapping("/prediccion/delete")
+	public PrediccionDTO deletePrediccion(@RequestBody Integer id_prediccion) {
+        return iPrediccionService.deletePrediccion(id_prediccion);
     }
     
-    @PostMapping("/prediccion")
-	public Prediccion createPrediccion(@RequestBody Prediccion prediccion) {
-		return repo.save(prediccion);
-	}
-    
-    @DeleteMapping("/prediccion/{id}")
-	public String deletePrediccion(@PathVariable("id") Integer id) {
-		repo.deleteById(id);
-		return "La predicción se borró exitosamente";
-	}
-    
-    @PutMapping("/prediccion")
-	public Prediccion updatePrediccion(@RequestBody Prediccion prediccion) {
-		return repo.save(prediccion);
+    @PutMapping("/prediccion/update")
+	public PrediccionDTO updatePrediccion(@RequestBody PrediccionDTO prediccionDTO) {
+		return iPrediccionService.updatePrediccion(prediccionDTO);
 	}
 
 }
