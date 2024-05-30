@@ -25,9 +25,9 @@ public class UsuarioController {
 		return iUsuarioService.createUsuario(usuarioDTO);
 	}
 	
-	@GetMapping("/usuario/login/{email}/{password}") // Enviar un json con los atributos para logear y sus valores.
-	public UsuarioDTO loginUsuario(@PathVariable String email, @PathVariable String password) {
-		return iUsuarioService.loginUsuario(email, password);
+	@PostMapping("/usuario/login") // Enviar un json con los atributos para logear y sus valores.
+	public boolean loginUsuario(@RequestBody UsuarioDTO usuarioDTO) {
+		return iUsuarioService.loginUsuario(usuarioDTO);
 	}
 	
 	@PutMapping("/usuario/update")
