@@ -8,6 +8,10 @@ public class UsuarioDTO {
 
 	private Integer id_usuario;
 	
+	private String email;
+	
+	private String contrasenia;
+	
 	private String nombre;
 	
 	private String apellido;
@@ -17,8 +21,4 @@ public class UsuarioDTO {
 	private Carrera carrera;
 	
 	private Integer puntos;
-	
-	private String email;
-	
-	private String contrasenia;
 }

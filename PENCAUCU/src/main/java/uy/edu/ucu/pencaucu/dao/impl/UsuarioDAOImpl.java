@@ -1,6 +1,7 @@
 package uy.edu.ucu.pencaucu.dao.impl;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -51,13 +52,19 @@ public class UsuarioDAOImpl implements IUsuarioDAO {
 		HasherUtil.verify(usuarioDTO.getContrasenia(), logger.getContrasenia());
 		
 		return HasherUtil.verify(usuarioDTO.getContrasenia(), logger.getContrasenia());
-		
 	}
 
 	@Override
 	public UsuarioDTO updateUsuario(UsuarioDTO usuarioDTO) {
-		// TODO Auto-generated method stub
-		return null;
+		try {
+			Usuario usuarioBD = iUsuarioRepo.findById(usuarioDTO.getId_usuario()).get();
+			usuarioDTO.setContrasenia(usuarioBD.getContrasenia());
+			Usuario usuarioActualizado = DozerUtil.GetINSTANCE().getMapper().map(usuarioDTO, Usuario.class);
+			
+			return DozerUtil.GetINSTANCE().getMapper().map(iUsuarioRepo.save(usuarioActualizado), UsuarioDTO.class);
+		} catch (Error e) {
+			return null;
+		}
 	}
 
 	@Override
@@ -67,7 +74,12 @@ public class UsuarioDAOImpl implements IUsuarioDAO {
 
 	@Override
 	public UsuarioDTO getUsuario(Integer id_usuario) {
-		return DozerUtil.GetINSTANCE().getMapper().map(iUsuarioRepo.findById(id_usuario).get(), UsuarioDTO.class);
+		Optional<Usuario> usuarioDB = iUsuarioRepo.findById(id_usuario);
+		if (usuarioDB.isPresent()) {
+			return DozerUtil.GetINSTANCE().getMapper().map(usuarioDB.get(), UsuarioDTO.class);
+		} else {
+			return null;
+		}
 	}
 
 	@Override
