@@ -40,8 +40,10 @@ public class UsuarioDAOImpl implements IUsuarioDAO {
 	
 	@Override
 	public boolean loginUsuario(UsuarioDTO usuarioDTO) {
-		UsuarioDTO logger = new UsuarioDTO();
-		logger = DozerUtil.GetINSTANCE().getMapper().map(iUsuarioRepo.findByEmail(logger.getEmail()).get(), UsuarioDTO.class);
+		
+		
+		UsuarioDTO logger = DozerUtil.GetINSTANCE().getMapper().map
+				(iUsuarioRepo.findByEmail(usuarioDTO.getEmail()).get(), UsuarioDTO.class);
 		if(logger == null)
 		{
 			System.out.println("Usuario no existe.");
