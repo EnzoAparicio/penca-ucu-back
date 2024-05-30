@@ -23,7 +23,7 @@ public class Usuario {
 	@Column(name = "email", length=100, nullable=false, unique=true)
 	private String email;
 
-	@Column(name = "contrasenia", length=255, nullable=false)
+	@Column(name = "contrasenia", length=60, nullable=false)
 	private String contrasenia;
 
 	@Column(name = "nombre", length=50, nullable=false)
@@ -41,13 +41,4 @@ public class Usuario {
 
 	@Column(name = "puntos")
 	private Integer puntos;
-<<<<<<< HEAD
-
-	@Column(name = "email", length=100, nullable=false)
-	private String email;
-
-	@Column(name = "contrasenia", length=60, nullable=false)
-	private String contrasenia;
-=======
->>>>>>> b149a70fa77ceab6fb15892b91f1fb711788d0b8
 }

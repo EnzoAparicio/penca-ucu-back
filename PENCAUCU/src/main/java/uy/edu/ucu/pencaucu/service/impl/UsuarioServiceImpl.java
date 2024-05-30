@@ -19,7 +19,8 @@ public class UsuarioServiceImpl implements IUsuarioService {
 	public UsuarioDTO createUsuario(UsuarioDTO usuarioDTO) {
 		try {
 			if(usuarioDTO.getEmail() == null || usuarioDTO.getContrasenia() == null 
-				|| usuarioDTO.getNombre() == null || usuarioDTO.getCarrera() == null){
+				|| usuarioDTO.getNombre() == null || usuarioDTO.getCarrera() == null
+				|| usuarioDTO.getApellido() == null){
 				throw new Exception("Campos faltantes para registro.");
 			}
 			return iUsuarioDAO.createUsuario(usuarioDTO);

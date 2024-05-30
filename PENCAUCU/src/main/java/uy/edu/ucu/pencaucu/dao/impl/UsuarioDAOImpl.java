@@ -33,7 +33,7 @@ public class UsuarioDAOImpl implements IUsuarioDAO {
 	    		
 	    // Guardar el objeto usuario en la base de datos
 	    Usuario savedUsuario = iUsuarioRepo.save(usuario);
-	    System.out.println("Se creo usuario" + usuario.getNombre());
+	    System.out.println("Se creo usuario " + usuario.getNombre());
 
 	    // Mapear la entidad guardada de vuelta a DTO
 	    return DozerUtil.GetINSTANCE().getMapper().map(savedUsuario, UsuarioDTO.class);		
@@ -42,15 +42,18 @@ public class UsuarioDAOImpl implements IUsuarioDAO {
 	@Override
 	public boolean loginUsuario(UsuarioDTO usuarioDTO) {
 		
-		
+		// Usar Dozer para mapear DTO a entidad
 		UsuarioDTO logger = DozerUtil.GetINSTANCE().getMapper().map
 				(iUsuarioRepo.findByEmail(usuarioDTO.getEmail()).get(), UsuarioDTO.class);
+	
+		// Si no encuentra un mail asociado devuelve falso y un mensaje a consola de usuario no existente.
 		if(logger == null)
 		{
 			System.out.println("Usuario no existe.");
+			return false;
 		}
-		HasherUtil.verify(usuarioDTO.getContrasenia(), logger.getContrasenia());
 		
+		// Hace la verificacion de hashing entre la contraseña provista y la ingresada a la hora del registro.
 		return HasherUtil.verify(usuarioDTO.getContrasenia(), logger.getContrasenia());
 	}
 
