@@ -46,9 +46,9 @@ public class Usuario {
 	@Column(name = "puntos")
 	private Integer puntos;
 
-	@Column(name = "email", length=50, nullable=false)
+	@Column(name = "email", length=100, nullable=false)
 	private String email;
 
-	@Column(name = "contrasenia", length=50, nullable=false)
+	@Column(name = "contrasenia", length=60, nullable=false)
 	private String contrasenia;
 }

@@ -21,8 +21,8 @@ public class UsuarioServiceImpl implements IUsuarioService {
 	}
 	
 	@Override
-	public UsuarioDTO loginUsuario(String email, String password) {
-		return iUsuarioDAO.loginUsuario(email, password);
+	public boolean loginUsuario(UsuarioDTO usuarioDTO) {
+		return iUsuarioDAO.loginUsuario(usuarioDTO);
 	}
 
 	@Override
