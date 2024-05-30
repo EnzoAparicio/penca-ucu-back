@@ -21,4 +21,10 @@ public class UsuarioDTO {
 	private Carrera carrera;
 	
 	private Integer puntos;
+	
+	private Boolean es_administrador;
+	
+//	private List<Prediccion> predicciones;
+//	
+//	private PrediccionFinal prediccion_final;
 }

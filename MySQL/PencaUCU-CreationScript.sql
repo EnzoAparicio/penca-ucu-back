@@ -9,6 +9,19 @@ CREATE TABLE carrera (
     anios VARCHAR(30)
 );
 
+CREATE TABLE torneo (
+    id_torneo INT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(50),
+    anio VARCHAR(30)
+);
+
+CREATE TABLE equipo (
+    id_equipo INT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(50),
+    img_bandera VARCHAR(255),
+    color VARCHAR(50)
+);
+
 CREATE TABLE usuario (
     id_usuario INT AUTO_INCREMENT PRIMARY KEY,
     nombre VARCHAR(50) NOT NULL,
@@ -18,21 +31,26 @@ CREATE TABLE usuario (
     id_carrera INT,
     puntos INT,
     avatar_path VARCHAR(50),
+    es_administrador BOOLEAN,
+    -- Se referencia la Foreign key luego de creada la otra tabla.
+    id_prediccion_final INT,
     FOREIGN KEY (id_carrera) REFERENCES carrera(id_carrera)
 );
 
-CREATE TABLE torneo (
-    id_torneo INT AUTO_INCREMENT PRIMARY KEY,
-    nombre VARCHAR(50),
-    anio VARCHAR(30)
+CREATE TABLE prediccion_final (
+	id_prediccion_final INT PRIMARY KEY AUTO_INCREMENT,
+    id_campeon INT,
+    id_subcampeon INT,
+    id_torneo INT,
+    id_usuario INT,
+    FOREIGN KEY (id_campeon) REFERENCES equipo(id_equipo),
+    FOREIGN KEY (id_subcampeon) REFERENCES equipo(id_equipo),
+    FOREIGN KEY (id_torneo) REFERENCES torneo(id_torneo),
+    FOREIGN KEY (id_usuario) REFERENCES usuario(id_usuario)
 );
 
-CREATE TABLE equipo (
-    id_equipo INT AUTO_INCREMENT PRIMARY KEY,
-    nombre VARCHAR(100),
-    img_bandera VARCHAR(255),
-    color VARCHAR(50)
-);
+ALTER TABLE usuario
+ADD FOREIGN KEY (id_prediccion_final) REFERENCES prediccion_final(id_prediccion_final);
 
 CREATE TABLE partido (
     id_partido INT AUTO_INCREMENT PRIMARY KEY,
@@ -58,14 +76,4 @@ CREATE TABLE prediccion (
     id_partido INT,
     FOREIGN KEY (id_usuario) REFERENCES usuario(id_usuario),
     FOREIGN KEY (id_partido) REFERENCES partido(id_partido)
-);
-
-CREATE TABLE prediccion_final (
-	id_prediccion_final INT PRIMARY KEY AUTO_INCREMENT,
-    id_campeon INT,
-    id_subcampeon INT,
-    id_usuario INT,
-    FOREIGN KEY (id_campeon) REFERENCES equipo(id_equipo),
-    FOREIGN KEY (id_subcampeon) REFERENCES equipo(id_equipo),
-    FOREIGN KEY (id_usuario) REFERENCES usuario(id_usuario)
 );
