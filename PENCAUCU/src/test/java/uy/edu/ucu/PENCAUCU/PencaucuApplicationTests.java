@@ -1,4 +1,4 @@
-package uy.edu.ucu.pencaucu;
+package uy.edu.ucu.PENCAUCU;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
