@@ -21,7 +21,7 @@ public class PrediccionFinal {
 	@Column(name = "id_prediccion_final")
 	private Integer id_prediccion_final;
 	
-	// No lleva anotacion porque Usuario es duenio de la prediccion.
+	// No lleva anotacion porque Usuario es dueño de la predicción.
 	private Usuario usuario;
 	
 //	@ManyToOne

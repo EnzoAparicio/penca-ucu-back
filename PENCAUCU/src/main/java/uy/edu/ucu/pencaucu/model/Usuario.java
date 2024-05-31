@@ -50,9 +50,9 @@ public class Usuario {
 	@Column(name="es_administrador")
 	private Boolean es_administrador;
 	
-//	@OneToMany
-//	private List<Prediccion> predicciones;
-//	
+	@OneToMany
+	private List<Prediccion> predicciones;
+	
 	@OneToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name="id_prediccion_final", nullable=false)
 	private PrediccionFinal prediccion_final;
