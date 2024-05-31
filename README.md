@@ -5,6 +5,7 @@ Pencaucu es una aplicación web que permite predecir los goles de los partidos d
 ## Tecnologías Utilizadas
 
 - **Java 20.0.1**
+- **MySQL 8.0.36**
 - **Eclipse (Java Spring Tool Suite)**: Nuestro entorno de desarrollo integrado (IDE) para escribir, probar y depurar el código.
 - **Workbench**: Herramienta para la creación y gestión de las tablas de nuestra base de datos.
 
@@ -24,7 +25,7 @@ Sigue estos pasos para configurar el entorno de desarrollo en tu máquina local:
     - Navega a la ubicación del repositorio clonado y selecciona el proyecto.
 3. Configura la base de datos:
     - Abre Workbench.
-    - Crea las tablas necesarias ejecutando los scripts SQL incluidos en el directorio `scripts`.
+    - Crea las tablas necesarias ejecutando los scripts SQL incluidos en el directorio `MySQL`.
 4. Ejecuta la aplicación:
     - En Eclipse, selecciona el proyecto y haz clic derecho.
     - Selecciona **Run As > Spring Boot App**.
