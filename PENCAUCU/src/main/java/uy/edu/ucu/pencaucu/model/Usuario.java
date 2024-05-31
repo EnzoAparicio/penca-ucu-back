@@ -4,6 +4,7 @@ import java.util.List;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -52,7 +53,7 @@ public class Usuario {
 //	@OneToMany
 //	private List<Prediccion> predicciones;
 //	
-//	@OneToOne
-//	@JoinColumn(name="id_prediccion_final", nullable=false)
-//	private PrediccionFinal prediccion_final;
+	@OneToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name="id_prediccion_final", nullable=false)
+	private PrediccionFinal prediccion_final;
 }
