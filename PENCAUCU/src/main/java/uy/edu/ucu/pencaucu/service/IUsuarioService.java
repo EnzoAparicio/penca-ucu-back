@@ -8,6 +8,8 @@ public interface IUsuarioService {
 
 	UsuarioDTO createUsuario(UsuarioDTO usuarioDTO);
 	
+	boolean loginUsuario(UsuarioDTO usuarioDTO);
+	
 	UsuarioDTO updateUsuario(UsuarioDTO usuarioDTO);
 	
 	void deleteUsuario(UsuarioDTO usuarioDTO);

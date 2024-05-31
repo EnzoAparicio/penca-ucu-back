@@ -8,17 +8,23 @@ public class UsuarioDTO {
 
 	private Integer id_usuario;
 	
+	private String email;
+	
+	private String contrasenia;
+	
 	private String nombre;
 	
 	private String apellido;
 	
 	private String avatar_path;
 	
-	//private Carrera carrera;
+	private Carrera carrera;
 	
 	private Integer puntos;
 	
-	private String email;
+	private Boolean es_administrador;
 	
-	private String contrasenia;
+//	private List<Prediccion> predicciones;
+//	
+//	private PrediccionFinal prediccion_final;
 }

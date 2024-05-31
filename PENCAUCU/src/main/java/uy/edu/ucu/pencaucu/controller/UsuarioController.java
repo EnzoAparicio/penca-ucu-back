@@ -20,19 +20,24 @@ public class UsuarioController {
 	@Autowired
 	private IUsuarioService iUsuarioService;
 	
-	@PostMapping("/usuario/create")
+	@PostMapping("/usuario/create") // Enviar un json con los atributos de un usuario y sus respectivos valores.
 	public UsuarioDTO createUsuario(@RequestBody UsuarioDTO usuarioDTO) {
-		return null;
+		return iUsuarioService.createUsuario(usuarioDTO);
+	}
+	
+	@PostMapping("/usuario/login") // Enviar un json con los atributos para logear y sus valores.
+	public boolean loginUsuario(@RequestBody UsuarioDTO usuarioDTO) {
+		return iUsuarioService.loginUsuario(usuarioDTO);
 	}
 	
 	@PutMapping("/usuario/update")
 	public UsuarioDTO updateUsuario(@RequestBody UsuarioDTO usuarioDTO) {
-		return null;
+		return iUsuarioService.updateUsuario(usuarioDTO);
 	}
 	
 	@DeleteMapping("/usuario/delete")
 	public void deleteUsuario(@RequestBody UsuarioDTO usuarioDTO) {
-		
+		iUsuarioService.deleteUsuario(usuarioDTO);
 	}
 	
 	@GetMapping("/usuario/{id_usuario}")
@@ -42,8 +47,6 @@ public class UsuarioController {
 	
 	@GetMapping("/usuario/getAll")
 	public List<UsuarioDTO> getAllUsuario(@RequestBody(required = false) UsuarioDTO usuarioDTO) {
-		System.out.println("\nUsuario in: " + usuarioDTO.toString());
-		
 		return iUsuarioService.getAllUsuario(usuarioDTO);
 	}
 }
