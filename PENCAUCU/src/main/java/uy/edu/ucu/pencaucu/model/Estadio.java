@@ -1,4 +1,4 @@
-/* package uy.edu.ucu.pencaucu.model;
+package uy.edu.ucu.pencaucu.model;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -9,15 +9,22 @@ import jakarta.persistence.Table;
 import lombok.Data;
 
 @Data
+@Table(name = "estadio")
 @Entity
 public class Estadio {
 	
-	@Id
-	@Column(name = "id_estadio")
-	private Integer id_estadio;
-	
-	@Column(name="nombre", length=50, unique=true)
-	private String nombre;
-	
-} 
-*/
+	/*
+     * Identificador único del estadio.
+     */
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id_estadio")
+    private Integer id_estadio;
+
+    /**
+     * Nombre del estadio.
+     */
+    @Column(name="nombre", length=50, nullable=false, unique=true)
+    private String nombre;
+}
+
