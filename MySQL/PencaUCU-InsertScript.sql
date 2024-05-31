@@ -57,13 +57,3 @@ INSERT INTO estadio (nombre) VALUES ('Estadio Allianz Arena');
 INSERT INTO estadio (nombre) VALUES ('Estadio San Siro');
 INSERT INTO estadio (nombre) VALUES ('Estadio Old Trafford');
 
-
--- Llenar la tabla 'Partido'
-INSERT INTO partido (resultado_e1, resultado_e2, fecha, id_estadio, id_equipo1, id_equipo2, id_torneo) 
-VALUES 
-(2, 1, '2024-06-12', 1, 1, 2, 1),
-(0, 0, '2024-06-13', 2, 3, 4, 1),
-(3, 2, '2024-06-14', 3, 5, 6, 1),
-(1, 2, '2024-06-15', 4, 7, 8, 1),
-(0, 3, '2024-06-16', 5, 9, 10, 1);
-
