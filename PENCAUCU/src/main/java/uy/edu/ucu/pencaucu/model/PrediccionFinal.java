@@ -21,12 +21,12 @@ public class PrediccionFinal {
 	@Column(name = "id_prediccion_final")
 	private Integer id_prediccion_final;
 	
-	// No lleva anotacion porque Usuario es dueño de la predicción.
+	// No lleva anotacion porque Usuario es duenio de la prediccion.
 	private Usuario usuario;
 	
-//	@ManyToOne
-//	@JoinColumn(name = "id_torneo")
-//	private Torneo torneo;
+	@ManyToOne
+	@JoinColumn(name = "id_torneo")
+	private Torneo torneo;
 	
 	@ManyToOne
 	@JoinColumn(name = "id_campeon", referencedColumnName = "id_equipo")

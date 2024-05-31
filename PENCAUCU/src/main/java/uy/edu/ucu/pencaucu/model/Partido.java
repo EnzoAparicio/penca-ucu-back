@@ -66,7 +66,7 @@ public class Partido {
     /**
      * Torneo al que pertenece el partido.
      */
-//    @ManyToOne
-//    @JoinColumn(name = "id_torneo")
-//    private Torneo torneo;
+    @ManyToOne
+    @JoinColumn(name = "id_torneo")
+    private Torneo torneo;
 }
