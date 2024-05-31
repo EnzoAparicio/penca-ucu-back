@@ -20,8 +20,8 @@ public class PrediccionFinal {
 	@Column(name = "id_prediccion_final")
 	private Integer id_prediccion_final;
 
-	@Column(name = "id_usuario")
-	private Integer id_usuario;
+//	@Column(name = "id_usuario")
+//	private Integer id_usuario;
 	
 	@ManyToOne
 	@JoinColumn(name = "id_torneo")

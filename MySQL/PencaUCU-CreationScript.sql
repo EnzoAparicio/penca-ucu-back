@@ -10,12 +10,12 @@ CREATE TABLE carrera (
 );
 
 create table estadio(
-	id_estadio int auto_increment primary key,
-    nombre varchar(50)
+	id_estadio INT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(50)
     );
 
 CREATE TABLE torneo (
-    id_torneo INT PRIMARY KEY,
+    id_torneo INT AUTO_INCREMENT PRIMARY KEY,
     nombre VARCHAR(100),
     anio VARCHAR(30)
 );

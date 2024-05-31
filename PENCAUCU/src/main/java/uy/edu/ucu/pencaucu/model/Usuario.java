@@ -53,7 +53,7 @@ public class Usuario {
 	@OneToMany(mappedBy = "usuario")
 	private List<Prediccion> predicciones;
 	
-	@OneToOne(fetch = FetchType.EAGER)
-	@JoinColumn(name="id_prediccion_final", nullable=false)
-	private PrediccionFinal prediccion_final;
+//	@OneToOne(fetch = FetchType.EAGER)
+//	@JoinColumn(name="id_prediccion_final", nullable=false)
+//	private PrediccionFinal prediccion_final;
 }
