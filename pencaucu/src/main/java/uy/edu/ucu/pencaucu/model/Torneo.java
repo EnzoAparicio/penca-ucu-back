@@ -26,8 +26,9 @@ public class Torneo {
 	@Column (name="anio",length=30)
 	private String anio;
 	
-	@OneToMany
-	 private  List<Partido> partidos;
+	
+	//@OneToMany
+	// private  List<Partido> partidos;
 
 	
 	
