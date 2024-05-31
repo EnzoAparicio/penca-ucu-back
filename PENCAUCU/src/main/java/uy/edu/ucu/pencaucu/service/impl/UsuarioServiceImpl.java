@@ -48,7 +48,16 @@ public class UsuarioServiceImpl implements IUsuarioService {
 
 	@Override
 	public UsuarioDTO updateUsuario(UsuarioDTO usuarioDTO) {
-		return iUsuarioDAO.updateUsuario(usuarioDTO);
+		try {
+			if(usuarioDTO.getEmail() == null || usuarioDTO.getContrasenia() == null 
+					|| usuarioDTO.getNombre() == null || usuarioDTO.getCarrera() == null
+					|| usuarioDTO.getApellido() == null || usuarioDTO.getId_usuario() == null) {
+				throw new Exception("Campos faltantes para la actualización.");
+			}
+			return iUsuarioDAO.updateUsuario(usuarioDTO); 
+		} catch (Exception camposFaltantes) {
+			return null;
+		}
 	}
 
 	@Override

@@ -6,7 +6,7 @@ import uy.edu.ucu.pencaucu.dto.PrediccionDTO;
 
 public interface IPrediccionDAO {	
 
-        PrediccionDTO createPrediccion (PrediccionDTO prediccionDTO);	
+        PrediccionDTO createPrediccion (PrediccionDTO prediccionDTO);
 
         PrediccionDTO getPrediccionById (Integer id_prediccion);	
 
