@@ -3,6 +3,7 @@ package uy.edu.ucu.pencaucu.dto;
 import java.util.Date;
 
 import lombok.Data;
+import uy.edu.ucu.pencaucu.model.Equipo;
 import uy.edu.ucu.pencaucu.model.Estadio;
 
 @Data
@@ -18,9 +19,9 @@ public class PartidoDTO {
 
     private Estadio estadio;
 
-    private Integer id_equipo1;
+    private Equipo equipo1;
 
-    private Integer id_equipo2;
+    private Equipo equipo2;
 
-    private Integer id_torneo;
+//    private Torneo id_torneo;
 }

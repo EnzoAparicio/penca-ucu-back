@@ -1,6 +1,8 @@
 package uy.edu.ucu.pencaucu.dto;	
 
-import lombok.Data;	
+import lombok.Data;
+import uy.edu.ucu.pencaucu.model.Equipo;
+import uy.edu.ucu.pencaucu.model.Usuario;	
 
 @Data	
 public class PrediccionDTO {	
@@ -12,6 +14,10 @@ public class PrediccionDTO {
     private Integer prediccion_e2;	
 
     private String ganador;	
+    
+    private Equipo equipo1;
 
-
+    private Equipo equipo2;
+    
+    private Usuario usuario;
 }

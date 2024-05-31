@@ -16,8 +16,8 @@ import jakarta.persistence.Table;
 import lombok.Data;
 
 @Data
-@Table(name = "usuario")
 @Entity
+@Table(name = "usuario")
 public class Usuario {
 
 	@Id
@@ -50,9 +50,9 @@ public class Usuario {
 	@Column(name="es_administrador")
 	private Boolean es_administrador;
 	
-//	@OneToMany
-//	private List<Prediccion> predicciones;
-//	
+	@OneToMany(mappedBy = "usuario")
+	private List<Prediccion> predicciones;
+	
 	@OneToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name="id_prediccion_final", nullable=false)
 	private PrediccionFinal prediccion_final;

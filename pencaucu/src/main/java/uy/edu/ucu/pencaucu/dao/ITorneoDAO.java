@@ -4,9 +4,6 @@ import java.util.List;
 
 import uy.edu.ucu.pencaucu.dto.TorneoDTO;
 
-
-
-
 public interface ITorneoDAO {
 
 	TorneoDTO createTorneo(TorneoDTO torneoDTO);
@@ -15,13 +12,9 @@ public interface ITorneoDAO {
 	
 	void deleteTorneo(TorneoDTO torneoDTO);
 	
-	TorneoDTO getTorneo(Integer id_torneo);
-	
+	TorneoDTO getTorneo(Integer id_torneo);	
 	
 	List<TorneoDTO> getAllTorneo();
 	
 	List<TorneoDTO> getAllTorneoByFilter(TorneoDTO torneoDTO);
-	
-	
-	
 }
