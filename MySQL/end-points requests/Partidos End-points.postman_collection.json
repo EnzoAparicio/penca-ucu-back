@@ -1,0 +1,127 @@
+{
+	"info": {
+		"_postman_id": "84ff3cdc-a41a-453c-8615-f64652047e2a",
+		"name": "Partidos End-points",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "28637998"
+	},
+	"item": [
+		{
+			"name": "GET ALL",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:9000/partido/getAll"
+			},
+			"response": []
+		},
+		{
+			"name": "GET ALL BY ID",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:9000/partido/1"
+			},
+			"response": []
+		},
+		{
+			"name": "GET ALL FILTER",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"resultado_e1\": 2\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:9000/partido/getAll"
+			},
+			"response": []
+		},
+		{
+			"name": "CREATE",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"resultado_e1\": 1,\r\n        \"resultado_e2\": 0,\r\n        \"fecha\": \"2024-05-29T03:00:00.000+00:00\",\r\n        \"estadio\": {\r\n            \"id_estadio\": 2,\r\n            \"nombre\": \"BANK_OF_AMERICA_STADIUM\"\r\n        },\r\n        \"equipo1\": {\r\n            \"id_equipo\": 3,\r\n            \"nombre\": \"Equipo C\",\r\n            \"img_bandera\": \"img/equipoC.png\",\r\n            \"color\": \"Verde\",\r\n            \"partidos\": []\r\n        },\r\n        \"equipo2\": {\r\n            \"id_equipo\": 1,\r\n            \"nombre\": \"Equipo B\",\r\n            \"img_bandera\": \"img/equipoB.png\",\r\n            \"color\": \"Azul\",\r\n            \"partidos\": []\r\n        }\r\n    }\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:9000/partido/create"
+			},
+			"response": []
+		},
+		{
+			"name": "UPDATE",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"id_partido\": 2,\r\n        \"resultado_e1\": 1,\r\n        \"resultado_e2\": 0,\r\n        \"fecha\": \"2024-05-29T03:00:00.000+00:00\",\r\n        \"estadio\": {\r\n            \"id_estadio\": 3\r\n        },\r\n        \"equipo1\": {\r\n            \"id_equipo\": 3\r\n        },\r\n        \"equipo2\": {\r\n            \"id_equipo\": 1\r\n        }\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:9000/partido/update"
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"id_partido\": 1\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:9000/partido/delete"
+			},
+			"response": []
+		}
+	]
+}
