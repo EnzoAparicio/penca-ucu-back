@@ -20,27 +20,27 @@ public class PrediccionController {
     @Autowired	
     private IPrediccionService iPrediccionService;	
 
-    @GetMapping("/prediccion/getAll")	
+    @GetMapping("/prediccion/getAll") // Envia un json con todas las predicciones
     public ArrayList<PrediccionDTO> getAllPrediccion(@RequestBody(required = false) PrediccionDTO prediccionDTO) {	
 		return iPrediccionService.getAllPrediccion(prediccionDTO);	
     }	
 
-    @GetMapping("/prediccion/{id_prediccion}")	
+    @GetMapping("/prediccion/{id_prediccion}")	// Envia un json con la prediccion que tiene el id indicado
     public PrediccionDTO getPrediccion(@PathVariable Integer id_prediccion) {	
 		return iPrediccionService.getPrediccion(id_prediccion);	
 	}	
 
-    @PostMapping("/prediccion/create")	
+    @PostMapping("/prediccion/create")	 // Crea una prediccion y la devuelve en un json
 	public PrediccionDTO createPrediccion(@RequestBody PrediccionDTO prediccionDTO) {	
 		return iPrediccionService.createPrediccion(prediccionDTO);	
 	}	
 
-    @DeleteMapping("/prediccion/delete")	
+    @DeleteMapping("/prediccion/delete") // Elimina la prediccion con el id indicado
 	public void deletePrediccion(@PathVariable Integer id_prediccion) {	
         iPrediccionService.deletePrediccion(id_prediccion);	
     }	
 
-    @PutMapping("/prediccion/update")	
+    @PutMapping("/prediccion/update") // Actualiza la prediccion con los datos del json y la devuelve	
 	public PrediccionDTO updatePrediccion(@RequestBody PrediccionDTO prediccionDTO) {	
 		return iPrediccionService.updatePrediccion(prediccionDTO);	
 	}	
