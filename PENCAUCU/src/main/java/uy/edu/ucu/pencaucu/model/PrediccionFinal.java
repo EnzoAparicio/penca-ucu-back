@@ -7,7 +7,6 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import lombok.Data;
 
@@ -20,9 +19,9 @@ public class PrediccionFinal {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id_prediccion_final")
 	private Integer id_prediccion_final;
-	
-	// No lleva anotacion porque Usuario es duenio de la prediccion.
-	private Usuario usuario;
+
+	@Column(name = "id_usuario")
+	private Integer id_usuario;
 	
 	@ManyToOne
 	@JoinColumn(name = "id_torneo")
