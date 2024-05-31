@@ -10,3 +10,26 @@ INSERT INTO usuario (email, contrasenia, nombre, apellido, avatar_path, id_carre
 INSERT INTO usuario (email, contrasenia, nombre, apellido, avatar_path, id_carrera, puntos) VALUES ('pedro.sanchez@email.com', 'pedrosanchez', 'Pedro', 'Sanchez', 'avatar_pedro.png', 10, 100);
 
 
+INSERT INTO torneo (nombre, anio) VALUES
+('Torneo Apertura', '2023'),
+('Torneo Clausura', '2023'),
+('Copa Libertadores', '2023'),
+('Copa Sudamericana', '2023'),
+('Torneo Intercontinental', '2023'),
+('Liga Nacional', '2023'),
+('Torneo Apertura', '2024'),
+('Torneo Clausura', '2024'),
+('Copa Libertadores', '2024'),
+('Copa Sudamericana', '2024');
+
+INSERT INTO equipo (nombre, img_bandera, color) VALUES
+('Real Madrid', 'bandera_real_madrid.png', 'blanco'),
+('Barcelona', 'bandera_barcelona.png', 'azulgrana'),
+('Manchester United', 'bandera_manchester_united.png', 'rojo'),
+('Liverpool', 'bandera_liverpool.png', 'rojo'),
+('Bayern Munich', 'bandera_bayern_munich.png', 'rojo y blanco'),
+('Juventus', 'bandera_juventus.png', 'blanco y negro'),
+('Paris Saint-Germain', 'bandera_psg.png', 'azul'),
+('Chelsea', 'bandera_chelsea.png', 'azul'),
+('Manchester City', 'bandera_manchester_city.png', 'celeste'),
+('Atletico Madrid', 'bandera_atletico_madrid.png', 'rojo y blanco');
