@@ -30,6 +30,6 @@ public class Equipo {
 	@Column(name = "color", nullable = false)
 	private String color;
 	
-//	@OneToMany
-//	private List<Partido> partidos;
+	@OneToMany
+	private List<Partido> partidos;
 }

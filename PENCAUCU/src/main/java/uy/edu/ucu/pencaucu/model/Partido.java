@@ -50,20 +50,23 @@ public class Partido {
     private Estadio estadio;
 
     /**
-     * Identificador del equipo 1.
+     * Equipo 1.
      */
-    @Column(name = "id_equipo1")
-    private Integer id_equipo1;
+    @ManyToOne
+    @JoinColumn(name = "id_equipo1", referencedColumnName = "id_equipo")
+    private Equipo equipo1;
 
     /**
-     * Identificador del equipo 2.
+     * Equipo 2.
      */
-    @Column(name = "id_equipo2")
-    private Integer id_equipo2;
+    @ManyToOne
+    @JoinColumn(name = "id_equipo2", referencedColumnName = "id_equipo")
+    private Equipo equipo2;
 
     /**
-     * Identificador del torneo al que pertenece el partido.
+     * Torneo al que pertenece el partido.
      */
-    @Column(name = "id_torneo")
-    private Integer id_torneo;
+//    @ManyToOne
+//    @JoinColumn(name = "id_torneo")
+//    private Torneo torneo;
 }

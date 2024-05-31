@@ -28,9 +28,6 @@ public class PrediccionFinal {
 //	@JoinColumn(name = "id_torneo")
 //	private Torneo torneo;
 	
-//	@Column(name = "id_torneo")
-//	private Integer id_torneo;
-	
 	@ManyToOne
 	@JoinColumn(name = "id_campeon", referencedColumnName = "id_equipo")
 	private Equipo campeon;
