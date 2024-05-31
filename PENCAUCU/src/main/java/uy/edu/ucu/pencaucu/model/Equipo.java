@@ -21,13 +21,13 @@ public class Equipo {
 	@Column(name = "id_equipo")
 	private Integer id_equipo;
 	
-	@Column(name = "nombre", nullable = false)
+	@Column(name = "nombre", length = 50, nullable = false)
 	private String nombre;
 	
 	@Column(name = "img_bandera")
 	private String img_bandera;
 	
-	@Column(name = "color", nullable = false)
+	@Column(name = "color", length = 10, nullable = false)
 	private String color;
 	
 	@OneToMany
