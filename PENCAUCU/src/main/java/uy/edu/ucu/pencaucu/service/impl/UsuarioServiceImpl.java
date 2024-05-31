@@ -17,12 +17,33 @@ public class UsuarioServiceImpl implements IUsuarioService {
 	
 	@Override
 	public UsuarioDTO createUsuario(UsuarioDTO usuarioDTO) {
-		return iUsuarioDAO.createUsuario(usuarioDTO);
+		try {
+			if(usuarioDTO.getEmail() == null || usuarioDTO.getContrasenia() == null 
+				|| usuarioDTO.getNombre() == null || usuarioDTO.getCarrera() == null
+				|| usuarioDTO.getApellido() == null){
+				throw new Exception("Campos faltantes para registro.");
+			}
+			return iUsuarioDAO.createUsuario(usuarioDTO);
+		} catch(Exception e)
+		{
+			System.out.println(e);
+			UsuarioDTO userFail = new UsuarioDTO();
+			return userFail;
+		}
 	}
 	
 	@Override
-	public UsuarioDTO loginUsuario(String email, String password) {
-		return iUsuarioDAO.loginUsuario(email, password);
+	public boolean loginUsuario(UsuarioDTO usuarioDTO) {
+		try {
+			if(usuarioDTO.getEmail() == null || usuarioDTO.getContrasenia() == null) {
+				throw new Exception("Campo email o contraseña invalido.");
+			}
+			return iUsuarioDAO.loginUsuario(usuarioDTO);
+		} catch(Exception e)
+		{
+			System.out.println(e);
+			return false;
+		}
 	}
 
 	@Override
