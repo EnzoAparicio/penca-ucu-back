@@ -26,8 +26,9 @@ public class Prediccion {
     @Column(name = "prediccion_e2")	
     private Integer prediccion_e2;	
 
-    @Column(name="ganador", length=50)	
-    private String ganador;	
+    @ManyToOne
+    @JoinColumn(name="ganador")	
+    private Equipo ganador;	
 
     @ManyToOne
     @JoinColumn(name = "id_partido")

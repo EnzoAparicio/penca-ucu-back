@@ -27,8 +27,8 @@ public class PrediccionServiceImpl implements IPrediccionService {
 	}
 
 	@Override
-	public void deletePrediccion(Integer id_prediccion) {
-		iPrediccionDAO.deletePrediccion(id_prediccion);
+	public void deletePrediccion(PrediccionDTO prediccionDTO) {
+		iPrediccionDAO.deletePrediccion(prediccionDTO);
 	}
 
 	@Override

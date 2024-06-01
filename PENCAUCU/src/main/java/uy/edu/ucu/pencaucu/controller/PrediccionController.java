@@ -36,8 +36,8 @@ public class PrediccionController {
 	}	
 
     @DeleteMapping("/prediccion/delete") // Elimina la prediccion con el id indicado
-	public void deletePrediccion(@PathVariable Integer id_prediccion) {	
-        iPrediccionService.deletePrediccion(id_prediccion);	
+	public void deletePrediccion(@RequestBody PrediccionDTO prediccionDTO) {	
+        iPrediccionService.deletePrediccion(prediccionDTO);	
     }	
 
     @PutMapping("/prediccion/update") // Actualiza la prediccion con los datos del json y la devuelve	

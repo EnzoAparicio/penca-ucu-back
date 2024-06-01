@@ -10,7 +10,7 @@ public interface IPrediccionService {
 
     PrediccionDTO updatePrediccion(PrediccionDTO prediccionDTO);	
 
-    void deletePrediccion(Integer id_prediccion);	
+    void deletePrediccion(PrediccionDTO prediccionDTO);	
 
     PrediccionDTO getPrediccion(Integer id_prediccion);	
 

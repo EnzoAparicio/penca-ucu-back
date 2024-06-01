@@ -12,6 +12,4 @@ public interface IPrediccionRepo extends JpaRepository<Prediccion, Integer>{
 
     Optional<Prediccion> findById(Integer id_prediccion);	
 
-    void deleteById (Integer id_prediccion);	
-
 }
