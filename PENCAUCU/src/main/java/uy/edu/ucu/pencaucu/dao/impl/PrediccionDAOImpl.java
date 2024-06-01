@@ -70,9 +70,9 @@ public class PrediccionDAOImpl implements IPrediccionDAO{
     }	
 
     @Override	
-    public void deletePrediccion(Integer id_prediccion) {	
+    public void deletePrediccion(PrediccionDTO prediccionDTO) {	
         // Eliminar la prediccion de la base de datos según el id indicado
-    	iPrediccionRepo.deleteById(id_prediccion);	
+    	iPrediccionRepo.deleteById(prediccionDTO.getId_prediccion());
     }	
 
 }
