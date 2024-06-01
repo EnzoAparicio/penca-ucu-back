@@ -43,3 +43,17 @@ VALUES
 	('Recreación Educativa', 4),
 	('Sociología', 4),
 	('Trabajo Social', 4);
+
+
+-- Llenar la tabla 'Estadio'
+INSERT INTO estadio (nombre) VALUES ('Estadio Centenario');
+INSERT INTO estadio (nombre) VALUES ('Estadio Maracanã');
+INSERT INTO estadio (nombre) VALUES ('Estadio Monumental');
+INSERT INTO estadio (nombre) VALUES ('Estadio Azteca');
+INSERT INTO estadio (nombre) VALUES ('Estadio Santiago Bernabéu');
+INSERT INTO estadio (nombre) VALUES ('Estadio Camp Nou');
+INSERT INTO estadio (nombre) VALUES ('Estadio Wembley');
+INSERT INTO estadio (nombre) VALUES ('Estadio Allianz Arena');
+INSERT INTO estadio (nombre) VALUES ('Estadio San Siro');
+INSERT INTO estadio (nombre) VALUES ('Estadio Old Trafford');
+

@@ -6,16 +6,15 @@ import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Example;
+import org.springframework.stereotype.Repository;
 
 import uy.edu.ucu.pencaucu.dao.IEquipoDAO;
 import uy.edu.ucu.pencaucu.dto.EquipoDTO;
-import uy.edu.ucu.pencaucu.dto.UsuarioDTO;
 import uy.edu.ucu.pencaucu.model.Equipo;
-import uy.edu.ucu.pencaucu.model.Usuario;
 import uy.edu.ucu.pencaucu.repo.IEquipoRepo;
 import uy.edu.ucu.pencaucu.util.DozerUtil;
-import uy.edu.ucu.pencaucu.util.HasherUtil;
 
+@Repository
 public class EquipoDAOImpl implements IEquipoDAO {
 	
 	@Autowired

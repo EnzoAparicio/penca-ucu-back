@@ -78,9 +78,12 @@ public class UsuarioDAOImpl implements IUsuarioDAO {
 	@Override
 	public UsuarioDTO getUsuario(Integer id_usuario) {
 		Optional<Usuario> usuarioDB = iUsuarioRepo.findById(id_usuario);
+		System.out.println("\nGET USUARIO: " + usuarioDB.toString() + "\n ID: " + id_usuario);
 		if (usuarioDB.isPresent()) {
+			System.out.println("\nIs present.\n ");
 			return DozerUtil.GetINSTANCE().getMapper().map(usuarioDB.get(), UsuarioDTO.class);
 		} else {
+			System.out.println("\nNOT present.\n ");
 			return null;
 		}
 	}

@@ -1,5 +1,4 @@
 package uy.edu.ucu.pencaucu.model;
-
 import java.util.List;
 
 import jakarta.persistence.Column;
@@ -9,26 +8,24 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
+
 import lombok.Data;
 
 @Data
+@Table(name="torneo")
 @Entity
-@Table(name = "equipo")
-public class Equipo {
+public class Torneo {
 	
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "id_equipo")
-	private Integer id_equipo;
+	@Id 
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column(name="id_torneo")
+	private Integer id_torneo;
 	
-	@Column(name = "nombre", length = 50, nullable = false)
+	@Column (name="nombre", length=100, nullable=false)
 	private String nombre;
 	
-	@Column(name = "img_bandera")
-	private String img_bandera;
-	
-	@Column(name = "color", length = 10, nullable = false)
-	private String color;
+	@Column (name="anio",length=30)
+	private String anio;
 	
 	@OneToMany
 	private List<Partido> partidos;
