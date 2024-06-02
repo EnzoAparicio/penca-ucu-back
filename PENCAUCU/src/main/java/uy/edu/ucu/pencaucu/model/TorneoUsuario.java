@@ -12,16 +12,17 @@ import lombok.Data;
 
 @Data
 @Entity
-@Table(name = "prediccion_final")
-public class PrediccionFinal {
+@Table(name = "torneo_usuario")
+public class TorneoUsuario {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "id_prediccion_final")
-	private Integer id_prediccion_final;
+	@Column(name = "id_torneo_usuario")
+	private Integer id_torneo_usuario;
 
-//	@Column(name = "id_usuario")
-//	private Integer id_usuario;
+	@ManyToOne
+	@JoinColumn(name = "id_usuario")
+	private Usuario usuario;
 	
 	@ManyToOne
 	@JoinColumn(name = "id_torneo")
@@ -34,4 +35,7 @@ public class PrediccionFinal {
 	@ManyToOne
 	@JoinColumn(name = "id_subcampeon", referencedColumnName = "id_equipo")
 	private Equipo subcampeon;
+	
+	@Column(name = "puntos")
+	private Integer puntos;
 }

@@ -4,14 +4,12 @@ import java.util.List;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
-import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import lombok.Data;
 
@@ -53,7 +51,6 @@ public class Usuario {
 	@OneToMany(mappedBy = "usuario")
 	private List<Prediccion> predicciones;
 	
-//	@OneToOne(fetch = FetchType.EAGER)
-//	@JoinColumn(name="id_prediccion_final", nullable=false)
-//	private PrediccionFinal prediccion_final;
+	@OneToMany(mappedBy = "usuario")
+	private List<TorneoUsuario> torneos;
 }
