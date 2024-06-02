@@ -1,17 +1,15 @@
 package uy.edu.ucu.pencaucu.dto;
 
 
-import java.util.List;
-
 import lombok.Data;
 @Data
 public class TorneoDTO {
 	
-	private Integer idTorneo;
+	private Integer id_torneo;
 	
 	private String nombre;
 	
 	private String anio;
 	
-	private List<PartidoDTO> partidos;
+	//private List<PartidoDTO> partidos;
 }

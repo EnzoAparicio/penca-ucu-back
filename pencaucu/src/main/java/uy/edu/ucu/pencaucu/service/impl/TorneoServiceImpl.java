@@ -14,20 +14,40 @@ public class TorneoServiceImpl implements ITorneoService {
 	@Autowired
 	ITorneoDAO iTorneoDAO;
 	
+	
+	
 	@Override
 	public TorneoDTO createTorneo(TorneoDTO torneoDTO) {
-		return iTorneoDAO.createTorneo(torneoDTO);
+		try {
+			if(torneoDTO.getNombre() == null || torneoDTO.getAnio() == null){
+				throw new Exception("Campos faltantes para creacion.");
+			}
+			return iTorneoDAO.createTorneo(torneoDTO);
+		} catch(Exception camposFaltantes)
+		{
+			return null;
+		}
 	}
 	
 	@Override
 	public TorneoDTO updateTorneo(TorneoDTO torneoDTO) {
-		return iTorneoDAO.updateTorneo(torneoDTO);
+		try {
+			if(torneoDTO.getNombre() == null || torneoDTO.getAnio() == null
+					|| torneoDTO.getId_torneo() == null){
+				throw new Exception("Campos faltantes para actualizacion.");
+			}
+			return iTorneoDAO.updateTorneo(torneoDTO);
+		} catch(Exception camposFaltantes)
+		{
+			return null;
+		}
 	}
-
+	
 	@Override
 	public void deleteTorneo(TorneoDTO torneoDTO) {
 		iTorneoDAO.deleteTorneo(torneoDTO);
 	}
+	
 	@Override
 	public TorneoDTO getTorneo(Integer id_torneo) {
 		return iTorneoDAO.getTorneo(id_torneo);
