@@ -41,9 +41,6 @@ public class Usuario {
 	@ManyToOne
 	@JoinColumn(name="id_carrera", nullable=false)
 	private Carrera carrera;
-
-	@Column(name = "puntos")
-	private Integer puntos;
 	
 	@Column(name="es_administrador")
 	private Boolean es_administrador;
