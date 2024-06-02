@@ -10,7 +10,7 @@ CREATE TABLE carrera (
 );
 
 create table estadio(
-	id_estadio INT AUTO_INCREMENT PRIMARY KEY,
+    id_estadio INT AUTO_INCREMENT PRIMARY KEY,
     nombre VARCHAR(50)
     );
 
@@ -22,9 +22,9 @@ CREATE TABLE torneo (
 
 CREATE TABLE equipo (
     id_equipo INT AUTO_INCREMENT PRIMARY KEY,
-    nombre VARCHAR(100),
+    nombre VARCHAR(50) NOT NULL,
     img_bandera VARCHAR(255),
-    color VARCHAR(50)
+    color VARCHAR(12)
 );
 
 CREATE TABLE usuario (
@@ -58,24 +58,18 @@ ALTER TABLE usuario
 ADD FOREIGN KEY (id_prediccion_final) REFERENCES prediccion_final(id_prediccion_final);
 
 create table partido(
-	id_partido int auto_increment primary key,
-    resultado_e1 int,
-    resultado_e2 int,
-    fecha date,
+    id_partido int auto_increment primary key,
+    fecha datetime(6),
     id_estadio int,
-    id_equipo1 int,
-    id_equipo2 int,
     id_torneo int,
     foreign key (id_estadio) references estadio(id_estadio),
-    foreign key (id_equipo1) references equipo(id_equipo),
-    foreign key (id_equipo2) references equipo(id_equipo),
     foreign key (id_torneo) references torneo(id_torneo)
 );
 
 CREATE TABLE prediccion (
     id_prediccion INT PRIMARY KEY AUTO_INCREMENT,
-    prediccion_e1 INT,
-    prediccion_e2 INT,
+    prediccion_equipo1 INT,
+    prediccion_equipo2 INT,
     ganador INT,
     id_usuario INT,
     id_partido INT,

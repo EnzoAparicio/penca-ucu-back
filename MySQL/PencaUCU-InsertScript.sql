@@ -46,14 +46,16 @@ VALUES
 
 
 -- Llenar la tabla 'Estadio'
-INSERT INTO estadio (nombre) VALUES ('Estadio Centenario');
-INSERT INTO estadio (nombre) VALUES ('Estadio Maracanã');
-INSERT INTO estadio (nombre) VALUES ('Estadio Monumental');
-INSERT INTO estadio (nombre) VALUES ('Estadio Azteca');
-INSERT INTO estadio (nombre) VALUES ('Estadio Santiago Bernabéu');
-INSERT INTO estadio (nombre) VALUES ('Estadio Camp Nou');
-INSERT INTO estadio (nombre) VALUES ('Estadio Wembley');
-INSERT INTO estadio (nombre) VALUES ('Estadio Allianz Arena');
-INSERT INTO estadio (nombre) VALUES ('Estadio San Siro');
-INSERT INTO estadio (nombre) VALUES ('Estadio Old Trafford');
+INSERT INTO estadio (nombre) 
+VALUES 
+('Estadio Centenario'),
+('Estadio Maracanã'),
+('Estadio Monumental'),
+('Estadio Azteca'),
+('Estadio Santiago Bernabéu'),
+('Estadio Camp Nou'),
+('Estadio Wembley'),
+('Estadio Allianz Arena'),
+('Estadio San Siro'),
+('Estadio Old Trafford');
 
