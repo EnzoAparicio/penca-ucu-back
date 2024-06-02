@@ -30,6 +30,6 @@ public class Equipo {
 	@Column(name = "color", length = 10, nullable = false)
 	private String color;
 	
-	@OneToMany
-	private List<Partido> partidos;
+	@OneToMany(mappedBy = "equipo")
+	private List<EquipoPartido> partidos;
 }

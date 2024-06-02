@@ -20,11 +20,11 @@ public class Prediccion {
 	@Column(name = "id_prediccion")	
 	private Integer id_prediccion;	
 
-    @Column(name = "prediccion_e1")	
-	private Integer prediccion_e1;	
+    @Column(name = "prediccion_equipo1")	
+	private Integer prediccion_equipo1;	
 
-    @Column(name = "prediccion_e2")	
-    private Integer prediccion_e2;	
+    @Column(name = "prediccion_equipo2")	
+    private Integer prediccion_equipo2;	
 
     @ManyToOne
     @JoinColumn(name="ganador")	

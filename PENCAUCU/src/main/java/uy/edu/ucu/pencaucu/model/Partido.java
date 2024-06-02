@@ -1,6 +1,8 @@
 package uy.edu.ucu.pencaucu.model;
 
-import java.util.Date; 
+import java.util.Date;
+import java.util.List;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -9,6 +11,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import lombok.Data;
 
 @Data
@@ -49,20 +52,9 @@ public class Partido {
     @JoinColumn(name = "id_estadio", nullable = false)
     private Estadio estadio;
 
-    /**
-     * Equipo 1.
-     */
-    @ManyToOne
-    @JoinColumn(name = "id_equipo1", referencedColumnName = "id_equipo")
-    private Equipo equipo1;
-
-    /**
-     * Equipo 2.
-     */
-    @ManyToOne
-    @JoinColumn(name = "id_equipo2", referencedColumnName = "id_equipo")
-    private Equipo equipo2;
-
+    @OneToMany(mappedBy = "partido")
+    private List<EquipoPartido> equipos;
+    
     /**
      * Torneo al que pertenece el partido.
      */

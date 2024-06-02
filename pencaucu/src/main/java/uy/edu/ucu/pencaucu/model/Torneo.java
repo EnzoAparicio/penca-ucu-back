@@ -27,6 +27,9 @@ public class Torneo {
 	@Column (name="anio",length=30)
 	private String anio;
 	
-	@OneToMany
+	@OneToMany(mappedBy = "torneo")
 	private List<Partido> partidos;
+	
+	@OneToMany(mappedBy = "torneo")
+	private List<TorneoUsuario> usuarios;
 }
