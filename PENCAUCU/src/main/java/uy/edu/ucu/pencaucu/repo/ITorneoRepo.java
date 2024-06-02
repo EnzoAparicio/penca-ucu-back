@@ -1,9 +1,20 @@
 package uy.edu.ucu.pencaucu.repo;
 
+import java.util.Optional;
+
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
 import uy.edu.ucu.pencaucu.model.Torneo;
 
-public interface ITorneoRepo extends JpaRepository<Torneo, Integer> {
 
+@Repository
+public interface ITorneoRepo extends JpaRepository<Torneo, Integer> {
+	
+
+	Torneo save(Torneo torneo);
+	
+	Optional<Torneo> findById(Integer id_torneo);
+
+	void deleteByid(Integer id_torneo);
 }
