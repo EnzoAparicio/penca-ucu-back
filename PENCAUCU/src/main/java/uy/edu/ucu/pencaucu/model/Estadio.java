@@ -9,7 +9,6 @@ import jakarta.persistence.Table;
 import lombok.Data;
 
 @Data
-@Table(name = "estadio")
 @Entity
 public class Estadio {
 	
@@ -17,7 +16,6 @@ public class Estadio {
      * Identificador único del estadio.
      */
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_estadio")
     private Integer id_estadio;
 
