@@ -27,7 +27,7 @@ public class Prediccion {
     private Integer prediccion_equipo2;	
 
     @ManyToOne
-    @JoinColumn(name="ganador")	
+    @JoinColumn(name="ganador", referencedColumnName = "id_equipo")	
     private Equipo ganador;	
 
     @ManyToOne

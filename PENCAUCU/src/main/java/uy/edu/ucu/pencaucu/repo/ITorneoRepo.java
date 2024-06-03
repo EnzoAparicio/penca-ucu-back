@@ -11,10 +11,7 @@ import uy.edu.ucu.pencaucu.model.Torneo;
 @Repository
 public interface ITorneoRepo extends JpaRepository<Torneo, Integer> {
 	
-
-	Torneo save(Torneo torneo);
-	
 	Optional<Torneo> findById(Integer id_torneo);
 
-	void deleteByid(Integer id_torneo);
+	void deleteById(Integer id_torneo);
 }

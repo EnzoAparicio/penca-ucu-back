@@ -16,6 +16,7 @@ import lombok.Data;
 public class EquipoPartido {
 
 	@Id
+	@Column(name = "id_equipo_partido")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id_equipo_partido;
 	

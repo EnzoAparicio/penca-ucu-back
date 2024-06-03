@@ -13,10 +13,12 @@ import lombok.Data;
 
 @Data
 @Entity
+@Table(name = "torneo")
 public class Torneo {
 	
 	@Id 
 	@Column(name="id_torneo")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id_torneo;
 	
 	@Column (name="nombre", length=100, nullable=false)
