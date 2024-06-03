@@ -57,6 +57,19 @@ CREATE TABLE prediccion_final (
 ALTER TABLE usuario
 ADD FOREIGN KEY (id_prediccion_final) REFERENCES prediccion_final(id_prediccion_final);
 
+CREATE TABLE torneo_usuario (
+	id_torneo_usuario INT AUTO_INCREMENT PRIMARY KEY,
+    puntos INT,
+    id_campeon INT,
+    id_subcampeon INT,
+    id_torneo INT,
+    id_usuario INT,
+    FOREIGN KEY (id_campeon) REFERENCES equipo(id_equipo),
+    FOREIGN KEY (id_subcampeon) REFERENCES equipo(id_equipo),
+    FOREIGN KEY (id_torneo) REFERENCES torneo(id_torneo),
+    FOREIGN KEY (id_usuario) REFERENCES usuario(id_usuario)
+);
+
 create table partido(
     id_partido int auto_increment primary key,
     fecha datetime(6),
@@ -64,6 +77,15 @@ create table partido(
     id_torneo int,
     foreign key (id_estadio) references estadio(id_estadio),
     foreign key (id_torneo) references torneo(id_torneo)
+);
+
+CREATE TABLE equipo_partido (
+	id_equipo_partido INT AUTO_INCREMENT PRIMARY KEY,
+    tipo_equipo INT,
+    id_equipo INT,
+    id_partido INT,
+    FOREIGN KEY (id_equipo) REFERENCES equipo(id_equipo),
+    FOREIGN KEY (id_partido) REFERENCES partido(id_partido)
 );
 
 CREATE TABLE prediccion (
