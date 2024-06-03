@@ -42,3 +42,8 @@ VALUES
 ('2024-06-14', 3, 9),
 ('2024-06-15', 4, 9),
 ('2024-06-16', 5, 9);
+
+INSERT INTO equipo_partido (tipo_equipo, id_equipo, id_partido)
+VALUES
+(1, 1, 1),
+(2, 2, 1);
