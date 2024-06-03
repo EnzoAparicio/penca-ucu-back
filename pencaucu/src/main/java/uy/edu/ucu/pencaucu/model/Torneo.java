@@ -12,12 +12,10 @@ import jakarta.persistence.Table;
 import lombok.Data;
 
 @Data
-@Table(name="torneo")
 @Entity
 public class Torneo {
 	
 	@Id 
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="id_torneo")
 	private Integer id_torneo;
 	

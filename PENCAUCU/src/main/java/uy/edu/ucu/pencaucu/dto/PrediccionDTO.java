@@ -10,9 +10,9 @@ public class PrediccionDTO {
 
     private Integer id_prediccion;	
 
-    private Integer prediccion_e1;	
+    private Integer prediccion_equipo1;	
 
-    private Integer prediccion_e2;	
+    private Integer prediccion_equipo2;	
 
     private Equipo ganador;	
     

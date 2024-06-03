@@ -28,18 +28,6 @@ public class Partido {
     private Integer id_partido;
 
     /**
-     * Resultado del equipo 1 en el partido.
-     */
-    @Column(name = "resultado_e1")
-    private Integer resultado_e1;
-
-    /**
-     * Resultado del equipo 2 en el partido.
-     */
-    @Column(name = "resultado_e2")
-    private Integer resultado_e2;
-
-    /**
      * Fecha del partido.
      */
     @Column(name = "fecha")
@@ -51,9 +39,6 @@ public class Partido {
     @ManyToOne
     @JoinColumn(name = "id_estadio", nullable = false)
     private Estadio estadio;
-
-    @OneToMany(mappedBy = "partido")
-    private List<EquipoPartido> equipos;
     
     /**
      * Torneo al que pertenece el partido.

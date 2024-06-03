@@ -27,7 +27,7 @@ public class Equipo {
 	@Column(name = "img_bandera")
 	private String img_bandera;
 	
-	@Column(name = "color", length = 10, nullable = false)
+	@Column(name = "color", length = 12, nullable = false)
 	private String color;
 	
 	@OneToMany(mappedBy = "equipo")
