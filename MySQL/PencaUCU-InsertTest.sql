@@ -1,14 +1,14 @@
-INSERT INTO usuario (email, contrasenia, nombre, apellido, avatar_path, id_carrera, puntos) VALUES
- ('luisa.perez@email.com', 'contrasenia123', 'Luisa', 'Perez', 'avatar_luisa.png', 1, 500),
-('juan.rodriguez@email.com', 'juanitoR78', 'Juan', 'Rodriguez', 'avatar_juan.png', 2, 300),
-('maria.gonzalez@email.com', 'mariagonzalez', 'Maria', 'Gonzalez', 'avatar_maria.png', 3, 700),
-('carlos.fernandez@email.com', 'carlosF2024', 'Carlos', 'Fernandez', 'avatar_carlos.png', 4, 600),
-('ana.martinez@email.com', 'anaMtz89', 'Ana', 'Martinez', 'avatar_ana.png', 5, 800),
-('jose.gutierrez@email.com', 'joseGtz', 'Jose', 'Gutierrez', 'avatar_jose.png', 6, 400),
-('sofia.ramirez@email.com', 'sofiaramirez', 'Sofia', 'Ramirez', 'avatar_sofia.png', 7, 900),
-('daniel.torres@email.com', 'danieltorres', 'Daniel', 'Torres', 'avatar_daniel.png', 8, 200),
-('laura.lopez@email.com', 'lauralopez', 'Laura', 'Lopez', 'avatar_laura.png', 9, 1000),
-('pedro.sanchez@email.com', 'pedrosanchez', 'Pedro', 'Sanchez', 'avatar_pedro.png', 10, 100);
+INSERT INTO usuario (email, contrasenia, nombre, apellido, avatar_path, id_carrera) VALUES
+ ('luisa.perez@email.com', 'contrasenia123', 'Luisa', 'Perez', 'avatar_luisa.png', 1),
+('juan.rodriguez@email.com', 'juanitoR78', 'Juan', 'Rodriguez', 'avatar_juan.png', 2),
+('maria.gonzalez@email.com', 'mariagonzalez', 'Maria', 'Gonzalez', 'avatar_maria.png', 3),
+('carlos.fernandez@email.com', 'carlosF2024', 'Carlos', 'Fernandez', 'avatar_carlos.png', 4),
+('ana.martinez@email.com', 'anaMtz89', 'Ana', 'Martinez', 'avatar_ana.png', 5),
+('jose.gutierrez@email.com', 'joseGtz', 'Jose', 'Gutierrez', 'avatar_jose.png', 6),
+('sofia.ramirez@email.com', 'sofiaramirez', 'Sofia', 'Ramirez', 'avatar_sofia.png', 7),
+('daniel.torres@email.com', 'danieltorres', 'Daniel', 'Torres', 'avatar_daniel.png', 8),
+('laura.lopez@email.com', 'lauralopez', 'Laura', 'Lopez', 'avatar_laura.png', 9),
+('pedro.sanchez@email.com', 'pedrosanchez', 'Pedro', 'Sanchez', 'avatar_pedro.png', 10);
 
 
 INSERT INTO torneo (nombre, anio) VALUES

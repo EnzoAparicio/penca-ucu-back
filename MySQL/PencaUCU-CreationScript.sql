@@ -35,7 +35,6 @@ CREATE TABLE usuario (
     apellido VARCHAR(50),
     avatar_path VARCHAR(50),
     id_carrera INT,
-    puntos INT,
     es_administrador BOOLEAN,
     -- Se referencia la Foreign key luego de creada la otra tabla.
     id_prediccion_final INT,
