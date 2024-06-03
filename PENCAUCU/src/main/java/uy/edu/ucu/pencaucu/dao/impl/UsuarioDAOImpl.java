@@ -33,10 +33,13 @@ public class UsuarioDAOImpl implements IUsuarioDAO {
 	    		
 	    // Guardar el objeto usuario en la base de datos
 	    Usuario savedUsuario = iUsuarioRepo.save(usuario);
-	    System.out.println("Se creo usuario " + usuario.getNombre());
-
-	    // Mapear la entidad guardada de vuelta a DTO
-	    return DozerUtil.GetINSTANCE().getMapper().map(savedUsuario, UsuarioDTO.class);		
+	    
+	    if(savedUsuario.getId_usuario() != null) {
+		    // Mapear la entidad guardada de vuelta a DTO
+		    return DozerUtil.GetINSTANCE().getMapper().map(savedUsuario, UsuarioDTO.class);
+	    } else {
+	    	return new UsuarioDTO();
+	    }
 	}
 	
 	@Override
@@ -47,11 +50,7 @@ public class UsuarioDAOImpl implements IUsuarioDAO {
 				(iUsuarioRepo.findByEmail(usuarioDTO.getEmail()).get(), UsuarioDTO.class);
 	
 		// Si no encuentra un mail asociado devuelve falso y un mensaje a consola de usuario no existente.
-		if(logger == null)
-		{
-			System.out.println("Usuario no existe.");
-			return false;
-		}
+		if(logger == null) return false;
 		
 		// Hace la verificacion de hashing entre la contraseña provista y la ingresada a la hora del registro.
 		return HasherUtil.verify(usuarioDTO.getContrasenia(), logger.getContrasenia());
@@ -59,15 +58,18 @@ public class UsuarioDAOImpl implements IUsuarioDAO {
 
 	@Override
 	public UsuarioDTO updateUsuario(UsuarioDTO usuarioDTO) {
-		try {
-			Usuario usuarioBD = iUsuarioRepo.findById(usuarioDTO.getId_usuario()).get();
-			usuarioDTO.setContrasenia(usuarioBD.getContrasenia());
-			Usuario usuarioActualizado = DozerUtil.GetINSTANCE().getMapper().map(usuarioDTO, Usuario.class);
-			
-			return DozerUtil.GetINSTANCE().getMapper().map(iUsuarioRepo.save(usuarioActualizado), UsuarioDTO.class);
-		} catch (Error e) {
-			return null;
-		}
+		Usuario usuarioBD = iUsuarioRepo.findById(usuarioDTO.getId_usuario()).get();
+		
+		if (usuarioBD.getId_usuario() == null) return new UsuarioDTO();
+		
+		usuarioDTO.setContrasenia(usuarioBD.getContrasenia());
+		Usuario usuarioActualizado = DozerUtil.GetINSTANCE().getMapper().map(usuarioDTO, Usuario.class);
+		
+		usuarioActualizado = iUsuarioRepo.save(usuarioActualizado);
+		
+		if (usuarioActualizado.getId_usuario() == null) return new UsuarioDTO();
+		
+		return DozerUtil.GetINSTANCE().getMapper().map(usuarioActualizado, UsuarioDTO.class);
 	}
 
 	@Override
@@ -78,13 +80,10 @@ public class UsuarioDAOImpl implements IUsuarioDAO {
 	@Override
 	public UsuarioDTO getUsuario(Integer id_usuario) {
 		Optional<Usuario> usuarioDB = iUsuarioRepo.findById(id_usuario);
-		System.out.println("\nGET USUARIO: " + usuarioDB.toString() + "\n ID: " + id_usuario);
 		if (usuarioDB.isPresent()) {
-			System.out.println("\nIs present.\n ");
 			return DozerUtil.GetINSTANCE().getMapper().map(usuarioDB.get(), UsuarioDTO.class);
 		} else {
-			System.out.println("\nNOT present.\n ");
-			return null;
+			return new UsuarioDTO();
 		}
 	}
 

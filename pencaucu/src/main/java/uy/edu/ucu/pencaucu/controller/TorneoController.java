@@ -16,6 +16,7 @@ import uy.edu.ucu.pencaucu.service.ITorneoService;
 
 @RestController
 public class TorneoController {
+	
 	@Autowired
 	ITorneoService iTorneoService;
 	
