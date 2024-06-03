@@ -46,4 +46,7 @@ public class Partido {
     @ManyToOne
     @JoinColumn(name = "id_torneo")
     private Torneo torneo;
+    
+    @OneToMany(mappedBy = "partido")
+    private List<EquipoPartido> equipos;
 }
