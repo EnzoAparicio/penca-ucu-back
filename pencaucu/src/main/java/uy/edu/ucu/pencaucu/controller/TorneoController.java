@@ -25,7 +25,7 @@ public class TorneoController {
 	 * @param torneoDTO - Body de la request.
 	 * @return TorneoDTO creado o null si ocurre un error.
 	 */
-	@PostMapping(path = "/torneo/create")
+	@PostMapping("/torneo/create")
 	public TorneoDTO createTorneo(@RequestBody TorneoDTO torneoDTO) {
 		return iTorneoService.createTorneo(torneoDTO);
 	}
@@ -37,7 +37,7 @@ public class TorneoController {
 	 * @param torneoDTO - Body de la request.
 	 * @return TorneoDTO actualizado o null si ocurre un error.
 	 */
-	@PutMapping(path = "/torneo/update")
+	@PutMapping("/torneo/update")
 	public TorneoDTO updateTorneo(@RequestBody TorneoDTO torneoDTO) {
 		return iTorneoService.updateTorneo(torneoDTO);
 	}
@@ -49,7 +49,7 @@ public class TorneoController {
 	 * 
 	 * @param torneoDTO - Body de la request.
 	 */
-	@DeleteMapping(path = "/torneo/delete")
+	@DeleteMapping("/torneo/delete")
 	public void deleteTorneo(@RequestBody TorneoDTO torneoDTO) {
 		iTorneoService.deleteTorneo(torneoDTO);
 	}
@@ -60,7 +60,7 @@ public class TorneoController {
 	 * @param id_torneo - Path de la request.
 	 * @return TorneoDTO que coincida o null si no existe.
 	 */
-	@GetMapping(path = "/torneo/{id_torneo}")
+	@GetMapping("/torneo/{id_torneo}")
 	public TorneoDTO getTorneo(@PathVariable Integer id_torneo) {
 		return iTorneoService.getTorneo(id_torneo);
 	}
@@ -70,7 +70,7 @@ public class TorneoController {
 	 * @param TorneoDTO - nullable - Body de la request.
 	 * @return List<TorneoDTO> poblada o List vacía si no hay ninguna coincidencia.
 	 */
-	@GetMapping(path = "/torneo/getAll")
+	@GetMapping("/torneo/getAll")
 	public List<TorneoDTO> getAllTorneo(@RequestBody(required = false) TorneoDTO torneoDTO) {
 		return iTorneoService.getAllTorneo(torneoDTO);
 	}

@@ -27,7 +27,7 @@ public class EquipoController {
 	 * @param equipoDTO - Body de la request.
 	 * @return EquipoDTO creado o null si ocurre un error.
 	 */
-	@PostMapping(path = "/equipo/create")
+	@PostMapping("/equipo/create")
 	public EquipoDTO createEquipo(@RequestBody EquipoDTO equipoDTO) {
 		return iEquipoService.createEquipo(equipoDTO);
 	}
@@ -38,7 +38,7 @@ public class EquipoController {
 	 * @param equipoDTO - Body de la request.
 	 * @return EquipoDTO actualizado o null si ocurre un error.
 	 */
-	@PutMapping(path = "/equipo/update")
+	@PutMapping("/equipo/update")
 	public EquipoDTO updateEquipo(@RequestBody EquipoDTO equipoDTO) {
 		return iEquipoService.updateEquipo(equipoDTO);
 	}
@@ -50,7 +50,7 @@ public class EquipoController {
 	 * 
 	 * @param equipoDTO - Body de la request.
 	 */
-	@DeleteMapping(path = "/equipo/delete")
+	@DeleteMapping("/equipo/delete")
 	public void deleteEquipo(@RequestBody EquipoDTO equipoDTO) {
 		iEquipoService.deleteEquipo(equipoDTO);
 	}
@@ -61,7 +61,7 @@ public class EquipoController {
 	 * @param id_equipo - Path de la request.
 	 * @return EquipoDTO que coincida o null si no existe.
 	 */
-	@GetMapping(path = "/equipo/{id_equipo}")
+	@GetMapping("/equipo/{id_equipo}")
 	public EquipoDTO getEquipo(@PathVariable Integer id_equipo) {
 		return iEquipoService.getEquipo(id_equipo);
 	}
@@ -72,7 +72,7 @@ public class EquipoController {
 	 * @param equipoDTO - nullable - Body de la request.
 	 * @return List<EquipoDTO> poblada o List vacía si no hay ninguna coincidencia.
 	 */
-	@GetMapping(path = "/equipo/getAll")
+	@GetMapping("/equipo/getAll")
 	public List<EquipoDTO> getAllEquipo(@RequestBody(required = false) EquipoDTO equipoDTO) {
 		return iEquipoService.getAllEquipo(equipoDTO);
 	}
