@@ -33,8 +33,7 @@ public class Prediccion {
     @ManyToOne
     @JoinColumn(name = "id_partido")
     private Partido partido;
-    
-    @ManyToOne
-    @JoinColumn(name = "id_usuario")
-    private Usuario usuario;
+
+    @Column(name = "id_usuario")
+    private Integer id_usuario;
 }
