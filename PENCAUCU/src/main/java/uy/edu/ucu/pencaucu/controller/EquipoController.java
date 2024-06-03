@@ -3,18 +3,18 @@ package uy.edu.ucu.pencaucu.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
 
 import uy.edu.ucu.pencaucu.dto.EquipoDTO;
 import uy.edu.ucu.pencaucu.service.IEquipoService;
 
-@Controller
+@RestController
 public class EquipoController {
 	
 	@Autowired
@@ -26,7 +26,7 @@ public class EquipoController {
 	 * @param equipoDTO - Body de la request.
 	 * @return EquipoDTO creado o null si ocurre un error.
 	 */
-	@PostMapping(path = "/Equipo/Create")
+	@PostMapping("/equipo/create")
 	public EquipoDTO createEquipo(@RequestBody EquipoDTO equipoDTO) {
 		return iEquipoService.createEquipo(equipoDTO);
 	}
@@ -37,7 +37,7 @@ public class EquipoController {
 	 * @param equipoDTO - Body de la request.
 	 * @return EquipoDTO actualizado o null si ocurre un error.
 	 */
-	@PutMapping(path = "/Equipo/Update")
+	@PutMapping("/equipo/update")
 	public EquipoDTO updateEquipo(@RequestBody EquipoDTO equipoDTO) {
 		return iEquipoService.updateEquipo(equipoDTO);
 	}
@@ -49,7 +49,7 @@ public class EquipoController {
 	 * 
 	 * @param equipoDTO - Body de la request.
 	 */
-	@DeleteMapping(path = "/Equipo/Delete")
+	@DeleteMapping("/equipo/delete")
 	public void deleteEquipo(@RequestBody EquipoDTO equipoDTO) {
 		iEquipoService.deleteEquipo(equipoDTO);
 	}
@@ -60,7 +60,7 @@ public class EquipoController {
 	 * @param id_equipo - Path de la request.
 	 * @return EquipoDTO que coincida o null si no existe.
 	 */
-	@GetMapping(path = "/Equipo/{id_equipo}")
+	@GetMapping("/equipo/{id_equipo}")
 	public EquipoDTO getEquipo(@PathVariable Integer id_equipo) {
 		return iEquipoService.getEquipo(id_equipo);
 	}
@@ -71,7 +71,7 @@ public class EquipoController {
 	 * @param equipoDTO - nullable - Body de la request.
 	 * @return List<EquipoDTO> poblada o List vacía si no hay ninguna coincidencia.
 	 */
-	@GetMapping(path = "/Equipo/getAll")
+	@GetMapping("/equipo/getAll")
 	public List<EquipoDTO> getAllEquipo(@RequestBody(required = false) EquipoDTO equipoDTO) {
 		return iEquipoService.getAllEquipo(equipoDTO);
 	}

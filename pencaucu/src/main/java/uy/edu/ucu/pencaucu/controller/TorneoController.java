@@ -3,20 +3,20 @@ package uy.edu.ucu.pencaucu.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-
+import org.springframework.web.bind.annotation.RestController;
 
 import uy.edu.ucu.pencaucu.dto.TorneoDTO;
 import uy.edu.ucu.pencaucu.service.ITorneoService;
 
-@Controller
+@RestController
 public class TorneoController {
+	
 	@Autowired
 	ITorneoService iTorneoService;
 	
@@ -26,7 +26,7 @@ public class TorneoController {
 	 * @param torneoDTO - Body de la request.
 	 * @return TorneoDTO creado o null si ocurre un error.
 	 */
-	@PostMapping(path = "/Torneo/Create")
+	@PostMapping("/torneo/create")
 	public TorneoDTO createTorneo(@RequestBody TorneoDTO torneoDTO) {
 		return iTorneoService.createTorneo(torneoDTO);
 	}
@@ -38,7 +38,7 @@ public class TorneoController {
 	 * @param torneoDTO - Body de la request.
 	 * @return TorneoDTO actualizado o null si ocurre un error.
 	 */
-	@PutMapping(path = "/Torneo/Update")
+	@PutMapping("/torneo/update")
 	public TorneoDTO updateTorneo(@RequestBody TorneoDTO torneoDTO) {
 		return iTorneoService.updateTorneo(torneoDTO);
 	}
@@ -50,7 +50,7 @@ public class TorneoController {
 	 * 
 	 * @param torneoDTO - Body de la request.
 	 */
-	@DeleteMapping(path = "/Torneo/Delete")
+	@DeleteMapping("/torneo/delete")
 	public void deleteTorneo(@RequestBody TorneoDTO torneoDTO) {
 		iTorneoService.deleteTorneo(torneoDTO);
 	}
@@ -61,7 +61,7 @@ public class TorneoController {
 	 * @param id_torneo - Path de la request.
 	 * @return TorneoDTO que coincida o null si no existe.
 	 */
-	@GetMapping(path = "/Torneo/{id_torneo}")
+	@GetMapping("/torneo/{id_torneo}")
 	public TorneoDTO getTorneo(@PathVariable Integer id_torneo) {
 		return iTorneoService.getTorneo(id_torneo);
 	}
@@ -71,7 +71,7 @@ public class TorneoController {
 	 * @param TorneoDTO - nullable - Body de la request.
 	 * @return List<TorneoDTO> poblada o List vacía si no hay ninguna coincidencia.
 	 */
-	@GetMapping(path = "/Torneo/getAll")
+	@GetMapping("/torneo/getAll")
 	public List<TorneoDTO> getAllTorneo(@RequestBody(required = false) TorneoDTO torneoDTO) {
 		return iTorneoService.getAllTorneo(torneoDTO);
 	}
