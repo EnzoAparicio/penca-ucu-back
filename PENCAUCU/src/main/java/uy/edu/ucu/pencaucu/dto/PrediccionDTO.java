@@ -17,6 +17,4 @@ public class PrediccionDTO {
     private Equipo ganador;	
     
     private Partido partido;
-    
-    private Usuario usuario;
 }

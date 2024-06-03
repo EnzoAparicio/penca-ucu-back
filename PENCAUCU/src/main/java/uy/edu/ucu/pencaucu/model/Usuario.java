@@ -45,7 +45,7 @@ public class Usuario {
 	@Column(name="es_administrador")
 	private Boolean es_administrador;
 	
-	@OneToMany(mappedBy = "usuario")
+	@OneToMany(mappedBy = "id_usuario")
 	private List<Prediccion> predicciones;
 	
 	@OneToMany(mappedBy = "usuario")
