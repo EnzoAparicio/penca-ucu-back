@@ -1,5 +1,7 @@
 package uy.edu.ucu.pencaucu.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -24,6 +26,7 @@ public class TorneoUsuario {
 	@JoinColumn(name = "id_usuario")
 	private Usuario usuario;
 	
+	@JsonBackReference
 	@ManyToOne
 	@JoinColumn(name = "id_torneo")
 	private Torneo torneo;

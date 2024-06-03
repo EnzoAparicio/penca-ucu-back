@@ -1,5 +1,7 @@
 package uy.edu.ucu.pencaucu.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -20,10 +22,12 @@ public class EquipoPartido {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id_equipo_partido;
 	
+	@JsonBackReference
 	@ManyToOne
 	@JoinColumn(name = "id_partido")
 	private Partido partido;
 	
+	@JsonBackReference
 	@ManyToOne
 	@JoinColumn(name = "id_equipo")
 	private Equipo equipo;
