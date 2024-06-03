@@ -1,6 +1,6 @@
 package uy.edu.ucu.pencaucu.dao;	
 
-import java.util.ArrayList;	
+import java.util.List;
 
 import uy.edu.ucu.pencaucu.dto.PrediccionDTO;	
 
@@ -10,7 +10,9 @@ public interface IPrediccionDAO {
 
         PrediccionDTO getPrediccionById (Integer id_prediccion);	
 
-        public ArrayList<PrediccionDTO> getAllPrediccion();	
+        List<PrediccionDTO> getAllPrediccion();	
+        
+        List<PrediccionDTO> getAllPrediccionByFilter(PrediccionDTO prediccionDTO);	
 
         PrediccionDTO updatePrediccion (PrediccionDTO prediccionDTO);	
 

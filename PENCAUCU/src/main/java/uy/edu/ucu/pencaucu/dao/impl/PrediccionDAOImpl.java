@@ -1,7 +1,7 @@
 
 package uy.edu.ucu.pencaucu.dao.impl;	
 
-import java.util.ArrayList;	
+import java.util.List;
 import java.util.Optional;	
 import java.util.stream.Collectors;	
 
@@ -10,11 +10,10 @@ import org.springframework.data.domain.Example;
 import org.springframework.stereotype.Repository;	
 
 import uy.edu.ucu.pencaucu.dao.IPrediccionDAO;	
-import uy.edu.ucu.pencaucu.dto.PrediccionDTO;	
+import uy.edu.ucu.pencaucu.dto.PrediccionDTO;
 import uy.edu.ucu.pencaucu.model.Prediccion;	
 import uy.edu.ucu.pencaucu.repo.IPrediccionRepo;	
 import uy.edu.ucu.pencaucu.util.DozerUtil;	
-import uy.edu.ucu.pencaucu.util.HasherUtil;	
 
 @Repository	
 public class PrediccionDAOImpl implements IPrediccionDAO{	
@@ -30,8 +29,12 @@ public class PrediccionDAOImpl implements IPrediccionDAO{
         // Guardar el objeto prediccion en la base de datos 
         Prediccion savedPrediccion = iPrediccionRepo.save(prediccion);	
 
-        // Mapear la entidad guardada de vuelta a DTO
-        return DozerUtil.GetINSTANCE().getMapper().map(savedPrediccion, PrediccionDTO.class);	
+        if (savedPrediccion.getId_prediccion() == null) {
+        	return new PrediccionDTO();
+        } else {
+            // Mapear la entidad guardada de vuelta a DTO
+            return DozerUtil.GetINSTANCE().getMapper().map(savedPrediccion, PrediccionDTO.class);
+        }	
     }	
 
     @Override	
@@ -43,30 +46,36 @@ public class PrediccionDAOImpl implements IPrediccionDAO{
         	return DozerUtil.GetINSTANCE().getMapper().map(prediccionBD.get(), PrediccionDTO.class);	
         // Si la prediccion no existe, devolver null
         }else {	
-        	return null;		
+        	return new PrediccionDTO();		
         }     	
+    }
+
+    @Override	
+    public List<PrediccionDTO> getAllPrediccion() {	
+        // Buscar todas las predicciones en la base de datos utilizando Dozer para mapear las entidades a DTOs y devolverlas
+    	return iPrediccionRepo.findAll().stream()	
+    			.map(prediccion -> DozerUtil.GetINSTANCE().getMapper().map(prediccion, PrediccionDTO.class))	
+    			.collect(Collectors.toList());
     }	
 
     @Override	
-    public ArrayList<PrediccionDTO> getAllPrediccion() {	
-        // Buscar todas las predicciones en la base de datos utilizando Dozer para mapear las entidades a DTOs y devolverlas
-    	return (ArrayList<PrediccionDTO>) iPrediccionRepo.findAll().stream()	
-    			.map(prediccion -> DozerUtil.GetINSTANCE().getMapper().map(prediccion, PrediccionDTO.class))	
-    			.collect(Collectors.toList());	
-    }	
+    public List<PrediccionDTO> getAllPrediccionByFilter(PrediccionDTO prediccionDTO) {	
+    	Example<Prediccion> prediccionExample = Example.of(DozerUtil.GetINSTANCE().getMapper().map(prediccionDTO, Prediccion.class));
+    	
+    	return iPrediccionRepo.findAll(prediccionExample).stream()
+    			.map(prediccion -> DozerUtil.GetINSTANCE().getMapper().map(prediccion, PrediccionDTO.class))
+				.collect(Collectors.toList());
+    }
 
     @Override	
     public PrediccionDTO updatePrediccion(PrediccionDTO prediccionDTO) {	
-        // Actualizar la prediccion en la base de datos
-    	try {	
-            // Usar Dozer para mapear DTO a entidad
-			Prediccion prediccionActualizada = DozerUtil.GetINSTANCE().getMapper().map(prediccionDTO, Prediccion.class);	
-            // Guardar el objeto prediccion en la base de datos
-			return DozerUtil.GetINSTANCE().getMapper().map(iPrediccionRepo.save(prediccionActualizada), PrediccionDTO.class);	
-        // Si la prediccion no existe, devolver null
-    	} catch (Error e) {	
-    		return null;	
-		}	
+		Prediccion prediccion = DozerUtil.GetINSTANCE().getMapper().map(prediccionDTO, Prediccion.class);	
+		prediccion = iPrediccionRepo.save(prediccion);
+		if (prediccion.getId_prediccion() == null) {
+			return new PrediccionDTO();
+		} else {
+			return DozerUtil.GetINSTANCE().getMapper().map(iPrediccionRepo.save(prediccion), PrediccionDTO.class);
+		}
     }	
 
     @Override	

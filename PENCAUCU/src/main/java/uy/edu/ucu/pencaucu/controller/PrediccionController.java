@@ -1,6 +1,6 @@
 package uy.edu.ucu.pencaucu.controller;	
 
-import java.util.ArrayList;	
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;	
 import org.springframework.web.bind.annotation.DeleteMapping;	
@@ -21,7 +21,7 @@ public class PrediccionController {
     private IPrediccionService iPrediccionService;	
 
     @GetMapping("/prediccion/getAll") // Envia un json con todas las predicciones
-    public ArrayList<PrediccionDTO> getAllPrediccion(@RequestBody(required = false) PrediccionDTO prediccionDTO) {	
+    public List<PrediccionDTO> getAllPrediccion(@RequestBody(required = false) PrediccionDTO prediccionDTO) {	
 		return iPrediccionService.getAllPrediccion(prediccionDTO);	
     }	
 

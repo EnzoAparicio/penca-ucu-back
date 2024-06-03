@@ -34,11 +34,11 @@ public class UsuarioDAOImpl implements IUsuarioDAO {
 	    // Guardar el objeto usuario en la base de datos
 	    Usuario savedUsuario = iUsuarioRepo.save(usuario);
 	    
-	    if(savedUsuario.getId_usuario() != null) {
+	    if(savedUsuario.getId_usuario() == null) {
+	    	return new UsuarioDTO();
+	    } else {
 		    // Mapear la entidad guardada de vuelta a DTO
 		    return DozerUtil.GetINSTANCE().getMapper().map(savedUsuario, UsuarioDTO.class);
-	    } else {
-	    	return new UsuarioDTO();
 	    }
 	}
 	
@@ -67,9 +67,11 @@ public class UsuarioDAOImpl implements IUsuarioDAO {
 		
 		usuarioActualizado = iUsuarioRepo.save(usuarioActualizado);
 		
-		if (usuarioActualizado.getId_usuario() == null) return new UsuarioDTO();
-		
-		return DozerUtil.GetINSTANCE().getMapper().map(usuarioActualizado, UsuarioDTO.class);
+		if (usuarioActualizado.getId_usuario() == null) {
+			return new UsuarioDTO();
+		} else {
+			return DozerUtil.GetINSTANCE().getMapper().map(usuarioActualizado, UsuarioDTO.class);
+		}
 	}
 
 	@Override
