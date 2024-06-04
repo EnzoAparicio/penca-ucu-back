@@ -1,6 +1,7 @@
 package uy.edu.ucu.pencaucu.dao.impl;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Example;
@@ -27,7 +28,12 @@ public class PartidoDAOImpl implements IPartidoDAO {
     public PartidoDTO createPartido(PartidoDTO partidoDTO) {
         Partido partido = DozerUtil.GetINSTANCE().getMapper().map(partidoDTO, Partido.class);
         Partido savedPartido = iPartidoRepo.save(partido);
-        return DozerUtil.GetINSTANCE().getMapper().map(savedPartido, PartidoDTO.class);        
+        
+        if (savedPartido.getId_partido() == null) {
+        	return new PartidoDTO();
+        } else {
+        	return DozerUtil.GetINSTANCE().getMapper().map(savedPartido, PartidoDTO.class);
+        }
     }
 
     /**
@@ -39,11 +45,15 @@ public class PartidoDAOImpl implements IPartidoDAO {
     @Override
     public PartidoDTO updatePartido(PartidoDTO partidoDTO) {
         Partido partidoBD = iPartidoRepo.findById(partidoDTO.getId_partido()).orElse(null);
-        if (partidoBD != null) {
-            Partido partidoActualizado = DozerUtil.GetINSTANCE().getMapper().map(partidoDTO, Partido.class);
-            return DozerUtil.GetINSTANCE().getMapper().map(iPartidoRepo.save(partidoActualizado), PartidoDTO.class);
+        if (partidoBD == null) return new PartidoDTO();
+        
+        Partido partido = DozerUtil.GetINSTANCE().getMapper().map(partidoDTO, Partido.class);
+        partido = iPartidoRepo.save(partido);
+        if (partido.getId_partido() == null) {
+        	return new PartidoDTO();
+        } else {
+        	return DozerUtil.GetINSTANCE().getMapper().map(partido, PartidoDTO.class);
         }
-        return null;
     }
 
     /**
@@ -64,7 +74,12 @@ public class PartidoDAOImpl implements IPartidoDAO {
      */
     @Override
     public PartidoDTO getPartido(Integer id_partido) {
-        return DozerUtil.GetINSTANCE().getMapper().map(iPartidoRepo.findById(id_partido).orElse(null), PartidoDTO.class);
+    	Optional<Partido> partido = iPartidoRepo.findById(id_partido);
+    	if (partido.isPresent()) {
+    		return DozerUtil.GetINSTANCE().getMapper().map(partido.get(), PartidoDTO.class);
+    	} else {
+    		return new PartidoDTO();
+    	}
     }
 
     /**

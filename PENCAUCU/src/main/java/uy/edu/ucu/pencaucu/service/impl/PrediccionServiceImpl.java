@@ -1,6 +1,6 @@
 package uy.edu.ucu.pencaucu.service.impl;
 
-import java.util.ArrayList;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -37,11 +37,11 @@ public class PrediccionServiceImpl implements IPrediccionService {
 	}
 
 	@Override
-	public ArrayList<PrediccionDTO> getAllPrediccion(PrediccionDTO prediccionDTO) {
+	public List<PrediccionDTO> getAllPrediccion(PrediccionDTO prediccionDTO) {
 		if (prediccionDTO == null) {
 			return iPrediccionDAO.getAllPrediccion();
 		} else {
-			return null;
+			return iPrediccionDAO.getAllPrediccionByFilter(prediccionDTO);
 		}
 	}
 
