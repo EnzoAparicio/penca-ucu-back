@@ -1,6 +1,5 @@
 package uy.edu.ucu.pencaucu.dto;
 
-import java.util.List;
 import lombok.Data;
 
 @Data
@@ -13,6 +12,4 @@ public class EquipoDTO {
 	private String img_bandera;
 	
 	private String color;
-	
-//	private List<Partido> partidos;
 }

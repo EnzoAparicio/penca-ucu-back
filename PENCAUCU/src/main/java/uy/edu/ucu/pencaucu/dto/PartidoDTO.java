@@ -1,10 +1,11 @@
 package uy.edu.ucu.pencaucu.dto;
 
 import java.util.Date;
+import java.util.List;
 
 import lombok.Data;
+import uy.edu.ucu.pencaucu.model.EquipoPartido;
 import uy.edu.ucu.pencaucu.model.Estadio;
-import uy.edu.ucu.pencaucu.model.Torneo;
 
 @Data
 public class PartidoDTO {
@@ -15,5 +16,7 @@ public class PartidoDTO {
 
     private Estadio estadio;
 
-    private Torneo torneo;
+    private Integer id_torneo;
+    
+    private List<EquipoPartido> equipos;
 }
