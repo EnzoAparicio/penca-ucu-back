@@ -25,6 +25,4 @@ public class UsuarioDTO {
 	private Boolean es_administrador;
 	
 //	private List<Prediccion> predicciones;
-//	
-//	private PrediccionFinal prediccion_final;
 }

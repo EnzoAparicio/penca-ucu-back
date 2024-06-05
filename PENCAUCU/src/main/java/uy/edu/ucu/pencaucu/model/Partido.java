@@ -46,10 +46,8 @@ public class Partido {
     /**
      * Torneo al que pertenece el partido.
      */
-    @JsonBackReference
-    @ManyToOne
-    @JoinColumn(name = "id_torneo")
-    private Torneo torneo;
+    @Column(name = "id_torneo")
+    private Integer id_torneo;
    
     @JsonManagedReference
     @OneToMany(mappedBy = "partido")
