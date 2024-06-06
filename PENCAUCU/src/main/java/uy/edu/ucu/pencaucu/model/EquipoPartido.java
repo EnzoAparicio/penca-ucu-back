@@ -27,7 +27,6 @@ public class EquipoPartido {
 	@JoinColumn(name = "id_partido")
 	private Partido partido;
 	
-	@JsonBackReference
 	@ManyToOne
 	@JoinColumn(name = "id_equipo")
 	private Equipo equipo;

@@ -43,17 +43,23 @@ public class UsuarioDAOImpl implements IUsuarioDAO {
 	}
 	
 	@Override
-	public boolean loginUsuario(UsuarioDTO usuarioDTO) {
+	public UsuarioDTO loginUsuario(UsuarioDTO usuarioDTO) {
 		
 		// Usar Dozer para mapear DTO a entidad
+		// En la entidad logger queda el usuario asociado al mail que se ingreso.
 		UsuarioDTO logger = DozerUtil.GetINSTANCE().getMapper().map
 				(iUsuarioRepo.findByEmail(usuarioDTO.getEmail()).get(), UsuarioDTO.class);
 	
 		// Si no encuentra un mail asociado devuelve falso y un mensaje a consola de usuario no existente.
-		if(logger == null) return false;
+		if(logger == null) return new UsuarioDTO();
 		
+
 		// Hace la verificacion de hashing entre la contraseña provista y la ingresada a la hora del registro.
-		return HasherUtil.verify(usuarioDTO.getContrasenia(), logger.getContrasenia());
+		if(HasherUtil.verify(usuarioDTO.getContrasenia(), logger.getContrasenia())) {
+			
+			return logger;
+		}
+		return new UsuarioDTO();
 	}
 
 	@Override
@@ -62,7 +68,7 @@ public class UsuarioDAOImpl implements IUsuarioDAO {
 		
 		if (usuarioBD.getId_usuario() == null) return new UsuarioDTO();
 		
-		usuarioDTO.setContrasenia(usuarioBD.getContrasenia());
+		usuarioDTO.setContrasenia(HasherUtil.encode(usuarioDTO.getContrasenia()));
 		Usuario usuarioActualizado = DozerUtil.GetINSTANCE().getMapper().map(usuarioDTO, Usuario.class);
 		
 		usuarioActualizado = iUsuarioRepo.save(usuarioActualizado);
