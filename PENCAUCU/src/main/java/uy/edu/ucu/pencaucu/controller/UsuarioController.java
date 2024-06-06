@@ -3,8 +3,6 @@ package uy.edu.ucu.pencaucu.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,7 +11,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
-
+import uy.edu.ucu.pencaucu.util.ResponseUtil;
+import uy.edu.ucu.pencaucu.dto.EquipoDTO;
 import uy.edu.ucu.pencaucu.dto.UsuarioDTO;
 import uy.edu.ucu.pencaucu.service.IUsuarioService;
 
@@ -23,28 +22,44 @@ public class UsuarioController {
 	@Autowired
 	private IUsuarioService iUsuarioService;
 	
-	@PostMapping("/usuario/create") // Enviar un json con los atributos de un usuario y sus respectivos valores.
-	public ResponseEntity<UsuarioDTO> createUsuario(@RequestBody UsuarioDTO usuarioDTO) {
-		try {
-			usuarioDTO = iUsuarioService.createUsuario(usuarioDTO); 
-			if (usuarioDTO.getId_usuario() != null) {
-				return new ResponseEntity<UsuarioDTO>(usuarioDTO, HttpStatusCode.valueOf(200));
-			} else {
-				return new ResponseEntity<UsuarioDTO>(HttpStatusCode.valueOf(204));
-			}
-		} catch (Error e) {
-			return new ResponseEntity<UsuarioDTO>(HttpStatusCode.valueOf(500));
+	private ResponseEntity<UsuarioDTO> checkResponse(UsuarioDTO usuario) {
+		if (usuario.getId_usuario() != null) {
+			return ResponseUtil.okResponse(usuario);
+		} else {
+			return ResponseUtil.badRequest();
 		}
 	}
 	
-	@PostMapping("/usuario/login") // Enviar un json con los atributos para logear y sus valores.
-	public boolean loginUsuario(@RequestBody UsuarioDTO usuarioDTO) {
-		return iUsuarioService.loginUsuario(usuarioDTO);
+	@PostMapping("/usuario/create") // Enviar un json con los atributos de un usuario y sus respectivos valores.
+	public ResponseEntity<UsuarioDTO> createUsuario(@RequestBody UsuarioDTO usuarioDTO) {
+		try {
+			return checkResponse(iUsuarioService.createUsuario(usuarioDTO)); 
+		} catch (Error e) {
+			return ResponseUtil.internalError();
+		}
 	}
-	
+
+	@PostMapping("/usuario/login") // Enviar un json con los atributos para logear y sus valores.
+	public ResponseEntity<Boolean> loginUsuario(@RequestBody UsuarioDTO usuarioDTO) {
+		try {
+			Boolean loginStatus = iUsuarioService.loginUsuario(usuarioDTO);
+			if (loginStatus) {
+				return ResponseUtil.okResponse(loginStatus);
+			} else {
+				return ResponseUtil.badRequest();
+			}
+		} catch (Error e) {
+			return ResponseUtil.internalError();
+		}
+	}
+
 	@PutMapping("/usuario/update")
-	public UsuarioDTO updateUsuario(@RequestBody UsuarioDTO usuarioDTO) {
-		return iUsuarioService.updateUsuario(usuarioDTO);
+	public ResponseEntity<UsuarioDTO> updateUsuario(@RequestBody UsuarioDTO usuarioDTO) {
+		try {
+			return checkResponse(iUsuarioService.updateUsuario(usuarioDTO)); 
+		} catch (Error e) {
+			return ResponseUtil.internalError();
+		}
 	}
 	
 	@DeleteMapping("/usuario/delete")
@@ -57,17 +72,26 @@ public class UsuarioController {
 		try {
 			UsuarioDTO usuarioDTO = iUsuarioService.getUsuario(id_usuario);
 			if (usuarioDTO.getId_usuario() != null) {
-				return new ResponseEntity<UsuarioDTO>(usuarioDTO, HttpStatusCode.valueOf(200));
+				return ResponseUtil.okResponse(usuarioDTO);
 			} else {
-				return new ResponseEntity<UsuarioDTO>(HttpStatusCode.valueOf(204));
+				return ResponseUtil.noContent();
 			}
 		} catch (Error e) {
-			return new ResponseEntity<UsuarioDTO>(HttpStatusCode.valueOf(500));
+			return ResponseUtil.internalError();
 		}
 	}
 	
 	@GetMapping("/usuario/getAll")
-	public List<UsuarioDTO> getAllUsuario(@RequestBody(required = false) UsuarioDTO usuarioDTO) {
-		return iUsuarioService.getAllUsuario(usuarioDTO);
+	public ResponseEntity<List<UsuarioDTO>> getAllUsuario(@RequestBody(required = false) UsuarioDTO usuarioDTO) {
+		try {
+			List<UsuarioDTO> usuarioList = iUsuarioService.getAllUsuario(usuarioDTO);
+			if (!usuarioList.isEmpty()) {
+				return ResponseUtil.okResponse(usuarioList);
+			} else {
+				return ResponseUtil.noContent();
+			}
+		} catch (Error e) {
+			return ResponseUtil.internalError();
+		}
 	}
 }

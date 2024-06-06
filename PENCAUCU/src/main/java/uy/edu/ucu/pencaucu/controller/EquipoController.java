@@ -3,6 +3,7 @@ package uy.edu.ucu.pencaucu.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -12,13 +13,23 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import uy.edu.ucu.pencaucu.dto.EquipoDTO;
+import uy.edu.ucu.pencaucu.dto.PartidoDTO;
 import uy.edu.ucu.pencaucu.service.IEquipoService;
+import uy.edu.ucu.pencaucu.util.ResponseUtil;
 
 @RestController
 public class EquipoController {
 	
 	@Autowired
 	IEquipoService iEquipoService;
+	
+	private ResponseEntity<EquipoDTO> checkResponse(EquipoDTO equipo) {
+		if (equipo.getId_equipo() != null) {
+			return ResponseUtil.okResponse(equipo);
+		} else {
+			return ResponseUtil.badRequest();
+		}
+	}
 	
 	/**
 	 * Solicita la creación de un Equipo a partir del objeto recibido.
@@ -27,8 +38,12 @@ public class EquipoController {
 	 * @return EquipoDTO creado o null si ocurre un error.
 	 */
 	@PostMapping("/equipo/create")
-	public EquipoDTO createEquipo(@RequestBody EquipoDTO equipoDTO) {
-		return iEquipoService.createEquipo(equipoDTO);
+	public ResponseEntity<EquipoDTO> createEquipo(@RequestBody EquipoDTO equipoDTO) {
+		try {
+    		return checkResponse(iEquipoService.createEquipo(equipoDTO));
+    	} catch (Error e) {
+    		return ResponseUtil.internalError();
+    	}
 	}
 	
 	/**
@@ -38,8 +53,12 @@ public class EquipoController {
 	 * @return EquipoDTO actualizado o null si ocurre un error.
 	 */
 	@PutMapping("/equipo/update")
-	public EquipoDTO updateEquipo(@RequestBody EquipoDTO equipoDTO) {
-		return iEquipoService.updateEquipo(equipoDTO);
+	public ResponseEntity<EquipoDTO> updateEquipo(@RequestBody EquipoDTO equipoDTO) {
+		try {
+    		return checkResponse(iEquipoService.updateEquipo(equipoDTO));
+    	} catch (Error e) {
+    		return ResponseUtil.internalError();
+    	}
 	}
 	
 	/**
@@ -61,8 +80,17 @@ public class EquipoController {
 	 * @return EquipoDTO que coincida o null si no existe.
 	 */
 	@GetMapping("/equipo/{id_equipo}")
-	public EquipoDTO getEquipo(@PathVariable Integer id_equipo) {
-		return iEquipoService.getEquipo(id_equipo);
+	public ResponseEntity<EquipoDTO> getEquipo(@PathVariable Integer id_equipo) {
+		try {
+			EquipoDTO equipoDTO = iEquipoService.getEquipo(id_equipo);
+			if (equipoDTO.getId_equipo() != null) {
+				return ResponseUtil.okResponse(equipoDTO);
+			} else {
+				return ResponseUtil.noContent();
+			}
+    	} catch (Error e) {
+    		return ResponseUtil.internalError();
+    	}
 	}
 	
 	/**
@@ -72,7 +100,16 @@ public class EquipoController {
 	 * @return List<EquipoDTO> poblada o List vacía si no hay ninguna coincidencia.
 	 */
 	@GetMapping("/equipo/getAll")
-	public List<EquipoDTO> getAllEquipo(@RequestBody(required = false) EquipoDTO equipoDTO) {
-		return iEquipoService.getAllEquipo(equipoDTO);
+	public ResponseEntity<List<EquipoDTO>> getAllEquipo(@RequestBody(required = false) EquipoDTO equipoDTO) {
+		try {
+			List<EquipoDTO> equipoDTOList = iEquipoService.getAllEquipo(equipoDTO);
+			if ( !equipoDTOList.isEmpty() ) {
+				return ResponseUtil.okResponse(equipoDTOList);
+			} else {
+				return ResponseUtil.noContent();
+			}
+    	} catch (Error e) {
+    		return ResponseUtil.internalError();
+    	}
 	}
 }
