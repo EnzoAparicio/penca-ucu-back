@@ -2,7 +2,8 @@ package uy.edu.ucu.pencaucu.controller;
 
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;	
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;	
 import org.springframework.web.bind.annotation.GetMapping;	
 import org.springframework.web.bind.annotation.PathVariable;	
@@ -11,28 +12,60 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;	
 import org.springframework.web.bind.annotation.RestController;	
 
-import uy.edu.ucu.pencaucu.dto.PrediccionDTO;	
-import uy.edu.ucu.pencaucu.service.IPrediccionService;	
+import uy.edu.ucu.pencaucu.dto.PrediccionDTO;
+import uy.edu.ucu.pencaucu.dto.TorneoDTO;
+import uy.edu.ucu.pencaucu.service.IPrediccionService;
+import uy.edu.ucu.pencaucu.util.ResponseUtil;	
 
 @RestController	
 public class PrediccionController {	
 
     @Autowired	
     private IPrediccionService iPrediccionService;	
+    
+    private ResponseEntity<PrediccionDTO> checkResponse(PrediccionDTO prediccion) {
+		if (prediccion.getId_prediccion() != null) {
+			return ResponseUtil.okResponse(prediccion);
+		} else {
+			return ResponseUtil.badRequest();
+		}
+	}
 
     @GetMapping("/prediccion/getAll") // Envia un json con todas las predicciones
-    public List<PrediccionDTO> getAllPrediccion(@RequestBody(required = false) PrediccionDTO prediccionDTO) {	
-		return iPrediccionService.getAllPrediccion(prediccionDTO);	
+    public ResponseEntity<List<PrediccionDTO>> getAllPrediccion(@RequestBody(required = false) PrediccionDTO prediccionDTO) {
+    	try {
+    		List<PrediccionDTO> prediccionDTOList = iPrediccionService.getAllPrediccion(prediccionDTO); 
+    		if (!prediccionDTOList.isEmpty()) {
+    			return ResponseUtil.okResponse(prediccionDTOList);
+    		} else {
+    			return ResponseUtil.noContent();
+			}
+    	} catch (Error e) {
+    		return ResponseUtil.internalError();
+    	}
     }	
 
     @GetMapping("/prediccion/{id_prediccion}")	// Envia un json con la prediccion que tiene el id indicado
-    public PrediccionDTO getPrediccion(@PathVariable Integer id_prediccion) {	
-		return iPrediccionService.getPrediccion(id_prediccion);	
+    public ResponseEntity<PrediccionDTO> getPrediccion(@PathVariable Integer id_prediccion) {
+    	try {
+    		PrediccionDTO prediccionDTO = iPrediccionService.getPrediccion(id_prediccion);
+    		if (prediccionDTO.getId_prediccion() != null) {
+    			return ResponseUtil.okResponse(prediccionDTO);
+    		} else {
+    			return ResponseUtil.noContent();
+    		}
+    	} catch (Error e) {
+    		return ResponseUtil.internalError();
+    	}
 	}	
 
     @PostMapping("/prediccion/create")	 // Crea una prediccion y la devuelve en un json
-	public PrediccionDTO createPrediccion(@RequestBody PrediccionDTO prediccionDTO) {	
-		return iPrediccionService.createPrediccion(prediccionDTO);	
+	public ResponseEntity<PrediccionDTO> createPrediccion(@RequestBody PrediccionDTO prediccionDTO) {
+    	try {
+    		return checkResponse(iPrediccionService.createPrediccion(prediccionDTO));
+    	} catch (Error e) {
+    		return ResponseUtil.internalError();
+    	}	
 	}	
 
     @DeleteMapping("/prediccion/delete") // Elimina la prediccion con el id indicado
@@ -41,8 +74,12 @@ public class PrediccionController {
     }	
 
     @PutMapping("/prediccion/update") // Actualiza la prediccion con los datos del json y la devuelve	
-	public PrediccionDTO updatePrediccion(@RequestBody PrediccionDTO prediccionDTO) {	
-		return iPrediccionService.updatePrediccion(prediccionDTO);	
+	public ResponseEntity<PrediccionDTO> updatePrediccion(@RequestBody PrediccionDTO prediccionDTO) {
+    	try {
+    		return checkResponse(iPrediccionService.updatePrediccion(prediccionDTO));
+    	} catch (Error e) {
+    		return ResponseUtil.internalError();
+    	}		
 	}	
 
 }

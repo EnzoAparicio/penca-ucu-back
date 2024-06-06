@@ -2,6 +2,7 @@ package uy.edu.ucu.pencaucu.controller;
 
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -10,7 +11,9 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import uy.edu.ucu.pencaucu.dto.PartidoDTO;
+import uy.edu.ucu.pencaucu.dto.PrediccionDTO;
 import uy.edu.ucu.pencaucu.service.IPartidoService;
+import uy.edu.ucu.pencaucu.util.ResponseUtil;
 
 
 @RestController
@@ -18,6 +21,14 @@ public class PartidoController {
 
     @Autowired
     private IPartidoService iPartidoService;
+    
+    private ResponseEntity<PartidoDTO> checkResponse(PartidoDTO partido) {
+		if (partido.getId_partido() != null) {
+			return ResponseUtil.okResponse(partido);
+		} else {
+			return ResponseUtil.badRequest();
+		}
+	}
 
     /**
      * Crea un nuevo partido.
@@ -26,8 +37,12 @@ public class PartidoController {
      * @return Partido creado.
      */
     @PostMapping("/partido/create")
-    public PartidoDTO createPartido(@RequestBody PartidoDTO partidoDTO) {
-        return iPartidoService.createPartido(partidoDTO);
+    public ResponseEntity<PartidoDTO> createPartido(@RequestBody PartidoDTO partidoDTO) {
+    	try {
+    		return checkResponse(iPartidoService.createPartido(partidoDTO));
+    	} catch (Error e) {
+    		return ResponseUtil.internalError();
+    	}
     }
 
     /**
@@ -37,8 +52,12 @@ public class PartidoController {
      * @return Partido actualizado.
      */
     @PutMapping("/partido/update")
-    public PartidoDTO updatePartido(@RequestBody PartidoDTO partidoDTO) {
-        return iPartidoService.updatePartido(partidoDTO);
+    public ResponseEntity<PartidoDTO> updatePartido(@RequestBody PartidoDTO partidoDTO) {
+    	try {
+    		return checkResponse(iPartidoService.updatePartido(partidoDTO));
+    	} catch (Error e) {
+    		return ResponseUtil.internalError();
+    	}
     }
 
     /**
@@ -58,8 +77,17 @@ public class PartidoController {
      * @return Partido encontrado.
      */
     @GetMapping("/partido/{id_partido}")
-    public PartidoDTO getPartido(@PathVariable Integer id_partido) {
-        return iPartidoService.getPartido(id_partido);
+    public ResponseEntity<PartidoDTO> getPartido(@PathVariable Integer id_partido) {
+    	try {
+    		PartidoDTO partidoDTO = iPartidoService.getPartido(id_partido);
+    		if (partidoDTO.getId_partido() != null) {
+    			return ResponseUtil.okResponse(partidoDTO);
+    		} else {
+    			return ResponseUtil.noContent();
+    		}
+    	} catch (Error e) {
+    		return ResponseUtil.internalError();
+    	}
     }
 
     /**
@@ -69,7 +97,17 @@ public class PartidoController {
      * @return Lista de partidos.
      */
     @GetMapping("/partido/getAll")
-    public List<PartidoDTO> getAllPartido(@RequestBody(required = false) PartidoDTO partidoDTO) {
-        return iPartidoService.getAllPartido(partidoDTO);
+    public ResponseEntity<List<PartidoDTO>> getAllPartido(@RequestBody(required = false) PartidoDTO partidoDTO) {
+    	
+    	try {
+    		List<PartidoDTO> partidoDTOList = iPartidoService.getAllPartido(partidoDTO);
+    		if ( !partidoDTOList.isEmpty() ) {
+    			return ResponseUtil.okResponse(partidoDTOList);
+    		} else {
+    			return ResponseUtil.noContent();
+    		}
+    	} catch (Error e) {
+    		return ResponseUtil.internalError();
+    	}
     }
 }
