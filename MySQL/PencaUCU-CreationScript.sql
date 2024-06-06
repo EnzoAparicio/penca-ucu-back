@@ -79,7 +79,7 @@ create table partido(
 );
 
 CREATE TABLE equipo_partido (
-	id_equipo_partido INT AUTO_INCREMENT PRIMARY KEY,
+    id_equipo_partido INT AUTO_INCREMENT PRIMARY KEY,
     tipo_equipo INT,
     id_equipo INT,
     id_partido INT,

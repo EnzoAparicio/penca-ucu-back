@@ -8,7 +8,7 @@ public interface IUsuarioService {
 
 	UsuarioDTO createUsuario(UsuarioDTO usuarioDTO);
 	
-	boolean loginUsuario(UsuarioDTO usuarioDTO);
+	UsuarioDTO loginUsuario(UsuarioDTO usuarioDTO);
 	
 	UsuarioDTO updateUsuario(UsuarioDTO usuarioDTO);
 	

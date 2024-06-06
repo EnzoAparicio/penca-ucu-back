@@ -33,7 +33,7 @@ public class UsuarioServiceImpl implements IUsuarioService {
 	}
 	
 	@Override
-	public boolean loginUsuario(UsuarioDTO usuarioDTO) {
+	public UsuarioDTO loginUsuario(UsuarioDTO usuarioDTO) {
 		try {
 			if(usuarioDTO.getEmail() == null || usuarioDTO.getContrasenia() == null) {
 				throw new Exception("Campo email o contraseña invalido.");
@@ -42,7 +42,7 @@ public class UsuarioServiceImpl implements IUsuarioService {
 		} catch(Exception e)
 		{
 			System.out.println(e);
-			return false;
+			return new UsuarioDTO();
 		}
 	}
 

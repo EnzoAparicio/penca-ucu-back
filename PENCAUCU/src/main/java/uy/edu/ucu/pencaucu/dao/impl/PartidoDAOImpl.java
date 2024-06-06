@@ -8,7 +8,9 @@ import org.springframework.data.domain.Example;
 import org.springframework.stereotype.Repository;
 import uy.edu.ucu.pencaucu.dao.IPartidoDAO;
 import uy.edu.ucu.pencaucu.dto.PartidoDTO;
+import uy.edu.ucu.pencaucu.model.EquipoPartido;
 import uy.edu.ucu.pencaucu.model.Partido;
+import uy.edu.ucu.pencaucu.repo.IEquipoPartidoRepo;
 import uy.edu.ucu.pencaucu.repo.IPartidoRepo;
 import uy.edu.ucu.pencaucu.util.DozerUtil;
 
@@ -17,6 +19,9 @@ public class PartidoDAOImpl implements IPartidoDAO {
 
     @Autowired
     private IPartidoRepo iPartidoRepo;
+    
+    @Autowired
+    private IEquipoPartidoRepo iEquipoPartidoRepo;
 
     /**
      * Crea un nuevo partido.
@@ -32,6 +37,12 @@ public class PartidoDAOImpl implements IPartidoDAO {
         if (savedPartido.getId_partido() == null) {
         	return new PartidoDTO();
         } else {
+        	for (EquipoPartido equipoPartido : partidoDTO.getEquipos()) {
+        		equipoPartido.setPartido(savedPartido);
+        		iEquipoPartidoRepo.save(equipoPartido);
+        	}
+        	
+        	
         	return DozerUtil.GetINSTANCE().getMapper().map(savedPartido, PartidoDTO.class);
         }
     }

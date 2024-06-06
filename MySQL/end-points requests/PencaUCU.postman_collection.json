@@ -1,14 +1,97 @@
 {
 	"info": {
-		"_postman_id": "ec64ed52-16e3-48e0-930a-2e15486e5c49",
+		"_postman_id": "11c92636-3bf9-42b6-ab41-b19644e48582",
 		"name": "PencaUCU",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "27613618"
+		"_exporter_id": "33405599"
 	},
 	"item": [
 		{
+			"name": "Equipo",
+			"item": [
+				{
+					"name": "createEquipo",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nombre\": \"Peñarol\",\n    \"img_bandera\": \"banderas/Peñarol.png\",\n    \"color\": \"#000000\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9000/equipo/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9000",
+							"path": [
+								"equipo",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getAll",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9000/equipo/getAll",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9000",
+							"path": [
+								"equipo",
+								"getAll"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
 			"name": "Usuario",
 			"item": [
+				{
+					"name": "createUsuario",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nombre\": \"Franco\",\n    \"apellido\": \"Bascialla\",\n    \"avatar_path\": \"avatars/francoPath\",\n    \"carrera\": {\n        \"id_carrera\": 1\n    },\n    \"email\": \"franco@bascialla.com\",\n    \"contrasenia\": \"hashCode\",\n    \"es_administrador\": false\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9000/usuario/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9000",
+							"path": [
+								"usuario",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
 				{
 					"name": "getUsuario",
 					"protocolProfileBehavior": {
@@ -27,7 +110,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:9000/usuario/2",
+							"raw": "http://localhost:9000/usuario/1",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -35,7 +118,7 @@
 							"port": "9000",
 							"path": [
 								"usuario",
-								"2"
+								"1"
 							]
 						}
 					},
@@ -106,42 +189,13 @@
 					"response": []
 				},
 				{
-					"name": "createUsuario",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"nombre\": \"Franco\",\n    \"apellido\": \"Bascialla\",\n    \"avatar_path\": \"avatars/francoPath\",\n    \"carrera\": {\n        \"id_carrera\": 1\n    },\n    \"puntos\": 0,\n    \"email\": \"franco@bascialla.com\",\n    \"contrasenia\": \"hashCode\",\n    \"es_administrador\": false\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://localhost:9000/usuario/create",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "9000",
-							"path": [
-								"usuario",
-								"create"
-							]
-						}
-					},
-					"response": []
-				},
-				{
 					"name": "updateUsuario",
 					"request": {
 						"method": "PUT",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n        \"id_usuario\": 2,\n        \"email\": \"juan.hernandez@email.com\",\n        \"contrasenia\": \"juanitoR78\",\n        \"nombre\": \"Juanito\",\n        \"apellido\": \"Hernandez\",\n        \"avatar_path\": \"avatar_juan.png\",\n        \"carrera\": {\n            \"id_carrera\": 2,\n            \"nombre\": \"Acompañamiento Terapéutico\",\n            \"anios\": \"2\"\n        },\n        \"puntos\": 300,\n        \"es_administrador\": null\n    }",
+							"raw": "{\n        \"id_usuario\": 1,\n        \"email\": \"juan.hernandez@email.com\",\n        \"contrasenia\": \"juanitoR78\",\n        \"nombre\": \"Juanito\",\n        \"apellido\": \"Hernandez\",\n        \"avatar_path\": \"avatar_juan.png\",\n        \"carrera\": {\n            \"id_carrera\": 2\n        },\n        \"es_administrador\": true\n    }",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -170,7 +224,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"id_usuario\": 3\n}",
+							"raw": "{\n    \"id_usuario\": 2\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -224,194 +278,6 @@
 			]
 		},
 		{
-			"name": "Partido",
-			"item": [
-				{
-					"name": "getAll",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "GET",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://localhost:9000/partido/getAll",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "9000",
-							"path": [
-								"partido",
-								"getAll"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "getPartido",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "GET",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://localhost:9000/partido/1",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "9000",
-							"path": [
-								"partido",
-								"1"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "getAllFiltered",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "GET",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"resultado_e1\": 2\r\n}\r\n",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://localhost:9000/partido/getAll",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "9000",
-							"path": [
-								"partido",
-								"getAll"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "create",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n        \"resultado_e1\": 1,\r\n        \"resultado_e2\": 0,\r\n        \"fecha\": \"2024-05-29T03:00:00.000+00:00\",\r\n        \"estadio\": {\r\n            \"id_estadio\": 2,\r\n            \"nombre\": \"BANK_OF_AMERICA_STADIUM\"\r\n        },\r\n        \"equipo1\": {\r\n            \"id_equipo\": 3,\r\n            \"nombre\": \"Equipo C\",\r\n            \"img_bandera\": \"img/equipoC.png\",\r\n            \"color\": \"Verde\",\r\n            \"partidos\": []\r\n        },\r\n        \"equipo2\": {\r\n            \"id_equipo\": 1,\r\n            \"nombre\": \"Equipo B\",\r\n            \"img_bandera\": \"img/equipoB.png\",\r\n            \"color\": \"Azul\",\r\n            \"partidos\": []\r\n        }\r\n    }\r\n",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://localhost:9000/partido/create",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "9000",
-							"path": [
-								"partido",
-								"create"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "update",
-					"request": {
-						"method": "PUT",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n        \"id_partido\": 2,\r\n        \"resultado_e1\": 1,\r\n        \"resultado_e2\": 0,\r\n        \"fecha\": \"2024-05-29T03:00:00.000+00:00\",\r\n        \"estadio\": {\r\n            \"id_estadio\": 3\r\n        },\r\n        \"equipo1\": {\r\n            \"id_equipo\": 3\r\n        },\r\n        \"equipo2\": {\r\n            \"id_equipo\": 1\r\n        }\r\n    }",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://localhost:9000/partido/update",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "9000",
-							"path": [
-								"partido",
-								"update"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "delete",
-					"request": {
-						"method": "DELETE",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n        \"id_partido\": 1\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://localhost:9000/partido/delete",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "9000",
-							"path": [
-								"partido",
-								"delete"
-							]
-						}
-					},
-					"response": []
-				}
-			]
-		},
-		{
 			"name": "Torneo",
 			"item": [
 				{
@@ -449,7 +315,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:9000/torneo/7",
+							"raw": "http://localhost:9000/torneo/1",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -457,7 +323,7 @@
 							"port": "9000",
 							"path": [
 								"torneo",
-								"7"
+								"1"
 							]
 						}
 					},
@@ -534,7 +400,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"id_torneo\": 7,\n    \"nombre\": \"Copa Libertadores modificada\",\n    \"anio\": \"2024\"\n}",
+							"raw": "{\n    \"id_torneo\": 1,\n    \"nombre\": \"Copa Libertadores modificada\",\n    \"anio\": \"2024\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -563,7 +429,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"id_torneo\": 11\n}",
+							"raw": "{\n    \"id_torneo\": 1\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -588,16 +454,16 @@
 			]
 		},
 		{
-			"name": "Equipo",
+			"name": "Partido",
 			"item": [
 				{
-					"name": "createEquipo",
+					"name": "createPartido",
 					"request": {
 						"method": "POST",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"nombre\": \"Nacional\",\n    \"img_bandera\": \"banderas/Nacional.png\",\n    \"color\": \"#FFF000\"\n}",
+							"raw": "{\r\n    \"fecha\": \"2024-12-24T23:59:00.000+00:00\",\r\n    \"estadio\": {\r\n        \"id_estadio\": 2\r\n    },\r\n    \"id_torneo\": 1,\r\n    \"equipos\": [\r\n        {\r\n            \"tipo_equipo\": 1,\r\n            \"equipo\": {\r\n                \"id_equipo\": 1\r\n            }\r\n        },\r\n        {\r\n            \"tipo_equipo\": 2,\r\n            \"equipo\": {\r\n                \"id_equipo\": 2\r\n            }\r\n        }\r\n    ]\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -605,15 +471,223 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:9000/equipo/create",
+							"raw": "http://localhost:9000/partido/create",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "9000",
 							"path": [
-								"equipo",
+								"partido",
 								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getPartido",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9000/partido/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9000",
+							"path": [
+								"partido",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getAll",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9000/partido/getAll",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9000",
+							"path": [
+								"partido",
+								"getAll"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getAllFiltered",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id_torneo\": 1\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9000/partido/getAll",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9000",
+							"path": [
+								"partido",
+								"getAll"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"fecha\": \"2025-00-00T00:01:00.000+00:00\",\r\n    \"estadio\": {\r\n        \"id_estadio\": 5\r\n    },\r\n    \"id_torneo\": 1,\r\n    \"equipos\": [\r\n        {\r\n            \"tipo_equipo\": 1,\r\n            \"equipo\": {\r\n                \"id_equipo\": 1\r\n            }\r\n        },\r\n        {\r\n            \"tipo_equipo\": 2,\r\n            \"equipo\": {\r\n                \"id_equipo\": 2\r\n            }\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9000/partido/update",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9000",
+							"path": [
+								"partido",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"id_partido\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9000/partido/delete",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9000",
+							"path": [
+								"partido",
+								"delete"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Prediccion",
+			"item": [
+				{
+					"name": "createPrediccion",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"prediccion_equipo1\": 1,\r\n    \"prediccion_equipo2\": 5,\r\n    \"ganador\": {\r\n        \"id_equipo\": 2\r\n    },\r\n    \"partido\": {\r\n        \"id_partido\": 2\r\n    },\r\n    \"id_usuario\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9000/prediccion/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9000",
+							"path": [
+								"prediccion",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getPrediccion",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9000/prediccion/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9000",
+							"path": [
+								"prediccion",
+								"1"
 							]
 						}
 					},
@@ -625,15 +699,55 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:9000/equipo/getAll",
+							"raw": "http://localhost:9000/prediccion/getAll",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "9000",
 							"path": [
-								"equipo",
+								"prediccion",
 								"getAll"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updatePrediccion",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9000/prediccion/update",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9000",
+							"path": [
+								"prediccion",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deletePrediccion",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9000/prediccion/delete",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9000",
+							"path": [
+								"prediccion",
+								"delete"
 							]
 						}
 					},

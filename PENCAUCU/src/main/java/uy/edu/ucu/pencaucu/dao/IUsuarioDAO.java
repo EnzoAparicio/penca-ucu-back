@@ -9,7 +9,7 @@ public interface IUsuarioDAO {
 	
 	UsuarioDTO createUsuario(UsuarioDTO usuarioDTO);
 	
-	boolean loginUsuario(UsuarioDTO usuarioDTO);
+	UsuarioDTO loginUsuario(UsuarioDTO usuarioDTO);
 	
 	/**
 	 * Actualiza un Usuario en la Base de Datos.

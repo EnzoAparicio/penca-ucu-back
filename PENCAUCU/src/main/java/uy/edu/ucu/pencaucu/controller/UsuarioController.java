@@ -40,14 +40,9 @@ public class UsuarioController {
 	}
 
 	@PostMapping("/usuario/login") // Enviar un json con los atributos para logear y sus valores.
-	public ResponseEntity<Boolean> loginUsuario(@RequestBody UsuarioDTO usuarioDTO) {
+	public ResponseEntity<UsuarioDTO> loginUsuario(@RequestBody UsuarioDTO usuarioDTO) {
 		try {
-			Boolean loginStatus = iUsuarioService.loginUsuario(usuarioDTO);
-			if (loginStatus) {
-				return ResponseUtil.okResponse(loginStatus);
-			} else {
-				return ResponseUtil.badRequest();
-			}
+			return checkResponse(iUsuarioService.loginUsuario(usuarioDTO));
 		} catch (Error e) {
 			return ResponseUtil.internalError();
 		}

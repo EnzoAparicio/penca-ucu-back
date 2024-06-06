@@ -30,6 +30,6 @@ public class Torneo {
 	private String anio;
 	
 	@JsonManagedReference
-	@OneToMany(mappedBy = "torneo")
+	@OneToMany(mappedBy = "id_torneo")
 	private List<Partido> partidos;
 }
