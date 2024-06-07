@@ -36,25 +36,8 @@ CREATE TABLE usuario (
     avatar_path VARCHAR(50),
     id_carrera INT,
     es_administrador BOOLEAN,
-    -- Se referencia la Foreign key luego de creada la otra tabla.
-    id_prediccion_final INT,
     FOREIGN KEY (id_carrera) REFERENCES carrera(id_carrera)
 );
-
-CREATE TABLE prediccion_final (
-	id_prediccion_final INT PRIMARY KEY AUTO_INCREMENT,
-    id_campeon INT,
-    id_subcampeon INT,
-    id_torneo INT,
-    id_usuario INT,
-    FOREIGN KEY (id_campeon) REFERENCES equipo(id_equipo),
-    FOREIGN KEY (id_subcampeon) REFERENCES equipo(id_equipo),
-    FOREIGN KEY (id_torneo) REFERENCES torneo(id_torneo),
-    FOREIGN KEY (id_usuario) REFERENCES usuario(id_usuario)
-);
-
-ALTER TABLE usuario
-ADD FOREIGN KEY (id_prediccion_final) REFERENCES prediccion_final(id_prediccion_final);
 
 CREATE TABLE torneo_usuario (
 	id_torneo_usuario INT AUTO_INCREMENT PRIMARY KEY,
@@ -98,3 +81,67 @@ CREATE TABLE prediccion (
     FOREIGN KEY (id_usuario) REFERENCES usuario(id_usuario),
     FOREIGN KEY (id_partido) REFERENCES partido(id_partido)
 );
+ 
+-- De aquí en más se comienzan a poblar los enumerados.
+
+-- Llenar la tabla 'Carrera'
+INSERT INTO carrera (nombre, anios)
+VALUES
+	('Abogacía', 5),
+	('Acompañamiento Terapéutico', 2),
+	('Agronomía', 5),
+	('Analista en Informática', 3),
+	('Arquitectura', 5),
+	('Artes Escénicas', 4),
+	('Artes Visuales', 4),
+	('Business Analytics', 4),
+	('Ciencia Política', 4),
+	('Cine', 4),
+	('Comunicación', 4),
+	('Comunicación y Marketing', 4),
+	('Contador Público', 4),
+	('Datos y Negocios', 4),
+	('Desarrollador de Software', 2),
+	('Dirección de Empresas', 4),
+	('Economía', 4),
+	('Educación Inicial', 4),
+	('Finanzas', 4),
+	('Fisioterapia', 4),
+	('Fonoaudiología', 4),
+	('Gestión Humana', 4),
+	('Ingeniería Ambiental', 5),
+	('Ingeniería en Alimentos', 5),
+	('Ingeniería en Electrónica', 5),
+	('Ingeniería en Informática', 5),
+	('Ingeniería Industrial', 5),
+	('Inteligencia Artificial y Ciencia de Datos', 5),
+	('Licenciatura en Enfermería', 4),
+	('Licenciatura en Informática', 4),
+	('Medicina', 6),
+	('Negocios Internacionales', 4),
+	('Negocios y Economía', 4),
+	('Notariado', 5),
+	('Nutrición', 4),
+	('Odontología', 4),
+	('Psicología', 4),
+	('Psicomotricidad', 4),
+	('Psicopedagogía', 4),
+	('Recreación Educativa', 4),
+	('Sociología', 4),
+	('Trabajo Social', 4);
+
+
+-- Llenar la tabla 'Estadio'
+INSERT INTO estadio (nombre) 
+VALUES 
+('Estadio Centenario'),
+('Estadio Maracanã'),
+('Estadio Monumental'),
+('Estadio Azteca'),
+('Estadio Santiago Bernabéu'),
+('Estadio Camp Nou'),
+('Estadio Wembley'),
+('Estadio Allianz Arena'),
+('Estadio San Siro'),
+('Estadio Old Trafford');
+
