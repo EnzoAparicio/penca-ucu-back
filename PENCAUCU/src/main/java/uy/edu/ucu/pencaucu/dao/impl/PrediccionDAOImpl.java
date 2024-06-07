@@ -9,8 +9,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Example;	
 import org.springframework.stereotype.Repository;	
 
-import uy.edu.ucu.pencaucu.dao.IPrediccionDAO;	
+import uy.edu.ucu.pencaucu.dao.IPrediccionDAO;
+import uy.edu.ucu.pencaucu.dto.PartidoDTO;
 import uy.edu.ucu.pencaucu.dto.PrediccionDTO;
+import uy.edu.ucu.pencaucu.model.Partido;
 import uy.edu.ucu.pencaucu.model.Prediccion;	
 import uy.edu.ucu.pencaucu.repo.IPrediccionRepo;	
 import uy.edu.ucu.pencaucu.util.DozerUtil;	
@@ -82,6 +84,14 @@ public class PrediccionDAOImpl implements IPrediccionDAO{
     public void deletePrediccion(PrediccionDTO prediccionDTO) {	
         // Eliminar la prediccion de la base de datos según el id indicado
     	iPrediccionRepo.deleteById(prediccionDTO.getId_prediccion());
-    }	
+    }
+
+	@Override
+	public List<PrediccionDTO> getPrediccionByPartido(PartidoDTO partidoDTO) {
+		Partido partido = DozerUtil.GetINSTANCE().getMapper().map(partidoDTO, Partido.class); 
+		return iPrediccionRepo.findAllByPartido(partido).stream()	
+    			.map(prediccion -> DozerUtil.GetINSTANCE().getMapper().map(prediccion, PrediccionDTO.class))	
+    			.collect(Collectors.toList());	
+	}	
 
 }

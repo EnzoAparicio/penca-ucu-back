@@ -25,6 +25,8 @@ public class PartidoServiceImpl implements IPartidoService {
     IPrediccionService iPrediccionService;
     
     private HashMap<String, Integer> calcularEstadistica(PartidoDTO partidoDTO, List<PrediccionDTO> prediccionList) {
+    	System.out.println("\n Counting stats:\nPartido:" + partidoDTO.toString() + "\nPredicciones: ");
+    	
     	// Assigns a counter with [0] = draw, [1] winner1, [2] winner2
     	Integer[] teamCounter = {0, 0, 0};
     	for (PrediccionDTO prediccionDTO : prediccionList) {
@@ -43,6 +45,8 @@ public class PartidoServiceImpl implements IPartidoService {
     		}
 		}
     	
+    	System.out.println("\nCounter state: " + teamCounter.toString());
+    	
     	// Transform the entries of each prediction to a percentage
     	Integer totalEntries = teamCounter[0] + teamCounter[1] + teamCounter[2];
     	if ( totalEntries == 0 ) {
@@ -55,6 +59,8 @@ public class PartidoServiceImpl implements IPartidoService {
         		teamCounter[0] -= teamCounter[i];
     		}
     	}
+    	
+    	System.out.println("\nPercentages state: " + teamCounter.toString());
     	
     	// Map the percentages to the keys.
     	HashMap<String, Integer> stats = new HashMap<String, Integer>();
@@ -126,10 +132,7 @@ public class PartidoServiceImpl implements IPartidoService {
 	public HashMap<String, Integer> getEstadisticaPartido(Integer id_partido) {
 		PartidoDTO partidoDTO = iPartidoDAO.getPartido(id_partido);
 		if (partidoDTO.getId_partido() != null) {
-			PrediccionDTO prediccionExample = new PrediccionDTO();
-			prediccionExample.setPartido(DozerUtil.GetINSTANCE().getMapper().map(partidoDTO, Partido.class));
-			List<PrediccionDTO> prediccionList = iPrediccionService.getAllPrediccion(prediccionExample);
-			
+			List<PrediccionDTO> prediccionList = iPrediccionService.getPrediccionByPartido(partidoDTO);
 			return calcularEstadistica(partidoDTO, prediccionList);
 		} else {
 			return new HashMap<String, Integer>();

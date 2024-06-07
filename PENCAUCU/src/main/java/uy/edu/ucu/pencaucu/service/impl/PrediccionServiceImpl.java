@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import uy.edu.ucu.pencaucu.dao.IPrediccionDAO;
+import uy.edu.ucu.pencaucu.dto.PartidoDTO;
 import uy.edu.ucu.pencaucu.dto.PrediccionDTO;
 import uy.edu.ucu.pencaucu.service.IPrediccionService;
 
@@ -45,6 +46,10 @@ public class PrediccionServiceImpl implements IPrediccionService {
 		}
 	}
 
+	@Override
+	public List<PrediccionDTO> getPrediccionByPartido(PartidoDTO partidoDTO) {
+		return iPrediccionDAO.getPrediccionByPartido(partidoDTO);
+	}
 	
-
+	
 }
