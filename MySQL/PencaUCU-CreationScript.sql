@@ -36,25 +36,8 @@ CREATE TABLE usuario (
     avatar_path VARCHAR(50),
     id_carrera INT,
     es_administrador BOOLEAN,
-    -- Se referencia la Foreign key luego de creada la otra tabla.
-    id_prediccion_final INT,
     FOREIGN KEY (id_carrera) REFERENCES carrera(id_carrera)
 );
-
-CREATE TABLE prediccion_final (
-	id_prediccion_final INT PRIMARY KEY AUTO_INCREMENT,
-    id_campeon INT,
-    id_subcampeon INT,
-    id_torneo INT,
-    id_usuario INT,
-    FOREIGN KEY (id_campeon) REFERENCES equipo(id_equipo),
-    FOREIGN KEY (id_subcampeon) REFERENCES equipo(id_equipo),
-    FOREIGN KEY (id_torneo) REFERENCES torneo(id_torneo),
-    FOREIGN KEY (id_usuario) REFERENCES usuario(id_usuario)
-);
-
-ALTER TABLE usuario
-ADD FOREIGN KEY (id_prediccion_final) REFERENCES prediccion_final(id_prediccion_final);
 
 CREATE TABLE torneo_usuario (
 	id_torneo_usuario INT AUTO_INCREMENT PRIMARY KEY,
