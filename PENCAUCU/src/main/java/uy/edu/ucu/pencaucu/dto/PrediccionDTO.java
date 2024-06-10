@@ -11,11 +11,9 @@ public class PrediccionDTO {
 
     private Integer prediccion_equipo1;	
 
-    private Integer prediccion_equipo2;	
-
-    private Equipo ganador;	
+    private Integer prediccion_equipo2;		
     
     private Partido partido;
-    
+
     private Integer id_usuario;
 }
