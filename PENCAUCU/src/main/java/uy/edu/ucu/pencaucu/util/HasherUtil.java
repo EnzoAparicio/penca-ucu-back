@@ -9,7 +9,6 @@ public class HasherUtil {
         int strength = 11; // Work factor of bcrypt
         BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder(strength);
 
-        String toEncodePassword = password;
         String encodedPassword = bCryptPasswordEncoder.encode(password);
 
         return encodedPassword;
@@ -19,8 +18,7 @@ public class HasherUtil {
     	BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
     	
     	boolean isPasswordMatch = bCryptPasswordEncoder.matches(password, encodedPassword);
-    	
-        System.out.println("Does password match? " + isPasswordMatch);
+  
         return isPasswordMatch;
     }
 }

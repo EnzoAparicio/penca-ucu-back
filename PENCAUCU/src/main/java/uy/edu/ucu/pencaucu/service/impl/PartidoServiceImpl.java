@@ -1,19 +1,11 @@
 package uy.edu.ucu.pencaucu.service.impl;
 
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import uy.edu.ucu.pencaucu.dao.IPartidoDAO;
 import uy.edu.ucu.pencaucu.dto.PartidoDTO;
-import uy.edu.ucu.pencaucu.dto.PrediccionDTO;
-import uy.edu.ucu.pencaucu.model.Equipo;
-import uy.edu.ucu.pencaucu.model.EquipoPartido;
-import uy.edu.ucu.pencaucu.model.Partido;
 import uy.edu.ucu.pencaucu.service.IPartidoService;
-import uy.edu.ucu.pencaucu.service.IPrediccionService;
-import uy.edu.ucu.pencaucu.util.DozerUtil;
 
 @Service
 public class PartidoServiceImpl implements IPartidoService {

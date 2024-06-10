@@ -1,7 +1,6 @@
 package uy.edu.ucu.pencaucu.dto;	
 
 import lombok.Data;
-import uy.edu.ucu.pencaucu.model.Equipo;
 import uy.edu.ucu.pencaucu.model.Partido;
 
 @Data	

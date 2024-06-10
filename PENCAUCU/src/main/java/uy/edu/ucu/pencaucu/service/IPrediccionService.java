@@ -3,7 +3,6 @@ package uy.edu.ucu.pencaucu.service;
 import java.util.HashMap;
 import java.util.List;
 
-import uy.edu.ucu.pencaucu.dto.PartidoDTO;
 import uy.edu.ucu.pencaucu.dto.PrediccionDTO;	
 
 public interface IPrediccionService {	

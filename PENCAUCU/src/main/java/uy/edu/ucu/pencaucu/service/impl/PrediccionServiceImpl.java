@@ -1,6 +1,5 @@
 package uy.edu.ucu.pencaucu.service.impl;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
@@ -8,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import uy.edu.ucu.pencaucu.dao.IPrediccionDAO;
-import uy.edu.ucu.pencaucu.dto.PartidoDTO;
 import uy.edu.ucu.pencaucu.dto.PrediccionDTO;
 import uy.edu.ucu.pencaucu.service.IPrediccionService;
 
@@ -65,8 +63,6 @@ public class PrediccionServiceImpl implements IPrediccionService {
 	    		}
 			}
 	    	
-	    	System.out.println(String.format("\nCounter state: %2d, %2d, %2d", teamCounter[0], teamCounter[1], teamCounter[2]));
-	    	
 	    	// Transform the entries of each prediction to a percentage
 	    	Integer totalEntries = teamCounter[0] + teamCounter[1] + teamCounter[2];
 	    	if ( totalEntries == 0 ) {
@@ -80,14 +76,11 @@ public class PrediccionServiceImpl implements IPrediccionService {
 	    		}
 	    	}
 	    	
-	    	System.out.println(String.format("\nPercentages state: %2d, %2d, %2d", teamCounter[0], teamCounter[1], teamCounter[2]));
-	    	
 	    	// Map the percentages to the keys.
 	    	HashMap<String, Integer> stats = new HashMap<String, Integer>();
 	    	stats.put("equipo1", teamCounter[1]);
 	    	stats.put("equipo2", teamCounter[2]);
 	    	stats.put("empate", teamCounter[0]);
-	    	
 	    	return stats;
 		} else {
 			return new HashMap<String, Integer>();

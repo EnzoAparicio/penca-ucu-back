@@ -2,7 +2,6 @@ package uy.edu.ucu.pencaucu.dao;
 
 import java.util.List;
 
-import uy.edu.ucu.pencaucu.dto.PartidoDTO;
 import uy.edu.ucu.pencaucu.dto.PrediccionDTO;	
 
 public interface IPrediccionDAO {	

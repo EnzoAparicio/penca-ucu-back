@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import uy.edu.ucu.pencaucu.util.ResponseUtil;
-import uy.edu.ucu.pencaucu.dto.EquipoDTO;
 import uy.edu.ucu.pencaucu.dto.UsuarioDTO;
 import uy.edu.ucu.pencaucu.service.IUsuarioService;
 

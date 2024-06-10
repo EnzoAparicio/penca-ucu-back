@@ -10,6 +10,7 @@ import uy.edu.ucu.pencaucu.model.Equipo;
 @Repository
 public interface IEquipoRepo extends JpaRepository<Equipo, Integer> {
 	
+	@SuppressWarnings("unchecked")
 	Equipo save(Equipo equipo);
 	
 	Optional<Equipo> findById(Integer id_equipo);

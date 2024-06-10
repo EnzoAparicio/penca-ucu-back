@@ -10,7 +10,6 @@ import org.springframework.data.domain.Example;
 import org.springframework.stereotype.Repository;	
 
 import uy.edu.ucu.pencaucu.dao.IPrediccionDAO;
-import uy.edu.ucu.pencaucu.dto.PartidoDTO;
 import uy.edu.ucu.pencaucu.dto.PrediccionDTO;
 import uy.edu.ucu.pencaucu.model.Partido;
 import uy.edu.ucu.pencaucu.model.Prediccion;	

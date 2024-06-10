@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;	
 
 import uy.edu.ucu.pencaucu.dto.PrediccionDTO;
-import uy.edu.ucu.pencaucu.dto.TorneoDTO;
 import uy.edu.ucu.pencaucu.service.IPrediccionService;
 import uy.edu.ucu.pencaucu.util.ResponseUtil;	
 
@@ -80,7 +79,7 @@ public class PrediccionController {
     		return checkResponse(iPrediccionService.updatePrediccion(prediccionDTO));
     	} catch (Error e) {
     		return ResponseUtil.internalError();
-    	}		
+    	}
 	}	
 
     /**
