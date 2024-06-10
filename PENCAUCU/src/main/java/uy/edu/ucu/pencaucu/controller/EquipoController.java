@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import uy.edu.ucu.pencaucu.dto.EquipoDTO;
-import uy.edu.ucu.pencaucu.dto.PartidoDTO;
 import uy.edu.ucu.pencaucu.service.IEquipoService;
 import uy.edu.ucu.pencaucu.util.ResponseUtil;
 

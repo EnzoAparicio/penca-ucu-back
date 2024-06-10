@@ -10,6 +10,7 @@ import uy.edu.ucu.pencaucu.model.Usuario;
 @Repository
 public interface IUsuarioRepo extends JpaRepository<Usuario, Integer> {
 
+	@SuppressWarnings("unchecked")
 	Usuario save(Usuario usuario);
 	
 	Optional<Usuario> findById(Integer id_usuario);

@@ -1,5 +1,6 @@
 package uy.edu.ucu.pencaucu.controller;	
 
+import java.util.HashMap;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,7 +14,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;	
 
 import uy.edu.ucu.pencaucu.dto.PrediccionDTO;
-import uy.edu.ucu.pencaucu.dto.TorneoDTO;
 import uy.edu.ucu.pencaucu.service.IPrediccionService;
 import uy.edu.ucu.pencaucu.util.ResponseUtil;	
 
@@ -79,7 +79,21 @@ public class PrediccionController {
     		return checkResponse(iPrediccionService.updatePrediccion(prediccionDTO));
     	} catch (Error e) {
     		return ResponseUtil.internalError();
-    	}		
+    	}
 	}	
 
+    /**
+     * Obtiene un partido con su estadistica y un status code.
+     * @param id_partido - Id del partido a analizar.
+     * @return partido con estadisticas de ser correcto y status code.
+     */
+    @GetMapping("/prediccion/getEstadistica/{id_partido}")
+    public ResponseEntity<HashMap<String, Integer>> getEstadisticaPartido(@PathVariable Integer id_partido){
+    	try {
+    		return ResponseUtil.okResponse(iPrediccionService.getEstadisticaPartido(id_partido));
+    	} catch (Error e) {
+    		System.out.println("\nnError: " + e.toString());
+    		return ResponseUtil.internalError();
+    	}
+    }
 }

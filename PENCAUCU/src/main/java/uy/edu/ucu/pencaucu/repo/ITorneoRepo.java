@@ -11,6 +11,7 @@ import uy.edu.ucu.pencaucu.model.Torneo;
 @Repository
 public interface ITorneoRepo extends JpaRepository<Torneo, Integer> {
 	
+	@SuppressWarnings("unchecked")
 	Torneo save(Torneo torneo);
 	
 	Optional<Torneo> findById(Integer id_torneo);

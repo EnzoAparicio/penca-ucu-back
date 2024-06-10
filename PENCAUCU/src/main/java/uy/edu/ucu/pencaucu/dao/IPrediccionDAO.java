@@ -17,6 +17,7 @@ public interface IPrediccionDAO {
         PrediccionDTO updatePrediccion (PrediccionDTO prediccionDTO);	
 
         void deletePrediccion (PrediccionDTO prediccionDTO);	
-
+        
+        List<PrediccionDTO> getEstadisticaPartido(Integer id_partido);
 }
 

@@ -74,10 +74,8 @@ CREATE TABLE prediccion (
     id_prediccion INT PRIMARY KEY AUTO_INCREMENT,
     prediccion_equipo1 INT,
     prediccion_equipo2 INT,
-    ganador INT,
     id_usuario INT,
     id_partido INT,
-    FOREIGN KEY (ganador) REFERENCES equipo(id_equipo),
     FOREIGN KEY (id_usuario) REFERENCES usuario(id_usuario),
     FOREIGN KEY (id_partido) REFERENCES partido(id_partido)
 );

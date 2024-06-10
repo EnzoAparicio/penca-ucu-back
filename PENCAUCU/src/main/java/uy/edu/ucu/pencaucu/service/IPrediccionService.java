@@ -1,5 +1,6 @@
 package uy.edu.ucu.pencaucu.service;	
 
+import java.util.HashMap;
 import java.util.List;
 
 import uy.edu.ucu.pencaucu.dto.PrediccionDTO;	
@@ -14,5 +15,7 @@ public interface IPrediccionService {
 
     PrediccionDTO getPrediccion(Integer id_prediccion);	
 
-    List<PrediccionDTO> getAllPrediccion(PrediccionDTO prediccionDTO);	
+    List<PrediccionDTO> getAllPrediccion(PrediccionDTO prediccionDTO);
+    
+    HashMap<String, Integer> getEstadisticaPartido(Integer id_partido);
 }

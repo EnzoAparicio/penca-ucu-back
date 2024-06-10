@@ -1,5 +1,6 @@
 package uy.edu.ucu.pencaucu.service.impl;
 
+import java.util.HashMap;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +16,7 @@ public class PrediccionServiceImpl implements IPrediccionService {
 
 	@Autowired
 	IPrediccionDAO iPrediccionDAO;
-	
+		
 	@Override
 	public PrediccionDTO createPrediccion(PrediccionDTO prediccionDTO) {
 		return iPrediccionDAO.createPrediccion(prediccionDTO);
@@ -44,7 +45,45 @@ public class PrediccionServiceImpl implements IPrediccionService {
 			return iPrediccionDAO.getAllPrediccionByFilter(prediccionDTO);
 		}
 	}
-
 	
-
+	@Override
+	public HashMap<String, Integer> getEstadisticaPartido(Integer id_partido) {
+		if (id_partido != null) {
+			List<PrediccionDTO> prediccionDTOList = iPrediccionDAO.getEstadisticaPartido(id_partido);
+			
+			// Assigns a counter with [0] = draw, [1] winner1, [2] winner2
+	    	Integer[] teamCounter = {0, 0, 0};
+	    	for (PrediccionDTO prediccionDTO : prediccionDTOList) {
+	    		if (prediccionDTO.getPrediccion_equipo1() == prediccionDTO.getPrediccion_equipo2()) {
+	    			teamCounter[0] += 1;
+	    		} else if (prediccionDTO.getPrediccion_equipo1() > prediccionDTO.getPrediccion_equipo2()) {
+	    			teamCounter[1] += 1;
+	    		} else {
+	    			teamCounter[2] += 1;
+	    		}
+			}
+	    	
+	    	// Transform the entries of each prediction to a percentage
+	    	Integer totalEntries = teamCounter[0] + teamCounter[1] + teamCounter[2];
+	    	if ( totalEntries == 0 ) {
+	    		for (int i = 0; i < 3; i++) teamCounter[i] = 0;
+	    	} else {
+	    		// Draw is not calculated but derived, to avoid totals resulting in 99% or 98% in case Java rounding lost that %.
+	    		teamCounter[0] = 100;
+	    		for (int i = 1; i < 3; i++) {
+	        		teamCounter[i] = (teamCounter[i] * 100) /totalEntries;
+	        		teamCounter[0] -= teamCounter[i];
+	    		}
+	    	}
+	    	
+	    	// Map the percentages to the keys.
+	    	HashMap<String, Integer> stats = new HashMap<String, Integer>();
+	    	stats.put("equipo1", teamCounter[1]);
+	    	stats.put("equipo2", teamCounter[2]);
+	    	stats.put("empate", teamCounter[0]);
+	    	return stats;
+		} else {
+			return new HashMap<String, Integer>();
+		}
+	}
 }

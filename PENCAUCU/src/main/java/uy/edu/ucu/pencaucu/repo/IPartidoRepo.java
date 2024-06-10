@@ -10,5 +10,8 @@ import uy.edu.ucu.pencaucu.model.Partido;
 @Repository
 public interface IPartidoRepo extends JpaRepository<Partido, Integer>{
 
+	@SuppressWarnings("unchecked")
+	Partido save(Partido partido);
+	
 	Optional<Partido> findById(Integer id_partido);
 }
