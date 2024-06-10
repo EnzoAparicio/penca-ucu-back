@@ -87,8 +87,9 @@ public class PrediccionDAOImpl implements IPrediccionDAO{
     }
 
 	@Override
-	public List<PrediccionDTO> getPrediccionByPartido(PartidoDTO partidoDTO) {
-		Partido partido = DozerUtil.GetINSTANCE().getMapper().map(partidoDTO, Partido.class); 
+	public List<PrediccionDTO> getEstadisticaPartido(Integer id_partido) {
+		Partido partido = new Partido();
+		partido.setId_partido(id_partido);
 		return iPrediccionRepo.findAllByPartido(partido).stream()	
     			.map(prediccion -> DozerUtil.GetINSTANCE().getMapper().map(prediccion, PrediccionDTO.class))	
     			.collect(Collectors.toList());	

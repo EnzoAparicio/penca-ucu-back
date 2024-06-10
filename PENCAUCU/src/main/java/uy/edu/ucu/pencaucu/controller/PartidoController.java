@@ -1,6 +1,5 @@
 package uy.edu.ucu.pencaucu.controller;
 
-import java.util.HashMap;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -12,7 +11,6 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import uy.edu.ucu.pencaucu.dto.PartidoDTO;
-import uy.edu.ucu.pencaucu.dto.PrediccionDTO;
 import uy.edu.ucu.pencaucu.service.IPartidoService;
 import uy.edu.ucu.pencaucu.util.ResponseUtil;
 
@@ -106,25 +104,6 @@ public class PartidoController {
     			return ResponseUtil.okResponse(partidoDTOList);
     		} else {
     			return ResponseUtil.noContent();
-    		}
-    	} catch (Error e) {
-    		return ResponseUtil.internalError();
-    	}
-    }
-    
-    /**
-     * Obtiene un partido con su estadistica y un status code.
-     * @param id_partido - Id del partido a analizar.
-     * @return partido con estadisticas de ser correcto y status code.
-     */
-    @GetMapping("/partido/getEstadistica/{id_partido}")
-    public ResponseEntity<HashMap<String, Integer>> getEstadisticaPartido(@PathVariable Integer id_partido){
-    	try {
-    		HashMap<String, Integer> estadistica = iPartidoService.getEstadisticaPartido(id_partido);
-    		if (!estadistica.isEmpty()) {
-    			return ResponseUtil.okResponse(estadistica);
-    		} else {
-    			return ResponseUtil.badRequest();
     		}
     	} catch (Error e) {
     		return ResponseUtil.internalError();

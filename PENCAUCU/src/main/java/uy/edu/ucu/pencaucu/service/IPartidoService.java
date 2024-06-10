@@ -44,11 +44,4 @@ public interface IPartidoService {
      * @return Lista de PartidoDTO.
      */
     List<PartidoDTO> getAllPartido(PartidoDTO partidoDTO);
-    
-    /**
-     * Obtiene un partido con su estadistica para las predicciones.
-     * @param id_partido - Id del partido a analizar.
-     * @return partido con estadistica por equipo.
-     */
-    HashMap<String, Integer> getEstadisticaPartido(Integer id_partido);
 }
