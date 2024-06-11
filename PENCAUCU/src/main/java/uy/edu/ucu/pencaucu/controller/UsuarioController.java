@@ -22,7 +22,7 @@ public class UsuarioController {
 	private IUsuarioService iUsuarioService;
 	
 	private ResponseEntity<UsuarioDTO> checkResponse(UsuarioDTO usuario) {
-		if (usuario.getId_usuario() != null) {
+		if (usuario.getIdUsuario() != null) {
 			return ResponseUtil.okResponse(usuario);
 		} else {
 			return ResponseUtil.badRequest();
@@ -65,7 +65,7 @@ public class UsuarioController {
 	public ResponseEntity<UsuarioDTO> getUsuario(@PathVariable Integer id_usuario) {
 		try {
 			UsuarioDTO usuarioDTO = iUsuarioService.getUsuario(id_usuario);
-			if (usuarioDTO.getId_usuario() != null) {
+			if (usuarioDTO.getIdUsuario() != null) {
 				return ResponseUtil.okResponse(usuarioDTO);
 			} else {
 				return ResponseUtil.noContent();

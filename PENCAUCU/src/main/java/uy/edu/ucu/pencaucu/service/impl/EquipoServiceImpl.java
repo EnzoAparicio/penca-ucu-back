@@ -32,7 +32,7 @@ public class EquipoServiceImpl implements IEquipoService {
 	public EquipoDTO updateEquipo(EquipoDTO equipoDTO) {
 		try {
 			if(equipoDTO.getNombre() == null || equipoDTO.getColor() == null
-					|| equipoDTO.getId_equipo() == null){
+					|| equipoDTO.getIdEquipo() == null){
 				throw new Exception("Campos faltantes para actualizacion.");
 			}
 			return iEquipoDAO.updateEquipo(equipoDTO);

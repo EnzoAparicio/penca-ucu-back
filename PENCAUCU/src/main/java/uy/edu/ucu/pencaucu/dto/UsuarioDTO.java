@@ -1,12 +1,15 @@
 package uy.edu.ucu.pencaucu.dto;
 
+import java.util.List;
+
 import lombok.Data;
 import uy.edu.ucu.pencaucu.model.Carrera;
+import uy.edu.ucu.pencaucu.model.Prediccion;
 
 @Data
 public class UsuarioDTO {
 
-	private Integer id_usuario;
+	private Integer idUsuario;
 	
 	private String email;
 	
@@ -16,11 +19,11 @@ public class UsuarioDTO {
 	
 	private String apellido;
 	
-	private String avatar_path;
+	private String avatarPath;
 	
 	private Carrera carrera;
 	
-	private Boolean es_administrador;
+	private Boolean esAdministrador;
 	
-//	private List<Prediccion> predicciones;
+	private List<Prediccion> predicciones;
 }

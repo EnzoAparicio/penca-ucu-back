@@ -21,7 +21,7 @@ public class Usuario {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id_usuario")
-	private Integer id_usuario;
+	private Integer idUsuario;
 	
 	@Column(name = "email", length=100, nullable=false, unique=true)
 	private String email;
@@ -36,16 +36,16 @@ public class Usuario {
 	private String apellido;
 
 	@Column(name = "avatar_path", length=50)
-	private String avatar_path;
+	private String avatarPath;
 	
 	@ManyToOne
 	@JoinColumn(name="id_carrera", nullable=false)
 	private Carrera carrera;
 	
 	@Column(name="es_administrador")
-	private Boolean es_administrador;
+	private Boolean esAdministrador;
 	
-	@OneToMany(mappedBy = "id_usuario")
+	@OneToMany(mappedBy = "idUsuario")
 	private List<Prediccion> predicciones;
 	
 	@OneToMany(mappedBy = "usuario")

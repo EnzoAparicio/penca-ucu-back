@@ -40,7 +40,7 @@ public class EquipoDAOImpl implements IEquipoDAO {
 
 	@Override
 	public void deleteEquipo(EquipoDTO equipoDTO) {
-		iEquipoRepo.deleteById(equipoDTO.getId_equipo());
+		iEquipoRepo.deleteById(equipoDTO.getIdEquipo());
 		
 	}
 

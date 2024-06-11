@@ -3,6 +3,7 @@ package uy.edu.ucu.pencaucu.model;
 import java.util.Date;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import jakarta.persistence.Column;
@@ -27,12 +28,13 @@ public class Partido {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_partido")
-    private Integer id_partido;
+    private Integer idPartido;
 
     /**
      * Fecha del partido.
      */
     @Column(name = "fecha")
+    @JsonFormat(pattern = "yyyy-MM-dd")
     private Date fecha;
 
     /**
@@ -46,7 +48,7 @@ public class Partido {
      * Torneo al que pertenece el partido.
      */
     @Column(name = "id_torneo")
-    private Integer id_torneo;
+    private Integer idTorneo;
    
     @JsonManagedReference
     @OneToMany(mappedBy = "partido")

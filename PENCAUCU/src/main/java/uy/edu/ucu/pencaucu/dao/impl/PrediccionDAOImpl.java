@@ -30,7 +30,7 @@ public class PrediccionDAOImpl implements IPrediccionDAO{
         // Guardar el objeto prediccion en la base de datos 
         Prediccion savedPrediccion = iPrediccionRepo.save(prediccion);	
 
-        if (savedPrediccion.getId_prediccion() == null) {
+        if (savedPrediccion.getIdPrediccion() == null) {
         	return new PrediccionDTO();
         } else {
             // Mapear la entidad guardada de vuelta a DTO
@@ -72,7 +72,7 @@ public class PrediccionDAOImpl implements IPrediccionDAO{
     public PrediccionDTO updatePrediccion(PrediccionDTO prediccionDTO) {	
 		Prediccion prediccion = DozerUtil.GetINSTANCE().getMapper().map(prediccionDTO, Prediccion.class);	
 		prediccion = iPrediccionRepo.save(prediccion);
-		if (prediccion.getId_prediccion() == null) {
+		if (prediccion.getIdPrediccion() == null) {
 			return new PrediccionDTO();
 		} else {
 			return DozerUtil.GetINSTANCE().getMapper().map(iPrediccionRepo.save(prediccion), PrediccionDTO.class);
@@ -82,13 +82,13 @@ public class PrediccionDAOImpl implements IPrediccionDAO{
     @Override	
     public void deletePrediccion(PrediccionDTO prediccionDTO) {	
         // Eliminar la prediccion de la base de datos según el id indicado
-    	iPrediccionRepo.deleteById(prediccionDTO.getId_prediccion());
+    	iPrediccionRepo.deleteById(prediccionDTO.getIdPrediccion());
     }
 
 	@Override
 	public List<PrediccionDTO> getEstadisticaPartido(Integer id_partido) {
 		Partido partido = new Partido();
-		partido.setId_partido(id_partido);
+		partido.setIdPartido(id_partido);
 		return iPrediccionRepo.findAllByPartido(partido).stream()	
     			.map(prediccion -> DozerUtil.GetINSTANCE().getMapper().map(prediccion, PrediccionDTO.class))	
     			.collect(Collectors.toList());	

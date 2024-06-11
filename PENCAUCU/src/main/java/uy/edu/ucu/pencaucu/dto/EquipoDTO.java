@@ -5,11 +5,11 @@ import lombok.Data;
 @Data
 public class EquipoDTO {
 
-	private Integer id_equipo;
+	private Integer idEquipo;
 	
 	private String nombre;
 	
-	private String img_bandera;
+	private String imgBandera;
 	
 	private String color;
 }

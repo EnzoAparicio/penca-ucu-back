@@ -1,7 +1,9 @@
 package uy.edu.ucu.pencaucu.dao;
 
+import java.util.Date;
 import java.util.List;
 import uy.edu.ucu.pencaucu.dto.PartidoDTO;
+import uy.edu.ucu.pencaucu.dto.TorneoDTO;
 
 public interface IPartidoDAO {
 
@@ -50,4 +52,22 @@ public interface IPartidoDAO {
      * @return Lista de PartidoDTO.
      */
     List<PartidoDTO> getAllPartidoByFilter(PartidoDTO partidoDTO);
+
+    /**
+     * Obtiene todos los partidos ya finalizados de un torneo en la fecha ingresada.
+     * 
+     * @param date - fecha de comparacion.
+     * @param torneoDTO - torneo a buscar.
+     * @return Lista de partidos que coincidan.
+     */
+    List<PartidoDTO> getAllFinishedPartido(Date date, TorneoDTO torneoDTO);
+    
+    /**
+     * Obtiene todos los partidos aun no finalizados de un torneo en la fecha ingresada.
+     * 
+     * @param date - fecha de comparacion.
+     * @param torneoDTO - torneo a buscar.
+     * @return Lista de partidos que coincidan.
+     */
+    List<PartidoDTO> getAllFuturePartido(Date date, TorneoDTO torneoDTO);
 }

@@ -6,13 +6,13 @@ import uy.edu.ucu.pencaucu.model.Partido;
 @Data	
 public class PrediccionDTO {	
 
-    private Integer id_prediccion;	
+    private Integer idPrediccion;	
 
-    private Integer prediccion_equipo1;	
+    private Integer prediccionEquipo1;	
 
-    private Integer prediccion_equipo2;		
+    private Integer prediccionEquipo2;		
     
     private Partido partido;
 
-    private Integer id_usuario;
+    private Integer idUsuario;
 }

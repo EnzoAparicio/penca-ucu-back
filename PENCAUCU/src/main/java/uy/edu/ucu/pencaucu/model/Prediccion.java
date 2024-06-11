@@ -18,18 +18,18 @@ public class Prediccion {
     @Id	
 	@GeneratedValue(strategy = GenerationType.IDENTITY)	
 	@Column(name = "id_prediccion")	
-	private Integer id_prediccion;	
+	private Integer idPrediccion;	
 
     @Column(name = "prediccion_equipo1")	
-	private Integer prediccion_equipo1;	
+	private Integer prediccionEquipo1;	
 
     @Column(name = "prediccion_equipo2")	
-    private Integer prediccion_equipo2;	
+    private Integer prediccionEquipo2;	
 
     @ManyToOne
     @JoinColumn(name = "id_partido")
     private Partido partido;
 
     @Column(name = "id_usuario")
-    private Integer id_usuario;
+    private Integer idUsuario;
 }

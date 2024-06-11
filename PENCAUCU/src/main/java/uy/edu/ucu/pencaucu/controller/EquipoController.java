@@ -23,7 +23,7 @@ public class EquipoController {
 	IEquipoService iEquipoService;
 	
 	private ResponseEntity<EquipoDTO> checkResponse(EquipoDTO equipo) {
-		if (equipo.getId_equipo() != null) {
+		if (equipo.getIdEquipo() != null) {
 			return ResponseUtil.okResponse(equipo);
 		} else {
 			return ResponseUtil.badRequest();
@@ -82,7 +82,7 @@ public class EquipoController {
 	public ResponseEntity<EquipoDTO> getEquipo(@PathVariable Integer id_equipo) {
 		try {
 			EquipoDTO equipoDTO = iEquipoService.getEquipo(id_equipo);
-			if (equipoDTO.getId_equipo() != null) {
+			if (equipoDTO.getIdEquipo() != null) {
 				return ResponseUtil.okResponse(equipoDTO);
 			} else {
 				return ResponseUtil.noContent();

@@ -34,7 +34,7 @@ public class UsuarioDAOImpl implements IUsuarioDAO {
 	    // Guardar el objeto usuario en la base de datos
 	    Usuario savedUsuario = iUsuarioRepo.save(usuario);
 	    
-	    if(savedUsuario.getId_usuario() == null) {
+	    if(savedUsuario.getIdUsuario() == null) {
 	    	return new UsuarioDTO();
 	    } else {
 		    // Mapear la entidad guardada de vuelta a DTO
@@ -66,14 +66,14 @@ public class UsuarioDAOImpl implements IUsuarioDAO {
 	public UsuarioDTO updateUsuario(UsuarioDTO usuarioDTO) {
 		Usuario usuarioBD = iUsuarioRepo.findById(usuarioDTO.getId_usuario()).get();
 		
-		if (usuarioBD.getId_usuario() == null) return new UsuarioDTO();
+		if (usuarioBD.getIdUsuario() == null) return new UsuarioDTO();
 		
 		usuarioDTO.setContrasenia(HasherUtil.encode(usuarioDTO.getContrasenia()));
 		Usuario usuarioActualizado = DozerUtil.GetINSTANCE().getMapper().map(usuarioDTO, Usuario.class);
 		
 		usuarioActualizado = iUsuarioRepo.save(usuarioActualizado);
 		
-		if (usuarioActualizado.getId_usuario() == null) {
+		if (usuarioActualizado.getIdUsuario() == null) {
 			return new UsuarioDTO();
 		} else {
 			return DozerUtil.GetINSTANCE().getMapper().map(usuarioActualizado, UsuarioDTO.class);

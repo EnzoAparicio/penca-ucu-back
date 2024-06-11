@@ -1,10 +1,12 @@
 package uy.edu.ucu.pencaucu.service.impl;
 
+import java.util.Date;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import uy.edu.ucu.pencaucu.dao.IPartidoDAO;
 import uy.edu.ucu.pencaucu.dto.PartidoDTO;
+import uy.edu.ucu.pencaucu.dto.TorneoDTO;
 import uy.edu.ucu.pencaucu.service.IPartidoService;
 
 @Service
@@ -70,4 +72,28 @@ public class PartidoServiceImpl implements IPartidoService {
             return iPartidoDAO.getAllPartidoByFilter(partidoDTO);
         }
     }
+
+    /**
+     * Obtiene todos los partidos ya finalizados de un torneo en la fecha ingresada.
+     * 
+     * @param date - fecha de comparacion.
+     * @param torneoDTO - torneo a buscar.
+     * @return Lista de partidos que coincidan.
+     */
+	@Override
+	public List<PartidoDTO> getAllFinishedPartido(Date date, TorneoDTO torneoDTO) {
+		return iPartidoDAO.getAllFinishedPartido(date, torneoDTO);
+	}
+
+    /**
+     * Obtiene todos los partidos aun no finalizados de un torneo en la fecha ingresada.
+     * 
+     * @param date - fecha de comparacion.
+     * @param torneoDTO - torneo a buscar.
+     * @return Lista de partidos que coincidan.
+     */
+	@Override
+	public List<PartidoDTO> getAllFuturePartido(Date date, TorneoDTO torneoDTO) {
+		return iPartidoDAO.getAllFuturePartido(date, torneoDTO);
+	}
 }

@@ -23,7 +23,7 @@ public class TorneoController {
 	ITorneoService iTorneoService;
 	
 	private ResponseEntity<TorneoDTO> checkResponse(TorneoDTO torneo) {
-		if (torneo.getId_torneo() != null) {
+		if (torneo.getIdTorneo() != null) {
 			return ResponseUtil.okResponse(torneo);
 		} else {
 			return ResponseUtil.badRequest();
@@ -83,7 +83,7 @@ public class TorneoController {
 	public ResponseEntity<TorneoDTO> getTorneo(@PathVariable Integer id_torneo) {
 		try {
 			TorneoDTO torneoDTO = iTorneoService.getTorneo(id_torneo);
-			if (torneoDTO.getId_torneo() != null) {
+			if (torneoDTO.getIdTorneo() != null) {
 				return ResponseUtil.okResponse(torneoDTO);
 			} else {
 				return ResponseUtil.noContent();

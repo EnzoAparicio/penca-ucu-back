@@ -1,5 +1,6 @@
 package uy.edu.ucu.pencaucu.dao.impl;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -8,6 +9,7 @@ import org.springframework.data.domain.Example;
 import org.springframework.stereotype.Repository;
 import uy.edu.ucu.pencaucu.dao.IPartidoDAO;
 import uy.edu.ucu.pencaucu.dto.PartidoDTO;
+import uy.edu.ucu.pencaucu.dto.TorneoDTO;
 import uy.edu.ucu.pencaucu.model.EquipoPartido;
 import uy.edu.ucu.pencaucu.model.Partido;
 import uy.edu.ucu.pencaucu.repo.IEquipoPartidoRepo;
@@ -34,7 +36,7 @@ public class PartidoDAOImpl implements IPartidoDAO {
         Partido partido = DozerUtil.GetINSTANCE().getMapper().map(partidoDTO, Partido.class);
         Partido savedPartido = iPartidoRepo.save(partido);
         
-        if (savedPartido.getId_partido() == null) {
+        if (savedPartido.getIdPartido() == null) {
         	return new PartidoDTO();
         } else {
         	for (EquipoPartido equipoPartido : partidoDTO.getEquipos()) {
@@ -55,12 +57,12 @@ public class PartidoDAOImpl implements IPartidoDAO {
      */
     @Override
     public PartidoDTO updatePartido(PartidoDTO partidoDTO) {
-        Partido partidoBD = iPartidoRepo.findById(partidoDTO.getId_partido()).orElse(null);
+        Partido partidoBD = iPartidoRepo.findById(partidoDTO.getIdPartido()).orElse(null);
         if (partidoBD == null) return new PartidoDTO();
         
         Partido partido = DozerUtil.GetINSTANCE().getMapper().map(partidoDTO, Partido.class);
         partido = iPartidoRepo.save(partido);
-        if (partido.getId_partido() == null) {
+        if (partido.getIdPartido() == null) {
         	return new PartidoDTO();
         } else {
         	return DozerUtil.GetINSTANCE().getMapper().map(partido, PartidoDTO.class);
@@ -74,7 +76,7 @@ public class PartidoDAOImpl implements IPartidoDAO {
      */
     @Override
     public void deletePartido(PartidoDTO partidoDTO) {
-        iPartidoRepo.deleteById(partidoDTO.getId_partido());
+        iPartidoRepo.deleteById(partidoDTO.getIdPartido());
     }
 
     /**
@@ -118,4 +120,19 @@ public class PartidoDAOImpl implements IPartidoDAO {
                 .map(partido -> DozerUtil.GetINSTANCE().getMapper().map(partido, PartidoDTO.class))
                 .collect(Collectors.toList());
     }
+
+    
+	@Override
+	public List<PartidoDTO> getAllFinishedPartido(Date date, TorneoDTO torneoDTO) {
+		return iPartidoRepo.findByIdTorneoAndFechaLessThan(torneoDTO.getIdTorneo(), date).stream()
+                .map(partido -> DozerUtil.GetINSTANCE().getMapper().map(partido, PartidoDTO.class))
+                .collect(Collectors.toList());
+	}
+
+	@Override
+	public List<PartidoDTO> getAllFuturePartido(Date date, TorneoDTO torneoDTO) {
+		return iPartidoRepo.findByIdTorneoAndFechaGreaterThan(torneoDTO.getIdTorneo(), date).stream()
+                .map(partido -> DozerUtil.GetINSTANCE().getMapper().map(partido, PartidoDTO.class))
+                .collect(Collectors.toList());
+	}
 }
