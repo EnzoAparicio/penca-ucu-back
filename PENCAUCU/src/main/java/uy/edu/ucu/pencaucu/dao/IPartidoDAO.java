@@ -60,7 +60,7 @@ public interface IPartidoDAO {
      * @param torneoDTO - torneo a buscar.
      * @return Lista de partidos que coincidan.
      */
-    List<PartidoDTO> getAllFinishedPartido(Date date, TorneoDTO torneoDTO);
+    List<PartidoDTO> getAllFinishedPartido(Date date, Integer idTorneo);
     
     /**
      * Obtiene todos los partidos aun no finalizados de un torneo en la fecha ingresada.
@@ -69,5 +69,5 @@ public interface IPartidoDAO {
      * @param torneoDTO - torneo a buscar.
      * @return Lista de partidos que coincidan.
      */
-    List<PartidoDTO> getAllFuturePartido(Date date, TorneoDTO torneoDTO);
+    List<PartidoDTO> getAllFuturePartido(Date date, Integer idTorneo);
 }

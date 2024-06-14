@@ -123,15 +123,15 @@ public class PartidoDAOImpl implements IPartidoDAO {
 
     
 	@Override
-	public List<PartidoDTO> getAllFinishedPartido(Date date, TorneoDTO torneoDTO) {
-		return iPartidoRepo.findByIdTorneoAndFechaLessThan(torneoDTO.getIdTorneo(), date).stream()
+	public List<PartidoDTO> getAllFinishedPartido(Date date, Integer idTorneo) {
+		return iPartidoRepo.findByIdTorneoAndFechaLessThan(idTorneo, date).stream()
                 .map(partido -> DozerUtil.GetINSTANCE().getMapper().map(partido, PartidoDTO.class))
                 .collect(Collectors.toList());
 	}
 
 	@Override
-	public List<PartidoDTO> getAllFuturePartido(Date date, TorneoDTO torneoDTO) {
-		return iPartidoRepo.findByIdTorneoAndFechaGreaterThan(torneoDTO.getIdTorneo(), date).stream()
+	public List<PartidoDTO> getAllFuturePartido(Date date, Integer idTorneo) {
+		return iPartidoRepo.findByIdTorneoAndFechaGreaterThan(idTorneo, date).stream()
                 .map(partido -> DozerUtil.GetINSTANCE().getMapper().map(partido, PartidoDTO.class))
                 .collect(Collectors.toList());
 	}

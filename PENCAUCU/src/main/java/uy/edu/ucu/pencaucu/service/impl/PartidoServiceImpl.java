@@ -81,8 +81,8 @@ public class PartidoServiceImpl implements IPartidoService {
      * @return Lista de partidos que coincidan.
      */
 	@Override
-	public List<PartidoDTO> getAllFinishedPartido(Date date, TorneoDTO torneoDTO) {
-		return iPartidoDAO.getAllFinishedPartido(date, torneoDTO);
+	public List<PartidoDTO> getAllFinishedPartido(Date date, Integer idTorneo) {
+		return iPartidoDAO.getAllFinishedPartido(date, idTorneo);
 	}
 
     /**
@@ -93,7 +93,7 @@ public class PartidoServiceImpl implements IPartidoService {
      * @return Lista de partidos que coincidan.
      */
 	@Override
-	public List<PartidoDTO> getAllFuturePartido(Date date, TorneoDTO torneoDTO) {
-		return iPartidoDAO.getAllFuturePartido(date, torneoDTO);
+	public List<PartidoDTO> getAllFuturePartido(Date date, Integer idTorneo) {
+		return iPartidoDAO.getAllFuturePartido(date, idTorneo);
 	}
 }

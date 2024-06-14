@@ -34,7 +34,6 @@ public class Partido {
      * Fecha del partido.
      */
     @Column(name = "fecha")
-    @JsonFormat(pattern = "yyyy-MM-dd")
     private Date fecha;
 
     /**

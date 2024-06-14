@@ -119,9 +119,9 @@ public class PartidoController {
      * @return Lista de partidos que coincidan.
      */
     @GetMapping("/partido/getAllFinished")
-    public ResponseEntity<List<PartidoDTO>> getAllFinishedPartido(@RequestBody Date date, TorneoDTO torneoDTO) {
+    public ResponseEntity<List<PartidoDTO>> getAllFinishedPartido(@RequestBody PartidoDTO partidoDTO) {
     	try {
-    		List<PartidoDTO> partidoDTOList = iPartidoService.getAllFinishedPartido(date, torneoDTO);
+    		List<PartidoDTO> partidoDTOList = iPartidoService.getAllFinishedPartido(partidoDTO.getFecha(), partidoDTO.getIdTorneo());
     		if ( !partidoDTOList.isEmpty() ) {
     			return ResponseUtil.okResponse(partidoDTOList);
     		} else {
@@ -140,9 +140,9 @@ public class PartidoController {
      * @return Lista de partidos que coincidan.
      */
     @GetMapping("/partido/getAllFuture")
-    public ResponseEntity<List<PartidoDTO>> getAllFuturePartido(@RequestBody Date date, TorneoDTO torneoDTO) {
+    public ResponseEntity<List<PartidoDTO>> getAllFuturePartido(@RequestBody PartidoDTO partidoDTO) {
     	try {
-    		List<PartidoDTO> partidoDTOList = iPartidoService.getAllFuturePartido(date, torneoDTO);
+    		List<PartidoDTO> partidoDTOList = iPartidoService.getAllFuturePartido(partidoDTO.getFecha(), partidoDTO.getIdTorneo());
     		if ( !partidoDTOList.isEmpty() ) {
     			return ResponseUtil.okResponse(partidoDTOList);
     		} else {
