@@ -54,9 +54,9 @@ public class PrediccionServiceImpl implements IPrediccionService {
 			// Assigns a counter with [0] = draw, [1] winner1, [2] winner2
 	    	Integer[] teamCounter = {0, 0, 0};
 	    	for (PrediccionDTO prediccionDTO : prediccionDTOList) {
-	    		if (prediccionDTO.getPrediccion_equipo1() == prediccionDTO.getPrediccion_equipo2()) {
+	    		if (prediccionDTO.getPrediccionEquipo1() == prediccionDTO.getPrediccionEquipo2()) {
 	    			teamCounter[0] += 1;
-	    		} else if (prediccionDTO.getPrediccion_equipo1() > prediccionDTO.getPrediccion_equipo2()) {
+	    		} else if (prediccionDTO.getPrediccionEquipo1() > prediccionDTO.getPrediccionEquipo2()) {
 	    			teamCounter[1] += 1;
 	    		} else {
 	    			teamCounter[2] += 1;

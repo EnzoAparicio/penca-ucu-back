@@ -19,7 +19,7 @@ public class Estadio {
     @Id
     @Column(name = "id_estadio")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id_estadio;
+    private Integer idEstadio;
 
     /**
      * Nombre del estadio.

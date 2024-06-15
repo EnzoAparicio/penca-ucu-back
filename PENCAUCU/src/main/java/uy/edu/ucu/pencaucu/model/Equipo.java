@@ -16,13 +16,13 @@ public class Equipo {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id_equipo")
-	private Integer id_equipo;
+	private Integer idEquipo;
 	
 	@Column(name = "nombre", length = 50, nullable = false)
 	private String nombre;
 	
 	@Column(name = "img_bandera")
-	private String img_bandera;
+	private String imgBandera;
 	
 	@Column(name = "color", length = 12, nullable = false)
 	private String color;

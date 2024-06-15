@@ -40,7 +40,7 @@ public class TorneoDAOImpl implements ITorneoDAO {
 
 	@Override
 	public void deleteTorneo(TorneoDTO torneoDTO) {
-		iTorneoRepo.deleteById(torneoDTO.getId_torneo());
+		iTorneoRepo.deleteById(torneoDTO.getIdTorneo());
 		
 	}
 

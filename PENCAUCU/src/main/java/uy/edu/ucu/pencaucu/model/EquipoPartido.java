@@ -20,7 +20,7 @@ public class EquipoPartido {
 	@Id
 	@Column(name = "id_equipo_partido")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer id_equipo_partido;
+	private Integer idEquipoPartido;
 	
 	@JsonBackReference
 	@ManyToOne
@@ -33,5 +33,8 @@ public class EquipoPartido {
 	
 	// Asocia un numero al equipo (1 o 2) para relacionarlo con las predicciones.
 	@Column(name = "tipo_equipo")
-	private Integer tipo_equipo;
+	private Integer tipoEquipo;
+	
+	@Column(name = "resultado")
+	private Integer resultado;
 }

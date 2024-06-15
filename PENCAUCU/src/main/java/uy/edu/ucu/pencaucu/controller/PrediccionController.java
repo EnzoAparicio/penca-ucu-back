@@ -24,7 +24,7 @@ public class PrediccionController {
     private IPrediccionService iPrediccionService;	
     
     private ResponseEntity<PrediccionDTO> checkResponse(PrediccionDTO prediccion) {
-		if (prediccion.getId_prediccion() != null) {
+		if (prediccion.getIdPrediccion() != null) {
 			return ResponseUtil.okResponse(prediccion);
 		} else {
 			return ResponseUtil.badRequest();
@@ -49,7 +49,7 @@ public class PrediccionController {
     public ResponseEntity<PrediccionDTO> getPrediccion(@PathVariable Integer id_prediccion) {
     	try {
     		PrediccionDTO prediccionDTO = iPrediccionService.getPrediccion(id_prediccion);
-    		if (prediccionDTO.getId_prediccion() != null) {
+    		if (prediccionDTO.getIdPrediccion() != null) {
     			return ResponseUtil.okResponse(prediccionDTO);
     		} else {
     			return ResponseUtil.noContent();

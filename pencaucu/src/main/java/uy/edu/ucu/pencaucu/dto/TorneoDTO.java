@@ -9,7 +9,7 @@ import uy.edu.ucu.pencaucu.model.Partido;
 @Data
 public class TorneoDTO {
 	
-	private Integer id_torneo;
+	private Integer idTorneo;
 	
 	private String nombre;
 	

@@ -21,7 +21,7 @@ public class Torneo {
 	@Id 
 	@Column(name="id_torneo")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer id_torneo;
+	private Integer idTorneo;
 	
 	@Column (name="nombre", length=100, nullable=false)
 	private String nombre;
@@ -30,6 +30,6 @@ public class Torneo {
 	private String anio;
 	
 	@JsonManagedReference
-	@OneToMany(mappedBy = "id_torneo")
+	@OneToMany(mappedBy = "idTorneo")
 	private List<Partido> partidos;
 }
