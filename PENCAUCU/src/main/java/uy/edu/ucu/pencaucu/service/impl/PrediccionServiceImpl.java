@@ -21,7 +21,7 @@ import uy.edu.ucu.pencaucu.service.IPrediccionService;
 public class PrediccionServiceImpl implements IPrediccionService {
 
 	private static final int EXACT_RESULT_POINTS = 4;
-	private static final int CORRECT_RESULT_POINTS = 4;
+	private static final int CORRECT_RESULT_POINTS = 2;
 	
 	@Autowired
 	IPrediccionDAO iPrediccionDAO;
@@ -135,8 +135,10 @@ public class PrediccionServiceImpl implements IPrediccionService {
 			usuarioDTO.setIdUsuario(prediccionDTO.getIdUsuario());
 			TorneoUsuarioDTO torneoUsuarioDTO = iTorneoUsuarioDAO.getByTorneoAndUsuario(torneoDTO, usuarioDTO);
 			
+			
 			// Update entity with new points.
-			torneoUsuarioDTO.setPuntos((pointsToAssign - startingPointsSecurity) + torneoUsuarioDTO.getPuntos());
+			Integer currentPoints = torneoUsuarioDTO.getPuntos() == null ? 0 : torneoUsuarioDTO.getPuntos();
+			torneoUsuarioDTO.setPuntos((pointsToAssign - startingPointsSecurity) + currentPoints);
 			iTorneoUsuarioDAO.updateTorneoUsuario(torneoUsuarioDTO);
 		}
 	}
