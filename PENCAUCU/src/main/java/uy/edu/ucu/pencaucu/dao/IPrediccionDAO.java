@@ -2,6 +2,7 @@ package uy.edu.ucu.pencaucu.dao;
 
 import java.util.List;
 
+import uy.edu.ucu.pencaucu.dto.PartidoDTO;
 import uy.edu.ucu.pencaucu.dto.PrediccionDTO;	
 
 public interface IPrediccionDAO {	
@@ -19,5 +20,7 @@ public interface IPrediccionDAO {
         void deletePrediccion (PrediccionDTO prediccionDTO);	
         
         List<PrediccionDTO> getEstadisticaPartido(Integer id_partido);
+        
+        List<PrediccionDTO> getAllPrediccionByPartido(PartidoDTO partidoDTO);
 }
 

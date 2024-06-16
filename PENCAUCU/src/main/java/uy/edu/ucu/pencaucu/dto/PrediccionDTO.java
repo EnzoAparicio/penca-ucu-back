@@ -15,4 +15,6 @@ public class PrediccionDTO {
     private Partido partido;
 
     private Integer idUsuario;
+    
+    private Integer puntos;
 }

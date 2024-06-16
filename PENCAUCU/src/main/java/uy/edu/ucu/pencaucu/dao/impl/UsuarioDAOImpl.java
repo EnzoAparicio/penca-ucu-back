@@ -64,7 +64,7 @@ public class UsuarioDAOImpl implements IUsuarioDAO {
 
 	@Override
 	public UsuarioDTO updateUsuario(UsuarioDTO usuarioDTO) {
-		Usuario usuarioBD = iUsuarioRepo.findById(usuarioDTO.getId_usuario()).get();
+		Usuario usuarioBD = iUsuarioRepo.findById(usuarioDTO.getIdUsuario()).get();
 		
 		if (usuarioBD.getIdUsuario() == null) return new UsuarioDTO();
 		
@@ -82,7 +82,7 @@ public class UsuarioDAOImpl implements IUsuarioDAO {
 
 	@Override
 	public void deleteUsuario(UsuarioDTO usuarioDTO) {
-		iUsuarioRepo.deleteById(usuarioDTO.getId_usuario());
+		iUsuarioRepo.deleteById(usuarioDTO.getIdUsuario());
 	}
 
 	@Override
