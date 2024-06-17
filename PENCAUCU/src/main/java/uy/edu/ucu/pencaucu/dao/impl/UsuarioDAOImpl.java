@@ -20,51 +20,10 @@ public class UsuarioDAOImpl implements IUsuarioDAO {
 
 	@Autowired
 	private IUsuarioRepo iUsuarioRepo;
-	
-	@Override
-	public UsuarioDTO createUsuario(UsuarioDTO usuarioDTO) {
-		
-		// Usar Dozer para mapear DTO a entidad
-	    Usuario usuario = DozerUtil.GetINSTANCE().getMapper().map(usuarioDTO, Usuario.class);
-	    
-	    usuario.setContrasenia(
-	    		HasherUtil.encode(usuario.getContrasenia())
-	    		);
-	    		
-	    // Guardar el objeto usuario en la base de datos
-	    Usuario savedUsuario = iUsuarioRepo.save(usuario);
-	    
-	    if(savedUsuario.getIdUsuario() == null) {
-	    	return new UsuarioDTO();
-	    } else {
-		    // Mapear la entidad guardada de vuelta a DTO
-		    return DozerUtil.GetINSTANCE().getMapper().map(savedUsuario, UsuarioDTO.class);
-	    }
-	}
-	
-	@Override
-	public UsuarioDTO loginUsuario(UsuarioDTO usuarioDTO) {
-		
-		// Usar Dozer para mapear DTO a entidad
-		// En la entidad logger queda el usuario asociado al mail que se ingreso.
-		UsuarioDTO logger = DozerUtil.GetINSTANCE().getMapper().map
-				(iUsuarioRepo.findByEmail(usuarioDTO.getEmail()).get(), UsuarioDTO.class);
-	
-		// Si no encuentra un mail asociado devuelve falso y un mensaje a consola de usuario no existente.
-		if(logger == null) return new UsuarioDTO();
-		
-
-		// Hace la verificacion de hashing entre la contraseña provista y la ingresada a la hora del registro.
-		if(HasherUtil.verify(usuarioDTO.getContrasenia(), logger.getContrasenia())) {
-			
-			return logger;
-		}
-		return new UsuarioDTO();
-	}
 
 	@Override
 	public UsuarioDTO updateUsuario(UsuarioDTO usuarioDTO) {
-		Usuario usuarioBD = iUsuarioRepo.findById(usuarioDTO.getId_usuario()).get();
+		Usuario usuarioBD = iUsuarioRepo.findById(usuarioDTO.getIdUsuario()).get();
 		
 		if (usuarioBD.getIdUsuario() == null) return new UsuarioDTO();
 		
@@ -82,7 +41,7 @@ public class UsuarioDAOImpl implements IUsuarioDAO {
 
 	@Override
 	public void deleteUsuario(UsuarioDTO usuarioDTO) {
-		iUsuarioRepo.deleteById(usuarioDTO.getId_usuario());
+		iUsuarioRepo.deleteById(usuarioDTO.getIdUsuario());
 	}
 
 	@Override

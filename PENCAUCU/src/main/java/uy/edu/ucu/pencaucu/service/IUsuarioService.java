@@ -5,10 +5,6 @@ import java.util.List;
 import uy.edu.ucu.pencaucu.dto.UsuarioDTO;
 
 public interface IUsuarioService {
-
-	UsuarioDTO createUsuario(UsuarioDTO usuarioDTO);
-	
-	UsuarioDTO loginUsuario(UsuarioDTO usuarioDTO);
 	
 	UsuarioDTO updateUsuario(UsuarioDTO usuarioDTO);
 	

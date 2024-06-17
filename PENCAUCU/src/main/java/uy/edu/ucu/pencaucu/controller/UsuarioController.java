@@ -7,7 +7,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -26,24 +25,6 @@ public class UsuarioController {
 			return ResponseUtil.okResponse(usuario);
 		} else {
 			return ResponseUtil.badRequest();
-		}
-	}
-	
-	@PostMapping("/usuario/create") // Enviar un json con los atributos de un usuario y sus respectivos valores.
-	public ResponseEntity<UsuarioDTO> createUsuario(@RequestBody UsuarioDTO usuarioDTO) {
-		try {
-			return checkResponse(iUsuarioService.createUsuario(usuarioDTO)); 
-		} catch (Error e) {
-			return ResponseUtil.internalError();
-		}
-	}
-
-	@PostMapping("/usuario/login") // Enviar un json con los atributos para logear y sus valores.
-	public ResponseEntity<UsuarioDTO> loginUsuario(@RequestBody UsuarioDTO usuarioDTO) {
-		try {
-			return checkResponse(iUsuarioService.loginUsuario(usuarioDTO));
-		} catch (Error e) {
-			return ResponseUtil.internalError();
 		}
 	}
 

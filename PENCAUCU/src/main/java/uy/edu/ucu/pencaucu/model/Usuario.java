@@ -1,6 +1,11 @@
 package uy.edu.ucu.pencaucu.model;
 
+import java.util.Collection;
 import java.util.List;
+
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -16,7 +21,7 @@ import lombok.Data;
 @Data
 @Entity
 @Table(name = "usuario")
-public class Usuario {
+public class Usuario implements UserDetails {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -50,4 +55,39 @@ public class Usuario {
 	
 	@OneToMany(mappedBy = "usuario")
 	private List<TorneoUsuario> torneos;
+
+	@Override
+	public Collection<? extends GrantedAuthority> getAuthorities() {
+		return List.of(new SimpleGrantedAuthority(this.getEsAdministrador().toString()));
+	}
+
+	@Override
+	public String getPassword() {
+		return this.getContrasenia();
+	}
+
+	@Override
+	public String getUsername() {
+		return this.getEmail();
+	}
+	
+	@Override
+	public boolean isAccountNonExpired() {
+		return true;
+	}
+	
+	@Override
+	public boolean isAccountNonLocked() {
+		return true;
+	}
+	
+	@Override
+	public boolean isCredentialsNonExpired() {
+		return true;
+	}
+	
+	@Override
+	public boolean isEnabled() {
+		return true;
+	}
 }

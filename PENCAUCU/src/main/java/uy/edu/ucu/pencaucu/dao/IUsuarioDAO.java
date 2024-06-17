@@ -5,11 +5,6 @@ import java.util.List;
 import uy.edu.ucu.pencaucu.dto.UsuarioDTO;
 
 public interface IUsuarioDAO {
-
-	
-	UsuarioDTO createUsuario(UsuarioDTO usuarioDTO);
-	
-	UsuarioDTO loginUsuario(UsuarioDTO usuarioDTO);
 	
 	/**
 	 * Actualiza un Usuario en la Base de Datos.
