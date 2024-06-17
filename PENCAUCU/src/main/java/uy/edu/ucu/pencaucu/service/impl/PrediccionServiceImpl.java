@@ -7,15 +7,27 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import uy.edu.ucu.pencaucu.dao.IPrediccionDAO;
+import uy.edu.ucu.pencaucu.dao.ITorneoUsuarioDAO;
+import uy.edu.ucu.pencaucu.dto.PartidoDTO;
 import uy.edu.ucu.pencaucu.dto.PrediccionDTO;
+import uy.edu.ucu.pencaucu.dto.TorneoDTO;
+import uy.edu.ucu.pencaucu.dto.TorneoUsuarioDTO;
+import uy.edu.ucu.pencaucu.dto.UsuarioDTO;
+import uy.edu.ucu.pencaucu.model.EquipoPartido;
 import uy.edu.ucu.pencaucu.service.IPrediccionService;
 
 
 @Service
 public class PrediccionServiceImpl implements IPrediccionService {
 
+	private static final int EXACT_RESULT_POINTS = 4;
+	private static final int CORRECT_RESULT_POINTS = 2;
+	
 	@Autowired
 	IPrediccionDAO iPrediccionDAO;
+	
+	@Autowired
+	ITorneoUsuarioDAO iTorneoUsuarioDAO;
 		
 	@Override
 	public PrediccionDTO createPrediccion(PrediccionDTO prediccionDTO) {
@@ -84,6 +96,50 @@ public class PrediccionServiceImpl implements IPrediccionService {
 	    	return stats;
 		} else {
 			return new HashMap<String, Integer>();
+		}
+	}
+
+	@Override
+	public void checkResultado(PartidoDTO partidoDTO) {	
+		Integer[] result = {0, 0};
+		for ( EquipoPartido equipoPartido : partidoDTO.getEquipos()) {
+			// TipoEquipo equals 1 or 2, so we deduct 1 to equal array position [0-1]
+			result[equipoPartido.getTipoEquipo() - 1] = equipoPartido.getResultado();
+		}
+		
+		List<PrediccionDTO> prediccionDTOList = iPrediccionDAO.getAllPrediccionByPartido(partidoDTO);
+		for (PrediccionDTO prediccionDTO : prediccionDTOList) {
+			// Make sure the points are not already assigned and, if so, update them.
+			Integer startingPointsSecurity = prediccionDTO.getPuntos();
+			startingPointsSecurity = startingPointsSecurity == null ? 0 : startingPointsSecurity;
+			
+			// Assign the corresponding points.
+			Integer[] userResult = {prediccionDTO.getPrediccionEquipo1(), prediccionDTO.getPrediccionEquipo2()};
+			Integer pointsToAssign = 0;
+			if (userResult[0] == result[0] && userResult[1] == result[1]) {
+				pointsToAssign += EXACT_RESULT_POINTS;
+			} else if(userResult[0] > userResult[1] && result[0] > result[1]
+					|| userResult[0] < userResult[1] && result[0] < result[1]
+					|| userResult[0] == userResult[1] && result[0] == result[1]) {
+				pointsToAssign += CORRECT_RESULT_POINTS;
+			}
+			
+			// Update prediccion with new points.
+			prediccionDTO.setPuntos(pointsToAssign);
+			iPrediccionDAO.updatePrediccion(prediccionDTO);
+			
+			// Get TorneoUsuario entity to get current points.
+			TorneoDTO torneoDTO = new TorneoDTO();
+			torneoDTO.setIdTorneo(prediccionDTO.getPartido().getIdTorneo());
+			UsuarioDTO usuarioDTO = new UsuarioDTO();
+			usuarioDTO.setIdUsuario(prediccionDTO.getIdUsuario());
+			TorneoUsuarioDTO torneoUsuarioDTO = iTorneoUsuarioDAO.getByTorneoAndUsuario(torneoDTO, usuarioDTO);
+			
+			
+			// Update entity with new points.
+			Integer currentPoints = torneoUsuarioDTO.getPuntos() == null ? 0 : torneoUsuarioDTO.getPuntos();
+			torneoUsuarioDTO.setPuntos((pointsToAssign - startingPointsSecurity) + currentPoints);
+			iTorneoUsuarioDAO.updateTorneoUsuario(torneoUsuarioDTO);
 		}
 	}
 }

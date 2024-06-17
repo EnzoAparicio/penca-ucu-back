@@ -1,9 +1,9 @@
 {
 	"info": {
-		"_postman_id": "11c92636-3bf9-42b6-ab41-b19644e48582",
+		"_postman_id": "85bae28d-eca8-4ac2-9194-5a19a6fa5ed2",
 		"name": "PencaUCU",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "33405599"
+		"_exporter_id": "27613618"
 	},
 	"item": [
 		{
@@ -16,7 +16,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"nombre\": \"Peñarol\",\n    \"img_bandera\": \"banderas/Peñarol.png\",\n    \"color\": \"#000000\"\n}",
+							"raw": "{\n    \"nombre\": \"Peñarol\",\n    \"imgBandera\": \"banderas/Peñarol.png\",\n    \"color\": \"#000000\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -70,7 +70,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"nombre\": \"Franco\",\n    \"apellido\": \"Bascialla\",\n    \"avatar_path\": \"avatars/francoPath\",\n    \"carrera\": {\n        \"id_carrera\": 1\n    },\n    \"email\": \"franco@bascialla.com\",\n    \"contrasenia\": \"hashCode\",\n    \"es_administrador\": false\n}",
+							"raw": "{\n    \"nombre\": \"Franco\",\n    \"apellido\": \"Bascialla\",\n    \"avatarPath\": \"avatars/francoPath\",\n    \"carrera\": {\n        \"idCarrera\": 1\n    },\n    \"email\": \"franco@bascialla.com\",\n    \"contrasenia\": \"hashCode\",\n    \"esAdministrador\": false\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -195,7 +195,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n        \"id_usuario\": 1,\n        \"email\": \"juan.hernandez@email.com\",\n        \"contrasenia\": \"juanitoR78\",\n        \"nombre\": \"Juanito\",\n        \"apellido\": \"Hernandez\",\n        \"avatar_path\": \"avatar_juan.png\",\n        \"carrera\": {\n            \"id_carrera\": 2\n        },\n        \"es_administrador\": true\n    }",
+							"raw": "{\n        \"idUsuario\": 1,\n        \"email\": \"juan.hernandez@email.com\",\n        \"contrasenia\": \"juanitoR78\",\n        \"nombre\": \"Juanito\",\n        \"apellido\": \"Hernandez\",\n        \"avatarPath\": \"avatar_juan.png\",\n        \"carrera\": {\n            \"idCarrera\": 2\n        },\n        \"esAdministrador\": true\n    }",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -224,7 +224,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"id_usuario\": 2\n}",
+							"raw": "{\n    \"idUsuario\": 2\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -400,7 +400,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"id_torneo\": 1,\n    \"nombre\": \"Copa Libertadores modificada\",\n    \"anio\": \"2024\"\n}",
+							"raw": "{\n    \"idTorneo\": 1,\n    \"nombre\": \"Copa Libertadores modificada\",\n    \"anio\": \"2024\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -429,7 +429,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"id_torneo\": 1\n}",
+							"raw": "{\n    \"idTorneo\": 1\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -463,7 +463,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"fecha\": \"2024-12-24T23:59:00.000+00:00\",\r\n    \"estadio\": {\r\n        \"id_estadio\": 2\r\n    },\r\n    \"id_torneo\": 1,\r\n    \"equipos\": [\r\n        {\r\n            \"tipo_equipo\": 1,\r\n            \"equipo\": {\r\n                \"id_equipo\": 1\r\n            }\r\n        },\r\n        {\r\n            \"tipo_equipo\": 2,\r\n            \"equipo\": {\r\n                \"id_equipo\": 2\r\n            }\r\n        }\r\n    ]\r\n}",
+							"raw": "{\r\n    \"fecha\": \"2024-12-24T23:59:00.000+00:00\",\r\n    \"estadio\": {\r\n        \"idEstadio\": 2\r\n    },\r\n    \"idTorneo\": 1,\r\n    \"equipos\": [\r\n        {\r\n            \"tipoEquipo\": 1,\r\n            \"equipo\": {\r\n                \"idEquipo\": 1\r\n            }\r\n        },\r\n        {\r\n            \"tipoEquipo\": 2,\r\n            \"equipo\": {\r\n                \"idEquipo\": 2\r\n            }\r\n        }\r\n    ]\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -559,7 +559,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"id_torneo\": 1\r\n}\r\n",
+							"raw": "{\r\n    \"idTorneo\": 1\r\n}\r\n",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -582,13 +582,45 @@
 					"response": []
 				},
 				{
+					"name": "getAllFuture",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"fecha\": \"2022-06-12T03:00:00.000+00:00\",\n    \"idTorneo\": 9\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9000/partido/getAllFuture",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9000",
+							"path": [
+								"partido",
+								"getAllFuture"
+							]
+						}
+					},
+					"response": []
+				},
+				{
 					"name": "update",
 					"request": {
 						"method": "PUT",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"fecha\": \"2025-00-00T00:01:00.000+00:00\",\r\n    \"estadio\": {\r\n        \"id_estadio\": 5\r\n    },\r\n    \"id_torneo\": 1,\r\n    \"equipos\": [\r\n        {\r\n            \"tipo_equipo\": 1,\r\n            \"equipo\": {\r\n                \"id_equipo\": 1\r\n            }\r\n        },\r\n        {\r\n            \"tipo_equipo\": 2,\r\n            \"equipo\": {\r\n                \"id_equipo\": 2\r\n            }\r\n        }\r\n    ]\r\n}",
+							"raw": "{\r\n    \"fecha\": \"2025-00-00T00:01:00.000+00:00\",\r\n    \"estadio\": {\r\n        \"idEstadio\": 5\r\n    },\r\n    \"idTorneo\": 1,\r\n    \"equipos\": [\r\n        {\r\n            \"tipoEquipo\": 1,\r\n            \"equipo\": {\r\n                \"idEquipo\": 1\r\n            }\r\n        },\r\n        {\r\n            \"tipoEquipo\": 2,\r\n            \"equipo\": {\r\n                \"idEquipo\": 2\r\n            }\r\n        }\r\n    ]\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -617,7 +649,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n        \"id_partido\": 1\r\n}",
+							"raw": "{\r\n        \"idPartido\": 1\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -638,6 +670,38 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "getAllFinished",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"fecha\": \"2025-06-12T03:00:00.000+00:00\",\n    \"idTorneo\": 9\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9000/partido/getAllFinished",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9000",
+							"path": [
+								"partido",
+								"getAllFinished"
+							]
+						}
+					},
+					"response": []
 				}
 			]
 		},
@@ -651,7 +715,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"prediccion_equipo1\": 1,\r\n    \"prediccion_equipo2\": 5,\r\n    \"ganador\": {\r\n        \"id_equipo\": 2\r\n    },\r\n    \"partido\": {\r\n        \"id_partido\": 2\r\n    },\r\n    \"id_usuario\": 1\r\n}",
+							"raw": "{\r\n    \"prediccionEquipo1\": 1,\r\n    \"prediccionEquipo2\": 5,\r\n    \"ganador\": {\r\n        \"idEquipo\": 2\r\n    },\r\n    \"partido\": {\r\n        \"idPartido\": 2\r\n    },\r\n    \"idUsuario\": 1\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -748,6 +812,43 @@
 							"path": [
 								"prediccion",
 								"delete"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getEstadistica",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "checkResultado",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"idPartido\": 1,\n    \"fecha\": \"2024-06-12T03:00:00.000+00:00\",\n    \"estadio\": {\n        \"idEstadio\": 1,\n        \"nombre\": \"Estadio Centenario\"\n    },\n    \"idTorneo\": 9,\n    \"equipos\": [\n        {\n            \"idEquipoPartido\": 1,\n            \"equipo\": {\n                \"idEquipo\": 1,\n                \"nombre\": \"Real Madrid\",\n                \"imgBandera\": \"bandera_real_madrid.png\",\n                \"color\": \"#FFFFFF\"\n            },\n            \"tipoEquipo\": 1,\n            \"resultado\": 2\n        },\n        {\n            \"idEquipoPartido\": 2,\n            \"equipo\": {\n                \"idEquipo\": 2,\n                \"nombre\": \"Barcelona\",\n                \"imgBandera\": \"bandera_barcelona.png\",\n                \"color\": \"#073597\"\n            },\n            \"tipoEquipo\": 2,\n            \"resultado\": 5\n        }\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9000/prediccion/checkResultado",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9000",
+							"path": [
+								"prediccion",
+								"checkResultado"
 							]
 						}
 					},

@@ -32,4 +32,7 @@ public class Prediccion {
 
     @Column(name = "id_usuario")
     private Integer idUsuario;
+    
+    @Column(name = "puntos")
+    private Integer puntos;
 }

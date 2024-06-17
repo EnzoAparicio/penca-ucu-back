@@ -11,8 +11,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;	
 import org.springframework.web.bind.annotation.PutMapping;	
 import org.springframework.web.bind.annotation.RequestBody;	
-import org.springframework.web.bind.annotation.RestController;	
+import org.springframework.web.bind.annotation.RestController;
 
+import uy.edu.ucu.pencaucu.dto.PartidoDTO;
 import uy.edu.ucu.pencaucu.dto.PrediccionDTO;
 import uy.edu.ucu.pencaucu.service.IPrediccionService;
 import uy.edu.ucu.pencaucu.util.ResponseUtil;	
@@ -83,9 +84,9 @@ public class PrediccionController {
 	}	
 
     /**
-     * Obtiene un partido con su estadistica y un status code.
+     * Obtiene la estadistica de un partido con su status code.
      * @param id_partido - Id del partido a analizar.
-     * @return partido con estadisticas de ser correcto y status code.
+     * @return Estadisticas de equipo1, equipo2 y empate y status code.
      */
     @GetMapping("/prediccion/getEstadistica/{id_partido}")
     public ResponseEntity<HashMap<String, Integer>> getEstadisticaPartido(@PathVariable Integer id_partido){
@@ -95,5 +96,14 @@ public class PrediccionController {
     		System.out.println("\nnError: " + e.toString());
     		return ResponseUtil.internalError();
     	}
+    }
+    
+    /**
+     * Recibe un partido con un resultado y recorre todas las predicciones para asignar los puntos correspondientes.
+     * @param partidoDTO - Partido finalizado con un resultado. 
+     */
+    @PostMapping("/prediccion/checkResultado")
+    public void checkResultado(@RequestBody PartidoDTO partidoDTO) {
+		iPrediccionService.checkResultado(partidoDTO);
     }
 }
