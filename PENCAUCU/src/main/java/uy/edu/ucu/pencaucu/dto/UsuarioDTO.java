@@ -1,10 +1,7 @@
 package uy.edu.ucu.pencaucu.dto;
 
-import java.util.List;
-
 import lombok.Data;
 import uy.edu.ucu.pencaucu.model.Carrera;
-import uy.edu.ucu.pencaucu.model.Prediccion;
 
 @Data
 public class UsuarioDTO {
@@ -24,6 +21,4 @@ public class UsuarioDTO {
 	private Carrera carrera;
 	
 	private Boolean esAdministrador;
-	
-	private List<Prediccion> predicciones;
 }

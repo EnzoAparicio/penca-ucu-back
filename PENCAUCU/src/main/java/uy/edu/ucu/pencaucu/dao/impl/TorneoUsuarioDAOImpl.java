@@ -41,12 +41,22 @@ public class TorneoUsuarioDAOImpl implements ITorneoUsuarioDAO {
 	}
 
 	@Override
-	public List<TorneoUsuarioDTO> getAllByTorneo(Integer id_torneo) {
+	public List<TorneoUsuarioDTO> getAllByIdTorneo(Integer id_torneo) {
 		Torneo torneo = new Torneo();
 		torneo.setIdTorneo(id_torneo);
 		return iTorneoUsuarioRepo.findAllByTorneo(torneo).stream()
 				.map(torneoUsuario -> DozerUtil.GetINSTANCE().getMapper().map(torneoUsuario, TorneoUsuarioDTO.class))
 				.toList();
+	}
+
+	@Override
+	public TorneoUsuarioDTO createTorneoUsuario(TorneoUsuarioDTO torneoUsuarioDTO) {
+		TorneoUsuario torneoUsuario = iTorneoUsuarioRepo.save(DozerUtil.GetINSTANCE().getMapper().map(torneoUsuarioDTO, TorneoUsuario.class)); 
+		if(torneoUsuario.getIdTorneoUsuario() != null) {
+			return DozerUtil.GetINSTANCE().getMapper().map(torneoUsuario, TorneoUsuarioDTO.class);
+		} else {
+			return new TorneoUsuarioDTO();
+		}
 	}
 
 }

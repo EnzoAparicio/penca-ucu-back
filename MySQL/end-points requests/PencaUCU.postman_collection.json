@@ -738,7 +738,7 @@
 					"response": []
 				},
 				{
-					"name": "getPrediccion",
+					"name": "getPrediccion - Id",
 					"request": {
 						"method": "GET",
 						"header": [],
@@ -759,9 +759,21 @@
 				},
 				{
 					"name": "getAll",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
 					"request": {
 						"method": "GET",
 						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"idUsuario\": 7\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
 						"url": {
 							"raw": "http://localhost:9000/prediccion/getAll",
 							"protocol": "http",
@@ -849,6 +861,80 @@
 							"path": [
 								"prediccion",
 								"checkResultado"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getAll - Filter",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"idUsuario\": 7\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9000/prediccion/getAll",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9000",
+							"path": [
+								"prediccion",
+								"getAll"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "TorneoUsuario",
+			"item": [
+				{
+					"name": "getAll - IdTorneo",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "createTorneoUsuario",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"usuario\": {\n        \"idUsuario\": 1\n    },\n    \"torneo\": {\n        \"idTorneo\": 9,\n        \"partidos\": []\n    },\n    \"campeon\": {\n        \"idEquipo\": 1\n    },\n    \"subcampeon\": {\n        \"idEquipo\": 2\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9000/torneoUsuario/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9000",
+							"path": [
+								"torneoUsuario",
+								"create"
 							]
 						}
 					},

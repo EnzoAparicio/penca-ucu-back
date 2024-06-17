@@ -8,5 +8,7 @@ public interface ITorneoUsuarioService {
 
 	TorneoUsuarioDTO getByTorneoAndUsuario(TorneoUsuarioDTO torneoUsuarioDTO);
 	
-	List<TorneoUsuarioDTO> getAllByTorneo(Integer id_torneo);
+	List<TorneoUsuarioDTO> getAllByIdTorneo(Integer id_torneo);
+	
+	TorneoUsuarioDTO createTorneoUsuario(TorneoUsuarioDTO torneoUsuarioDTO);
 }

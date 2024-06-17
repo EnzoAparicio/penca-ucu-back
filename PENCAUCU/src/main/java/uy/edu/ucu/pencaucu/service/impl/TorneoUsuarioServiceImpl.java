@@ -27,8 +27,13 @@ public class TorneoUsuarioServiceImpl implements ITorneoUsuarioService {
 	}
 
 	@Override
-	public List<TorneoUsuarioDTO> getAllByTorneo(Integer id_torneo) {
-		return iTorneoUsuarioDAO.getAllByTorneo(id_torneo);
+	public List<TorneoUsuarioDTO> getAllByIdTorneo(Integer id_torneo) {
+		return iTorneoUsuarioDAO.getAllByIdTorneo(id_torneo);
+	}
+
+	@Override
+	public TorneoUsuarioDTO createTorneoUsuario(TorneoUsuarioDTO torneoUsuarioDTO) {
+		return iTorneoUsuarioDAO.createTorneoUsuario(torneoUsuarioDTO);
 	}
 
 	

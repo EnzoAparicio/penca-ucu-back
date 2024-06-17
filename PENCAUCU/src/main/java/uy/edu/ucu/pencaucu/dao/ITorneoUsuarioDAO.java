@@ -11,5 +11,7 @@ public interface ITorneoUsuarioDAO {
 	
 	TorneoUsuarioDTO updateTorneoUsuario(TorneoUsuarioDTO torneoUsuarioDTO);
 	
-	List<TorneoUsuarioDTO> getAllByTorneo(Integer id_torneo);
+	List<TorneoUsuarioDTO> getAllByIdTorneo(Integer id_torneo);
+	
+	TorneoUsuarioDTO createTorneoUsuario(TorneoUsuarioDTO torneoUsuarioDTO);
 }
