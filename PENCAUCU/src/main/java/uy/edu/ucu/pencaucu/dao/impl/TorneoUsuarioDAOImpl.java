@@ -1,5 +1,6 @@
 package uy.edu.ucu.pencaucu.dao.impl;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,6 +35,25 @@ public class TorneoUsuarioDAOImpl implements ITorneoUsuarioDAO {
 		Optional<TorneoUsuario> torneoUsuario = iTorneoUsuarioRepo.findByTorneoAndUsuario(torneo, usuario);
 		if (torneoUsuario.isPresent()) {
 			return DozerUtil.GetINSTANCE().getMapper().map(torneoUsuario.get(), TorneoUsuarioDTO.class);
+		} else {
+			return new TorneoUsuarioDTO();
+		}
+	}
+
+	@Override
+	public List<TorneoUsuarioDTO> getAllByIdTorneo(Integer id_torneo) {
+		Torneo torneo = new Torneo();
+		torneo.setIdTorneo(id_torneo);
+		return iTorneoUsuarioRepo.findAllByTorneo(torneo).stream()
+				.map(torneoUsuario -> DozerUtil.GetINSTANCE().getMapper().map(torneoUsuario, TorneoUsuarioDTO.class))
+				.toList();
+	}
+
+	@Override
+	public TorneoUsuarioDTO createTorneoUsuario(TorneoUsuarioDTO torneoUsuarioDTO) {
+		TorneoUsuario torneoUsuario = iTorneoUsuarioRepo.save(DozerUtil.GetINSTANCE().getMapper().map(torneoUsuarioDTO, TorneoUsuario.class)); 
+		if(torneoUsuario.getIdTorneoUsuario() != null) {
+			return DozerUtil.GetINSTANCE().getMapper().map(torneoUsuario, TorneoUsuarioDTO.class);
 		} else {
 			return new TorneoUsuarioDTO();
 		}

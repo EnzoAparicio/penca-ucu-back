@@ -1,6 +1,5 @@
 package uy.edu.ucu.pencaucu.controller;
 
-import java.util.Date;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -12,7 +11,6 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import uy.edu.ucu.pencaucu.dto.PartidoDTO;
-import uy.edu.ucu.pencaucu.dto.TorneoDTO;
 import uy.edu.ucu.pencaucu.service.IPartidoService;
 import uy.edu.ucu.pencaucu.util.ResponseUtil;
 

@@ -9,7 +9,6 @@ import org.springframework.data.domain.Example;
 import org.springframework.stereotype.Repository;
 import uy.edu.ucu.pencaucu.dao.IPartidoDAO;
 import uy.edu.ucu.pencaucu.dto.PartidoDTO;
-import uy.edu.ucu.pencaucu.dto.TorneoDTO;
 import uy.edu.ucu.pencaucu.model.EquipoPartido;
 import uy.edu.ucu.pencaucu.model.Partido;
 import uy.edu.ucu.pencaucu.repo.IEquipoPartidoRepo;
