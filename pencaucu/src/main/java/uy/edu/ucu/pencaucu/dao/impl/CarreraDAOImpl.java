@@ -7,7 +7,6 @@ import org.springframework.stereotype.Repository;
 
 import uy.edu.ucu.pencaucu.dao.ICarreraDAO;
 import uy.edu.ucu.pencaucu.dto.CarreraDTO;
-import uy.edu.ucu.pencaucu.model.Carrera;
 import uy.edu.ucu.pencaucu.repo.ICarreraRepo;
 import uy.edu.ucu.pencaucu.util.DozerUtil;
 
