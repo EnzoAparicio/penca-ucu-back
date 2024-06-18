@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import uy.edu.ucu.pencaucu.dao.IPartidoDAO;
 import uy.edu.ucu.pencaucu.dto.PartidoDTO;
-import uy.edu.ucu.pencaucu.dto.TorneoDTO;
 import uy.edu.ucu.pencaucu.service.IPartidoService;
 
 @Service
