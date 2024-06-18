@@ -559,7 +559,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"idTorneo\": 1\r\n}\r\n",
+							"raw": "{\r\n    \"idTorneo\": 9\r\n}\r\n",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -935,6 +935,31 @@
 							"path": [
 								"torneoUsuario",
 								"create"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Carrera",
+			"item": [
+				{
+					"name": "getAll",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9000/carrera/getAll",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9000",
+							"path": [
+								"carrera",
+								"getAll"
 							]
 						}
 					},
