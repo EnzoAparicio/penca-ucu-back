@@ -1,0 +1,292 @@
+{
+  "Equipo": {
+    "Create": {
+      "nombre": "Peñarol",
+      "imgBandera": "Peñarol.png",
+      "color": "#000000"
+    },
+    "Get": {
+      "idEquipo": 1,
+      "nombre": "Real Madrid",
+      "imgBandera": "bandera_real_madrid.png",
+      "color": "#FFFFFF"
+    }
+  },
+  "Usuario": {
+    "Create": {
+      "nombre": "Franco",
+      "apellido": "Bascialla",
+      "avatarPath": "francoPath.png",
+      "carrera": {
+        "idCarrera": 1
+      },
+      "email": "franco@bascialla.com",
+      "contrasenia": "hashCode",
+      "esAdministrador": false
+    },
+    "Get": {
+      "idUsuario": 1,
+      "email": "luisa.perez@email.com",
+      "contrasenia": "contrasenia123",
+      "nombre": "Luisa",
+      "apellido": "Perez",
+      "avatarPath": "avatar_luisa.png",
+      "carrera": {
+        "idCarrera": 1,
+        "nombre": "Abogacía",
+        "anios": "5"
+      },
+      "esAdministrador": null,
+      "predicciones": [
+        {
+          "idPrediccion": 1,
+          "prediccionEquipo1": 5,
+          "prediccionEquipo2": 1,
+          "partido": {
+            "idPartido": 1,
+            "fecha": "2024-06-12T03:00:00.000+00:00",
+            "estadio": {
+              "idEstadio": 1,
+              "nombre": "Estadio Centenario"
+            },
+            "equipos": [
+              {
+                "idEquipoPartido": 1,
+                "equipo": {
+                  "idEquipo": 1,
+                  "nombre": "Real Madrid",
+                  "imgBandera": "bandera_real_madrid.png",
+                  "color": "#FFFFFF"
+                },
+                "tipoEquipo": 1,
+                "resultado": null
+              },
+              {
+                "idEquipoPartido": 2,
+                "equipo": {
+                  "idEquipo": 2,
+                  "nombre": "Barcelona",
+                  "imgBandera": "bandera_barcelona.png",
+                  "color": "#073597"
+                },
+                "tipoEquipo": 2,
+                "resultado": null
+              }
+            ]
+          },
+            "idUsuario": 1,
+            "puntos": 0
+        }
+      ]
+    }
+  },
+  "Torneo": {
+    "Create": {
+      "nombre": "Copa Libertadores",
+      "anio": "2024"
+    },
+    "Get": {
+      "idTorneo": 9,
+    "nombre": "Copa Libertadores",
+    "anio": "2024",
+    "partidos": [
+      {
+        "idPartido": 1,
+        "fecha": "2024-06-12T03:00:00.000+00:00",
+        "estadio": {
+          "idEstadio": 1,
+          "nombre": "Estadio Centenario"
+        },
+        "equipos": [
+          {
+            "idEquipoPartido": 1,
+            "equipo": {
+              "idEquipo": 1,
+              "nombre": "Real Madrid",
+              "imgBandera": "bandera_real_madrid.png",
+              "color": "#FFFFFF"
+            },
+            "tipoEquipo": 1,
+            "resultado": null
+          },
+          {
+            "idEquipoPartido": 2,
+            "equipo": {
+              "idEquipo": 2,
+              "nombre": "Barcelona",
+              "imgBandera": "bandera_barcelona.png",
+              "color": "#073597"
+            },
+            "tipoEquipo": 2,
+            "resultado": null
+          }
+        ]
+      },
+      {
+        "idPartido": 2,
+        "fecha": "2024-06-13T03:00:00.000+00:00",
+        "estadio": {
+          "idEstadio": 2,
+          "nombre": "Estadio Maracanã"
+        },
+        "equipos": []
+      },
+      {
+        "idPartido": 3,
+        "fecha": "2024-06-14T03:00:00.000+00:00",
+        "estadio": {
+          "idEstadio": 3,
+          "nombre": "Estadio Monumental"
+        },
+        "equipos": []
+      },
+      {
+        "idPartido": 4,
+        "fecha": "2024-06-15T03:00:00.000+00:00",
+        "estadio": {
+          "idEstadio": 4,
+          "nombre": "Estadio Azteca"
+        },
+        "equipos": []
+      },
+      {
+        "idPartido": 5,
+        "fecha": "2024-06-16T03:00:00.000+00:00",
+        "estadio": {
+          "idEstadio": 5,
+          "nombre": "Estadio Santiago Bernabéu"
+        },
+        "equipos": []
+      }
+    ]
+    }
+  },
+  "Partido": {
+    "Create": {
+      "fecha": "2024-12-24T23:59:00.000+00:00",
+      "estadio": {
+        "idEstadio": 2
+      },
+      "idTorneo": 1,
+      "equipos": [
+        {
+          "tipoEquipo": 1,
+          "equipo": {
+            "idEquipo": 1
+          }
+        },
+        {
+          "tipoEquipo": 2,
+          "equipo": {
+            "idEquipo": 2
+          }
+        }
+      ]
+    },
+    "Get": {
+      "idPartido": 1,
+      "fecha": "2024-06-12T03:00:00.000+00:00",
+      "estadio": {
+        "idEstadio": 1,
+        "nombre": "Estadio Centenario"
+      },
+      "idTorneo": 9,
+      "equipos": [
+        {
+          "idEquipoPartido": 1,
+          "equipo": {
+            "idEquipo": 1,
+            "nombre": "Real Madrid",
+            "imgBandera": "bandera_real_madrid.png",
+            "color": "#FFFFFF"
+          },
+          "tipoEquipo": 1,
+          "resultado": null
+        },
+        {
+          "idEquipoPartido": 2,
+          "equipo": {
+            "idEquipo": 2,
+            "nombre": "Barcelona",
+            "imgBandera": "bandera_barcelona.png",
+            "color": "#073597"
+          },
+          "tipoEquipo": 2,
+          "resultado": null
+        }
+      ]
+    }
+  },
+  "Prediccion": {
+    "Create": {
+      "prediccionEquipo1": 1,
+      "prediccionEquipo2": 5,
+      "ganador": {
+        "idEquipo": 2
+      },
+      "partido": {
+        "idPartido": 2
+      },
+      "idUsuario": 1
+    },
+    "Get": {
+      "idPrediccion": 1,
+      "prediccionEquipo1": 5,
+      "prediccionEquipo2": 1,
+      "partido": {
+        "idPartido": 1,
+        "fecha": "2024-06-12T03:00:00.000+00:00",
+        "estadio": {
+          "idEstadio": 1,
+          "nombre": "Estadio Centenario"
+        },
+        "idTorneo": 9,
+        "equipos": [
+          {
+            "idEquipoPartido": 1,
+            "equipo": {
+              "idEquipo": 1,
+              "nombre": "Real Madrid",
+              "imgBandera": "bandera_real_madrid.png",
+              "color": "#FFFFFF"
+            },
+            "tipoEquipo": 1,
+            "resultado": null
+          },
+          {
+            "idEquipoPartido": 2,
+            "equipo": {
+              "idEquipo": 2,
+              "nombre": "Barcelona",
+              "imgBandera": "bandera_barcelona.png",
+              "color": "#073597"
+            },
+            "tipoEquipo": 2,
+            "resultado": null
+          }
+        ]
+      },
+      "idUsuario": 1,
+      "puntos": 0
+    }
+  },
+  "TorneoUsuario": {
+    "Create": {
+      "usuario": {
+        "idUsuario": 1
+      },
+      "torneo": {
+        "idTorneo": 9
+      },
+      "campeon": {
+        "idEquipo": 1
+      },
+      "subcampeon": {
+        "idEquipo": 2
+      }
+    },
+    "Get": {
+
+    }
+  }
+}

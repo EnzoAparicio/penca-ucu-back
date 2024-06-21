@@ -64,6 +64,7 @@ create table partido(
 CREATE TABLE equipo_partido (
     id_equipo_partido INT AUTO_INCREMENT PRIMARY KEY,
     tipo_equipo INT,
+    resultado INT,
     id_equipo INT,
     id_partido INT,
     FOREIGN KEY (id_equipo) REFERENCES equipo(id_equipo),
@@ -74,10 +75,9 @@ CREATE TABLE prediccion (
     id_prediccion INT PRIMARY KEY AUTO_INCREMENT,
     prediccion_equipo1 INT,
     prediccion_equipo2 INT,
-    ganador INT,
+    puntos INT,
     id_usuario INT,
     id_partido INT,
-    FOREIGN KEY (ganador) REFERENCES equipo(id_equipo),
     FOREIGN KEY (id_usuario) REFERENCES usuario(id_usuario),
     FOREIGN KEY (id_partido) REFERENCES partido(id_partido)
 );

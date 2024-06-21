@@ -33,7 +33,7 @@ public class TorneoServiceImpl implements ITorneoService {
 	public TorneoDTO updateTorneo(TorneoDTO torneoDTO) {
 		try {
 			if(torneoDTO.getNombre() == null || torneoDTO.getAnio() == null
-					|| torneoDTO.getId_torneo() == null){
+					|| torneoDTO.getIdTorneo() == null){
 				throw new Exception("Campos faltantes para actualizacion.");
 			}
 			return iTorneoDAO.updateTorneo(torneoDTO);

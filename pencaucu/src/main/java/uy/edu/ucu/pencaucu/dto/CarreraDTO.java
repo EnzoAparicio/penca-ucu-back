@@ -3,11 +3,11 @@ package uy.edu.ucu.pencaucu.dto;
 import lombok.Data;
 
 @Data
-public class TorneoDTO {
+public class CarreraDTO {
 	
-	private Integer idTorneo;
+	private Integer idCarrera;
 	
 	private String nombre;
 	
-	private String anio;
+	private String anios;
 }

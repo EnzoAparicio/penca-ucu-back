@@ -6,22 +6,24 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
-
 import lombok.Data;
 
 @Data
 @Entity
-@Table(name = "torneo")
-public class Torneo {
+@Table(name = "equipo")
+public class Equipo {
 	
-	@Id 
-	@Column(name="id_torneo")
+	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer idTorneo;
+	@Column(name = "id_equipo")
+	private Integer idEquipo;
 	
-	@Column (name="nombre", length=100, nullable=false)
+	@Column(name = "nombre", length = 50, nullable = false)
 	private String nombre;
 	
-	@Column (name="anio",length=30)
-	private String anio;
+	@Column(name = "img_bandera")
+	private String imgBandera;
+	
+	@Column(name = "color", length = 12, nullable = false)
+	private String color;
 }
