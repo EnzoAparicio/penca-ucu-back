@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 import uy.edu.ucu.pencaucu.model.Carrera;
 
 @Repository
-public interface ICarreraRepo extends JpaRepository<Carrera, Integer>{
+public interface ICarreraRepo extends JpaRepository<Carrera, Integer> {
 
 	List<Carrera> findAll();
 }

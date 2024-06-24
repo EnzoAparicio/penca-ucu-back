@@ -6,10 +6,10 @@ import lombok.Data;
 public class EquipoDTO {
 
 	private Integer idEquipo;
-	
+
 	private String nombre;
-	
+
 	private String imgBandera;
-	
+
 	private String color;
 }

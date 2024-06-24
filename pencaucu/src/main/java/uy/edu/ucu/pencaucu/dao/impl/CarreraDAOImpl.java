@@ -15,12 +15,11 @@ public class CarreraDAOImpl implements ICarreraDAO {
 
 	@Autowired
 	ICarreraRepo iCarreraRepo;
-	
+
 	@Override
 	public List<CarreraDTO> getAllCarrera() {
 		return iCarreraRepo.findAll().stream()
-				.map(carrera -> DozerUtil.GetINSTANCE().getMapper().map(carrera, CarreraDTO.class))
-				.toList();
+				.map(carrera -> DozerUtil.GetINSTANCE().getMapper().map(carrera, CarreraDTO.class)).toList();
 	}
 
 }

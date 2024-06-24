@@ -12,19 +12,18 @@ import lombok.Data;
 @Entity
 @Table(name = "estadio")
 public class Estadio {
-	
+
 	/*
-     * Identificador único del estadio.
-     */
-    @Id
-    @Column(name = "id_estadio")
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer idEstadio;
+	 * Identificador único del estadio.
+	 */
+	@Id
+	@Column(name = "id_estadio")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Integer idEstadio;
 
-    /**
-     * Nombre del estadio.
-     */
-    @Column(name="nombre", length=50, nullable=false, unique=true)
-    private String nombre;
+	/**
+	 * Nombre del estadio.
+	 */
+	@Column(name = "nombre", length = 50, nullable = false, unique = true)
+	private String nombre;
 }
-

@@ -19,19 +19,19 @@ public class TorneoDAOImpl implements ITorneoDAO {
 
 	@Autowired
 	ITorneoRepo iTorneoRepo;
-	
+
 	@Override
 	public TorneoDTO createTorneo(TorneoDTO torneoDTO) {
-		Torneo torneo =DozerUtil.GetINSTANCE().getMapper().map(torneoDTO, Torneo.class);
+		Torneo torneo = DozerUtil.GetINSTANCE().getMapper().map(torneoDTO, Torneo.class);
 		return DozerUtil.GetINSTANCE().getMapper().map(iTorneoRepo.save(torneo), TorneoDTO.class);
-			
+
 	}
 
 	@Override
 	public TorneoDTO updateTorneo(TorneoDTO torneoDTO) {
 		try {
 			Torneo torneoActualizado = DozerUtil.GetINSTANCE().getMapper().map(torneoDTO, Torneo.class);
-			
+
 			return DozerUtil.GetINSTANCE().getMapper().map(iTorneoRepo.save(torneoActualizado), TorneoDTO.class);
 		} catch (Error e) {
 			return null;
@@ -41,7 +41,7 @@ public class TorneoDAOImpl implements ITorneoDAO {
 	@Override
 	public void deleteTorneo(TorneoDTO torneoDTO) {
 		iTorneoRepo.deleteById(torneoDTO.getIdTorneo());
-		
+
 	}
 
 	@Override
@@ -56,15 +56,16 @@ public class TorneoDAOImpl implements ITorneoDAO {
 
 	@Override
 	public List<TorneoDTO> getAllTorneo() {
-		return iTorneoRepo.findAll().stream().map(torneo -> DozerUtil.GetINSTANCE().getMapper().map(torneo, TorneoDTO.class))
+		return iTorneoRepo.findAll().stream()
+				.map(torneo -> DozerUtil.GetINSTANCE().getMapper().map(torneo, TorneoDTO.class))
 				.collect(Collectors.toList());
-		
+
 	}
 
 	@Override
 	public List<TorneoDTO> getAllTorneoByFilter(TorneoDTO torneoDTO) {
 		Example<Torneo> torneoExample = Example.of(DozerUtil.GetINSTANCE().getMapper().map(torneoDTO, Torneo.class));
-		
+
 		return iTorneoRepo.findAll(torneoExample).stream()
 				.map(torneo -> DozerUtil.GetINSTANCE().getMapper().map(torneo, TorneoDTO.class))
 				.collect(Collectors.toList());

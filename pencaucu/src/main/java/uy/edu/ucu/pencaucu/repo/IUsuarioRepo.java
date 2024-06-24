@@ -12,10 +12,10 @@ public interface IUsuarioRepo extends JpaRepository<Usuario, Integer> {
 
 	@SuppressWarnings("unchecked")
 	Usuario save(Usuario usuario);
-	
+
 	Optional<Usuario> findById(Integer id_usuario);
-	
+
 	Optional<Usuario> findByEmail(String email);
-	
+
 	void deleteById(Integer id_usuario);
 }

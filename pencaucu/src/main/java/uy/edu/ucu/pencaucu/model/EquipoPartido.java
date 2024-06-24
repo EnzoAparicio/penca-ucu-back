@@ -21,20 +21,20 @@ public class EquipoPartido {
 	@Column(name = "id_equipo_partido")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer idEquipoPartido;
-	
+
 	@JsonBackReference
 	@ManyToOne
 	@JoinColumn(name = "id_partido")
 	private Partido partido;
-	
+
 	@ManyToOne
 	@JoinColumn(name = "id_equipo")
 	private Equipo equipo;
-	
+
 	// Asocia un numero al equipo (1 o 2) para relacionarlo con las predicciones.
 	@Column(name = "tipo_equipo")
 	private Integer tipoEquipo;
-	
+
 	@Column(name = "resultado")
 	private Integer resultado;
 }

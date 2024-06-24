@@ -6,11 +6,10 @@ import uy.edu.ucu.pencaucu.dto.UsuarioDTO;
 
 public interface IUsuarioDAO {
 
-	
 	UsuarioDTO createUsuario(UsuarioDTO usuarioDTO);
-	
+
 	UsuarioDTO loginUsuario(UsuarioDTO usuarioDTO);
-	
+
 	/**
 	 * Actualiza un Usuario en la Base de Datos.
 	 * 
@@ -18,8 +17,7 @@ public interface IUsuarioDAO {
 	 * @return UsuarioDTO actualizado.
 	 */
 	UsuarioDTO updateUsuario(UsuarioDTO usuarioDTO);
-	
-	
+
 	/**
 	 * Elimina un Usuario en la Base de Datos segun su Id.
 	 * 
@@ -28,7 +26,7 @@ public interface IUsuarioDAO {
 	 * @param usuarioDTO
 	 */
 	void deleteUsuario(UsuarioDTO usuarioDTO);
-	
+
 	/**
 	 * Devuelve un Usuario segun su ID en la Base de Datos.
 	 * 
@@ -36,20 +34,20 @@ public interface IUsuarioDAO {
 	 * @return UsuarioDTO con id_usuario, null si no existe.
 	 */
 	UsuarioDTO getUsuario(Integer id_usuario);
-	
+
 	/**
 	 * Devuelve todas las entradas de Usuario en la Base de Datos.
 	 * 
 	 * @return List<UsuarioDTO> poblada o List vacía si no hay ningún Usuario.
 	 */
 	List<UsuarioDTO> getAllUsuario();
-	
-	
+
 	/**
-	 * Devuelve todas las entradas de Usuario en la Base de datos
-	 * que coincidan en atributos.
+	 * Devuelve todas las entradas de Usuario en la Base de datos que coincidan en
+	 * atributos.
 	 * 
-	 * @param UsuarioDTO poblado solamente con los atributos por los que se quiera filtrar.
+	 * @param UsuarioDTO poblado solamente con los atributos por los que se quiera
+	 *                   filtrar.
 	 * @return List<UsuarioDTO> poblada o List vacía si no hay ninguna coincidencia.
 	 */
 	List<UsuarioDTO> getAllUsuarioByFilter(UsuarioDTO usuarioDTO);
