@@ -13,15 +13,15 @@ import lombok.Data;
 @Entity
 @Table(name = "torneo")
 public class Torneo {
-	
-	@Id 
-	@Column(name="id_torneo")
+
+	@Id
+	@Column(name = "id_torneo")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer idTorneo;
-	
-	@Column (name="nombre", length=100, nullable=false)
+
+	@Column(name = "nombre", length = 100, nullable = false)
 	private String nombre;
-	
-	@Column (name="anio",length=30)
+
+	@Column(name = "anio", length = 30)
 	private String anio;
 }

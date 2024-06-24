@@ -7,13 +7,13 @@ import uy.edu.ucu.pencaucu.model.Partido;
 @Data
 public class EquipoPartidoDTO {
 
-    private Integer idEquipoPartido;
+	private Integer idEquipoPartido;
 
-    private Partido partido;
+	private Partido partido;
 
-    private Equipo equipo;
+	private Equipo equipo;
 
-    private Integer tipoEquipo;
-    
-    private Integer resultado;
+	private Integer tipoEquipo;
+
+	private Integer resultado;
 }

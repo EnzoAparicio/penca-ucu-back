@@ -14,16 +14,15 @@ public class EquipoServiceImpl implements IEquipoService {
 
 	@Autowired
 	IEquipoDAO iEquipoDAO;
-	
+
 	@Override
 	public EquipoDTO createEquipo(EquipoDTO equipoDTO) {
 		try {
-			if(equipoDTO.getNombre() == null || equipoDTO.getColor() == null){
+			if (equipoDTO.getNombre() == null || equipoDTO.getColor() == null) {
 				throw new Exception("Campos faltantes para creacion.");
 			}
 			return iEquipoDAO.createEquipo(equipoDTO);
-		} catch(Exception camposFaltantes)
-		{
+		} catch (Exception camposFaltantes) {
 			return null;
 		}
 	}
@@ -31,13 +30,11 @@ public class EquipoServiceImpl implements IEquipoService {
 	@Override
 	public EquipoDTO updateEquipo(EquipoDTO equipoDTO) {
 		try {
-			if(equipoDTO.getNombre() == null || equipoDTO.getColor() == null
-					|| equipoDTO.getIdEquipo() == null){
+			if (equipoDTO.getNombre() == null || equipoDTO.getColor() == null || equipoDTO.getIdEquipo() == null) {
 				throw new Exception("Campos faltantes para actualizacion.");
 			}
 			return iEquipoDAO.updateEquipo(equipoDTO);
-		} catch(Exception camposFaltantes)
-		{
+		} catch (Exception camposFaltantes) {
 			return null;
 		}
 	}
@@ -45,7 +42,7 @@ public class EquipoServiceImpl implements IEquipoService {
 	@Override
 	public void deleteEquipo(EquipoDTO equipoDTO) {
 		iEquipoDAO.deleteEquipo(equipoDTO);
-		
+
 	}
 
 	@Override
@@ -55,7 +52,7 @@ public class EquipoServiceImpl implements IEquipoService {
 
 	@Override
 	public List<EquipoDTO> getAllEquipo(EquipoDTO equipoDTO) {
-		if (equipoDTO == null ) {
+		if (equipoDTO == null) {
 			return iEquipoDAO.getAllEquipo();
 		} else {
 			return iEquipoDAO.getAllEquipoByFilter(equipoDTO);

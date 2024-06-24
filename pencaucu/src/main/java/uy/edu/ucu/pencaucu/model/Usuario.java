@@ -19,26 +19,26 @@ public class Usuario {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id_usuario")
 	private Integer idUsuario;
-	
-	@Column(name = "email", length=100, nullable=false, unique=true)
+
+	@Column(name = "email", length = 100, nullable = false, unique = true)
 	private String email;
 
-	@Column(name = "contrasenia", length=60, nullable=false)
+	@Column(name = "contrasenia", length = 60, nullable = false)
 	private String contrasenia;
 
-	@Column(name = "nombre", length=50, nullable=false)
+	@Column(name = "nombre", length = 50, nullable = false)
 	private String nombre;
 
-	@Column(name = "apellido", length=50)
+	@Column(name = "apellido", length = 50)
 	private String apellido;
 
-	@Column(name = "avatar_path", length=50)
+	@Column(name = "avatar_path", length = 50)
 	private String avatarPath;
-	
+
 	@ManyToOne
-	@JoinColumn(name="id_carrera", nullable=false)
+	@JoinColumn(name = "id_carrera", nullable = false)
 	private Carrera carrera;
-	
-	@Column(name="es_administrador")
+
+	@Column(name = "es_administrador")
 	private Boolean esAdministrador;
 }

@@ -7,11 +7,11 @@ import uy.edu.ucu.pencaucu.dto.TorneoUsuarioDTO;
 import uy.edu.ucu.pencaucu.dto.UsuarioDTO;
 
 public interface ITorneoUsuarioDAO {
-	TorneoUsuarioDTO getByTorneoAndUsuario(TorneoDTO torneoDTO, UsuarioDTO usuarioDTO );
-	
+	TorneoUsuarioDTO getByTorneoAndUsuario(TorneoDTO torneoDTO, UsuarioDTO usuarioDTO);
+
 	TorneoUsuarioDTO updateTorneoUsuario(TorneoUsuarioDTO torneoUsuarioDTO);
-	
+
 	List<TorneoUsuarioDTO> getAllByIdTorneo(Integer id_torneo);
-	
+
 	TorneoUsuarioDTO createTorneoUsuario(TorneoUsuarioDTO torneoUsuarioDTO);
 }
