@@ -24,8 +24,8 @@ Sigue estos pasos para configurar el entorno de desarrollo en tu máquina local:
     - Selecciona **File > Import > Existing Projects into Workspace**.
     - Navega a la ubicación del repositorio clonado y selecciona el proyecto.
 3. Configura la base de datos:
-    - Abre Workbench.
-    - Crea las tablas necesarias ejecutando los scripts SQL incluidos en el directorio `MySQL`.
+    - Abre MySQL Workbench.
+    - Crea las tablas necesarias ejecutando los scripts SQL creacionales incluidos en el directorio `MySQL`.
 4. Ejecuta la aplicación:
     - En Eclipse, selecciona el proyecto y haz clic derecho.
     - Selecciona **Run As > Spring Boot App**.
