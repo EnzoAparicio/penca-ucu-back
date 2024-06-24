@@ -16,7 +16,7 @@ public class TorneoUsuarioServiceImpl implements ITorneoUsuarioService {
 
 	@Autowired
 	ITorneoUsuarioDAO iTorneoUsuarioDAO;
-	
+
 	@Override
 	public TorneoUsuarioDTO getByTorneoAndUsuario(TorneoUsuarioDTO torneoUsuarioDTO) {
 		TorneoDTO torneoDTO = new TorneoDTO();
@@ -36,5 +36,4 @@ public class TorneoUsuarioServiceImpl implements ITorneoUsuarioService {
 		return iTorneoUsuarioDAO.createTorneoUsuario(torneoUsuarioDTO);
 	}
 
-	
 }

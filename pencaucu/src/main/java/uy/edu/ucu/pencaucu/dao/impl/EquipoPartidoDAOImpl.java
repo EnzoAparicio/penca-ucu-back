@@ -7,15 +7,12 @@ import uy.edu.ucu.pencaucu.dao.IEquipoPartidoDAO;
 import uy.edu.ucu.pencaucu.dto.EquipoPartidoDTO;
 import uy.edu.ucu.pencaucu.repo.IEquipoPartidoRepo;
 
-
-
-
 @Repository
 public class EquipoPartidoDAOImpl implements IEquipoPartidoDAO {
 
 	@Autowired
 	IEquipoPartidoRepo IEquipoTorneoRepo;
-	
+
 	@Override
 	public EquipoPartidoDTO createEquipoPartido(EquipoPartidoDTO equipoPartidoDTO) {
 		return new EquipoPartidoDTO();
@@ -25,5 +22,5 @@ public class EquipoPartidoDAOImpl implements IEquipoPartidoDAO {
 	public EquipoPartidoDTO updateEquipoPartido(EquipoPartidoDTO equipoPartidoDTO) {
 		return new EquipoPartidoDTO();
 	}
-	
+
 }

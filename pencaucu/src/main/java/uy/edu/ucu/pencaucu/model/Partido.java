@@ -21,34 +21,34 @@ import lombok.Data;
 @Entity
 public class Partido {
 
-    /**
-     * Identificador único del partido.
-     */
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_partido")
-    private Integer idPartido;
+	/**
+	 * Identificador único del partido.
+	 */
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "id_partido")
+	private Integer idPartido;
 
-    /**
-     * Fecha del partido.
-     */
-    @Column(name = "fecha")
-    private Date fecha;
+	/**
+	 * Fecha del partido.
+	 */
+	@Column(name = "fecha")
+	private Date fecha;
 
-    /**
-     * Estadio donde se juega el partido.
-     */
-    @ManyToOne
-    @JoinColumn(name = "id_estadio", nullable = false)
-    private Estadio estadio;
-    
-    /**
-     * Torneo al que pertenece el partido.
-     */
-    @Column(name = "id_torneo")
-    private Integer idTorneo;
-   
-    @JsonManagedReference
-    @OneToMany(mappedBy = "partido")
-    private List<EquipoPartido> equipos;
+	/**
+	 * Estadio donde se juega el partido.
+	 */
+	@ManyToOne
+	@JoinColumn(name = "id_estadio", nullable = false)
+	private Estadio estadio;
+
+	/**
+	 * Torneo al que pertenece el partido.
+	 */
+	@Column(name = "id_torneo")
+	private Integer idTorneo;
+
+	@JsonManagedReference
+	@OneToMany(mappedBy = "partido")
+	private List<EquipoPartido> equipos;
 }

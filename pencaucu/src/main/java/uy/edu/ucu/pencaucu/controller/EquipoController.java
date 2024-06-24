@@ -18,10 +18,10 @@ import uy.edu.ucu.pencaucu.util.ResponseUtil;
 
 @RestController
 public class EquipoController {
-	
+
 	@Autowired
 	IEquipoService iEquipoService;
-	
+
 	private ResponseEntity<EquipoDTO> checkResponse(EquipoDTO equipo) {
 		if (equipo.getIdEquipo() != null) {
 			return ResponseUtil.okResponse(equipo);
@@ -29,7 +29,7 @@ public class EquipoController {
 			return ResponseUtil.badRequest();
 		}
 	}
-	
+
 	/**
 	 * Solicita la creación de un Equipo a partir del objeto recibido.
 	 * 
@@ -39,12 +39,12 @@ public class EquipoController {
 	@PostMapping("/equipo/create")
 	public ResponseEntity<EquipoDTO> createEquipo(@RequestBody EquipoDTO equipoDTO) {
 		try {
-    		return checkResponse(iEquipoService.createEquipo(equipoDTO));
-    	} catch (Error e) {
-    		return ResponseUtil.internalError();
-    	}
+			return checkResponse(iEquipoService.createEquipo(equipoDTO));
+		} catch (Error e) {
+			return ResponseUtil.internalError();
+		}
 	}
-	
+
 	/**
 	 * Solicita la actualización de un Equipo a partir del Id.
 	 * 
@@ -54,12 +54,12 @@ public class EquipoController {
 	@PutMapping("/equipo/update")
 	public ResponseEntity<EquipoDTO> updateEquipo(@RequestBody EquipoDTO equipoDTO) {
 		try {
-    		return checkResponse(iEquipoService.updateEquipo(equipoDTO));
-    	} catch (Error e) {
-    		return ResponseUtil.internalError();
-    	}
+			return checkResponse(iEquipoService.updateEquipo(equipoDTO));
+		} catch (Error e) {
+			return ResponseUtil.internalError();
+		}
 	}
-	
+
 	/**
 	 * Solicita la eliminación de un Equipo a partir del Body de la request.
 	 * 
@@ -71,7 +71,7 @@ public class EquipoController {
 	public void deleteEquipo(@RequestBody EquipoDTO equipoDTO) {
 		iEquipoService.deleteEquipo(equipoDTO);
 	}
-	
+
 	/**
 	 * Solicita un Equipo por su Id.
 	 * 
@@ -87,11 +87,11 @@ public class EquipoController {
 			} else {
 				return ResponseUtil.noContent();
 			}
-    	} catch (Error e) {
-    		return ResponseUtil.internalError();
-    	}
+		} catch (Error e) {
+			return ResponseUtil.internalError();
+		}
 	}
-	
+
 	/**
 	 * Solicita todas las entradas de Equipo en la Base de Datos que coincidan.
 	 * 
@@ -102,13 +102,13 @@ public class EquipoController {
 	public ResponseEntity<List<EquipoDTO>> getAllEquipo(@RequestBody(required = false) EquipoDTO equipoDTO) {
 		try {
 			List<EquipoDTO> equipoDTOList = iEquipoService.getAllEquipo(equipoDTO);
-			if ( !equipoDTOList.isEmpty() ) {
+			if (!equipoDTOList.isEmpty()) {
 				return ResponseUtil.okResponse(equipoDTOList);
 			} else {
 				return ResponseUtil.noContent();
 			}
-    	} catch (Error e) {
-    		return ResponseUtil.internalError();
-    	}
+		} catch (Error e) {
+			return ResponseUtil.internalError();
+		}
 	}
 }

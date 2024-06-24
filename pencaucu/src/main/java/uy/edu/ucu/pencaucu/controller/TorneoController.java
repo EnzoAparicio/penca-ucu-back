@@ -18,10 +18,10 @@ import uy.edu.ucu.pencaucu.util.ResponseUtil;
 
 @RestController
 public class TorneoController {
-	
+
 	@Autowired
 	ITorneoService iTorneoService;
-	
+
 	private ResponseEntity<TorneoDTO> checkResponse(TorneoDTO torneo) {
 		if (torneo.getIdTorneo() != null) {
 			return ResponseUtil.okResponse(torneo);
@@ -29,7 +29,7 @@ public class TorneoController {
 			return ResponseUtil.badRequest();
 		}
 	}
-	
+
 	/**
 	 * Solicita la creación de un Torneo a partir del objeto recibido.
 	 * 
@@ -44,8 +44,7 @@ public class TorneoController {
 			return ResponseUtil.internalError();
 		}
 	}
-	
-	
+
 	/**
 	 * Solicita la actualización de un Torneo a partir del Id.
 	 * 
@@ -60,7 +59,7 @@ public class TorneoController {
 			return ResponseUtil.internalError();
 		}
 	}
-	
+
 	/**
 	 * Solicita la eliminación de un Torneo a partir del Body de la request.
 	 * 
@@ -72,7 +71,7 @@ public class TorneoController {
 	public void deleteTorneo(@RequestBody TorneoDTO torneoDTO) {
 		iTorneoService.deleteTorneo(torneoDTO);
 	}
-	
+
 	/**
 	 * Solicita un Torneo por su Id.
 	 * 
@@ -92,6 +91,7 @@ public class TorneoController {
 			return ResponseUtil.internalError();
 		}
 	}
+
 	/**
 	 * Solicita todas las entradas de Torneo en la Base de Datos que coincidan.
 	 * 
@@ -101,8 +101,8 @@ public class TorneoController {
 	@GetMapping("/torneo/getAll")
 	public ResponseEntity<List<TorneoDTO>> getAllTorneo(@RequestBody(required = false) TorneoDTO torneoDTO) {
 		try {
-			List<TorneoDTO> torneoDTOList = iTorneoService.getAllTorneo(torneoDTO); 
-			if ( !torneoDTOList.isEmpty() ) {
+			List<TorneoDTO> torneoDTOList = iTorneoService.getAllTorneo(torneoDTO);
+			if (!torneoDTOList.isEmpty()) {
 				return ResponseUtil.okResponse(torneoDTOList);
 			} else {
 				return ResponseUtil.noContent();

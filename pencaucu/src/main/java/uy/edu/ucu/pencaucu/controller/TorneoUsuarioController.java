@@ -19,7 +19,7 @@ public class TorneoUsuarioController {
 
 	@Autowired
 	ITorneoUsuarioService iTorneoUsuarioService;
-	
+
 	@PostMapping("/torneoUsuario/create")
 	public ResponseEntity<TorneoUsuarioDTO> createTorneoUsuario(@RequestBody TorneoUsuarioDTO torneoUsuarioDTO) {
 		try {
@@ -30,11 +30,11 @@ public class TorneoUsuarioController {
 			} else {
 				return ResponseUtil.badRequest();
 			}
-		} catch(Error e) {
+		} catch (Error e) {
 			return ResponseUtil.internalError();
 		}
 	}
-	
+
 	@GetMapping("/torneoUsuario/getAllByIdTorneo/{id_torneo}")
 	public ResponseEntity<List<TorneoUsuarioDTO>> getAllByIdTorneo(@PathVariable Integer id_torneo) {
 		try {

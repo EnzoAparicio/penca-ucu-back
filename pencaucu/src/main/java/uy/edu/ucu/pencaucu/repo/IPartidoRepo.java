@@ -10,14 +10,14 @@ import org.springframework.stereotype.Repository;
 import uy.edu.ucu.pencaucu.model.Partido;
 
 @Repository
-public interface IPartidoRepo extends JpaRepository<Partido, Integer>{
+public interface IPartidoRepo extends JpaRepository<Partido, Integer> {
 
 	@SuppressWarnings("unchecked")
 	Partido save(Partido partido);
-	
+
 	Optional<Partido> findById(Integer id_partido);
-	
+
 	List<Partido> findByIdTorneoAndFechaLessThan(Integer id_torneo, Date fecha);
-	
+
 	List<Partido> findByIdTorneoAndFechaGreaterThan(Integer id_torneo, Date fecha);
 }
