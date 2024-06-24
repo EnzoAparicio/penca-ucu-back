@@ -7,18 +7,18 @@ import uy.edu.ucu.pencaucu.model.Carrera;
 public class UsuarioDTO {
 
 	private Integer idUsuario;
-	
+
 	private String email;
-	
+
 	private String contrasenia;
-	
+
 	private String nombre;
-	
+
 	private String apellido;
-	
+
 	private String avatarPath;
-	
+
 	private Carrera carrera;
-	
+
 	private Boolean esAdministrador;
 }

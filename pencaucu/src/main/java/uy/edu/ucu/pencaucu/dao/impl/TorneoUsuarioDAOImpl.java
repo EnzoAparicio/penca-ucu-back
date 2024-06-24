@@ -21,7 +21,7 @@ public class TorneoUsuarioDAOImpl implements ITorneoUsuarioDAO {
 
 	@Autowired
 	ITorneoUsuarioRepo iTorneoUsuarioRepo;
-	
+
 	@Override
 	public TorneoUsuarioDTO updateTorneoUsuario(TorneoUsuarioDTO torneoUsuarioDTO) {
 		TorneoUsuario torneoUsuario = DozerUtil.GetINSTANCE().getMapper().map(torneoUsuarioDTO, TorneoUsuario.class);
@@ -51,8 +51,9 @@ public class TorneoUsuarioDAOImpl implements ITorneoUsuarioDAO {
 
 	@Override
 	public TorneoUsuarioDTO createTorneoUsuario(TorneoUsuarioDTO torneoUsuarioDTO) {
-		TorneoUsuario torneoUsuario = iTorneoUsuarioRepo.save(DozerUtil.GetINSTANCE().getMapper().map(torneoUsuarioDTO, TorneoUsuario.class)); 
-		if(torneoUsuario.getIdTorneoUsuario() != null) {
+		TorneoUsuario torneoUsuario = iTorneoUsuarioRepo
+				.save(DozerUtil.GetINSTANCE().getMapper().map(torneoUsuarioDTO, TorneoUsuario.class));
+		if (torneoUsuario.getIdTorneoUsuario() != null) {
 			return DozerUtil.GetINSTANCE().getMapper().map(torneoUsuario, TorneoUsuarioDTO.class);
 		} else {
 			return new TorneoUsuarioDTO();

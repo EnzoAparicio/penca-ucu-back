@@ -16,9 +16,9 @@ public class CarreraController {
 
 	@Autowired
 	ICarreraService iCarreraService;
-	
+
 	@GetMapping("/carrera/getAll")
-	public ResponseEntity<List<CarreraDTO>> getAllCarrera(){
+	public ResponseEntity<List<CarreraDTO>> getAllCarrera() {
 		try {
 			List<CarreraDTO> carreraDTOList = iCarreraService.getAllCarrera();
 			if (!carreraDTOList.isEmpty()) {

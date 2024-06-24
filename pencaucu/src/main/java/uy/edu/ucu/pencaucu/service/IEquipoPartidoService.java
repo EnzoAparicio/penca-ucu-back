@@ -1,11 +1,11 @@
-package uy.edu.ucu.pencaucu.service;	
+package uy.edu.ucu.pencaucu.service;
 
-import uy.edu.ucu.pencaucu.dto.EquipoPartidoDTO;	
+import uy.edu.ucu.pencaucu.dto.EquipoPartidoDTO;
 
-public interface IEquipoPartidoService {	
+public interface IEquipoPartidoService {
 
-    EquipoPartidoDTO createEquipoPartido(EquipoPartidoDTO equipoPartidoDTO);	
+	EquipoPartidoDTO createEquipoPartido(EquipoPartidoDTO equipoPartidoDTO);
 
-    EquipoPartidoDTO updateEquipoPartido(EquipoPartidoDTO equipoPartidoDTO);	
+	EquipoPartidoDTO updateEquipoPartido(EquipoPartidoDTO equipoPartidoDTO);
 
 }

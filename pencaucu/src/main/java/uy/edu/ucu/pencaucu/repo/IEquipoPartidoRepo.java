@@ -9,11 +9,11 @@ import uy.edu.ucu.pencaucu.model.EquipoPartido;
 
 @Repository
 public interface IEquipoPartidoRepo extends JpaRepository<EquipoPartido, Integer> {
-	
+
 	@SuppressWarnings("unchecked")
 	EquipoPartido save(EquipoPartido equipoPartido);
-	
+
 	Optional<EquipoPartido> findById(Integer id_equipo_partido);
-	
+
 	void deleteById(Integer id_equipo_partido);
 }

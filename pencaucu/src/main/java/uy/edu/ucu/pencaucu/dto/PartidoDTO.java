@@ -10,13 +10,13 @@ import uy.edu.ucu.pencaucu.model.Estadio;
 @Data
 public class PartidoDTO {
 
-    private Integer idPartido;
+	private Integer idPartido;
 
-    private Date fecha;
+	private Date fecha;
 
-    private Estadio estadio;
+	private Estadio estadio;
 
-    private Integer idTorneo;
-    
-    private List<EquipoPartido> equipos;
+	private Integer idTorneo;
+
+	private List<EquipoPartido> equipos;
 }

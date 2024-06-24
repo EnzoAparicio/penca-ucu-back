@@ -1,26 +1,25 @@
-package uy.edu.ucu.pencaucu.dao;	
+package uy.edu.ucu.pencaucu.dao;
 
 import java.util.List;
 
 import uy.edu.ucu.pencaucu.dto.PartidoDTO;
-import uy.edu.ucu.pencaucu.dto.PrediccionDTO;	
+import uy.edu.ucu.pencaucu.dto.PrediccionDTO;
 
-public interface IPrediccionDAO {	
+public interface IPrediccionDAO {
 
-        PrediccionDTO createPrediccion (PrediccionDTO prediccionDTO);
+	PrediccionDTO createPrediccion(PrediccionDTO prediccionDTO);
 
-        PrediccionDTO getPrediccionById (Integer id_prediccion);	
+	PrediccionDTO getPrediccionById(Integer id_prediccion);
 
-        List<PrediccionDTO> getAllPrediccion();	
-        
-        List<PrediccionDTO> getAllPrediccionByFilter(PrediccionDTO prediccionDTO);	
+	List<PrediccionDTO> getAllPrediccion();
 
-        PrediccionDTO updatePrediccion (PrediccionDTO prediccionDTO);	
+	List<PrediccionDTO> getAllPrediccionByFilter(PrediccionDTO prediccionDTO);
 
-        void deletePrediccion (PrediccionDTO prediccionDTO);	
-        
-        List<PrediccionDTO> getEstadisticaPartido(Integer id_partido);
-        
-        List<PrediccionDTO> getAllPrediccionByPartido(PartidoDTO partidoDTO);
+	PrediccionDTO updatePrediccion(PrediccionDTO prediccionDTO);
+
+	void deletePrediccion(PrediccionDTO prediccionDTO);
+
+	List<PrediccionDTO> getEstadisticaPartido(Integer id_partido);
+
+	List<PrediccionDTO> getAllPrediccionByPartido(PartidoDTO partidoDTO);
 }
-

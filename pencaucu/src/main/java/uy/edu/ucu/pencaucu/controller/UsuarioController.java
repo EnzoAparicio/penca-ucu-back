@@ -20,7 +20,7 @@ public class UsuarioController {
 
 	@Autowired
 	private IUsuarioService iUsuarioService;
-	
+
 	private ResponseEntity<UsuarioDTO> checkResponse(UsuarioDTO usuario) {
 		if (usuario.getIdUsuario() != null) {
 			return ResponseUtil.okResponse(usuario);
@@ -28,11 +28,11 @@ public class UsuarioController {
 			return ResponseUtil.badRequest();
 		}
 	}
-	
+
 	@PostMapping("/usuario/create") // Enviar un json con los atributos de un usuario y sus respectivos valores.
 	public ResponseEntity<UsuarioDTO> createUsuario(@RequestBody UsuarioDTO usuarioDTO) {
 		try {
-			return checkResponse(iUsuarioService.createUsuario(usuarioDTO)); 
+			return checkResponse(iUsuarioService.createUsuario(usuarioDTO));
 		} catch (Error e) {
 			return ResponseUtil.internalError();
 		}
@@ -50,17 +50,17 @@ public class UsuarioController {
 	@PutMapping("/usuario/update")
 	public ResponseEntity<UsuarioDTO> updateUsuario(@RequestBody UsuarioDTO usuarioDTO) {
 		try {
-			return checkResponse(iUsuarioService.updateUsuario(usuarioDTO)); 
+			return checkResponse(iUsuarioService.updateUsuario(usuarioDTO));
 		} catch (Error e) {
 			return ResponseUtil.internalError();
 		}
 	}
-	
+
 	@DeleteMapping("/usuario/delete")
 	public void deleteUsuario(@RequestBody UsuarioDTO usuarioDTO) {
 		iUsuarioService.deleteUsuario(usuarioDTO);
 	}
-	
+
 	@GetMapping("/usuario/{id_usuario}")
 	public ResponseEntity<UsuarioDTO> getUsuario(@PathVariable Integer id_usuario) {
 		try {
@@ -74,7 +74,7 @@ public class UsuarioController {
 			return ResponseUtil.internalError();
 		}
 	}
-	
+
 	@GetMapping("/usuario/getAll")
 	public ResponseEntity<List<UsuarioDTO>> getAllUsuario(@RequestBody(required = false) UsuarioDTO usuarioDTO) {
 		try {

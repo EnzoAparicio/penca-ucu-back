@@ -5,18 +5,19 @@ import org.dozer.DozerBeanMapper;
 public class DozerUtil {
 
 	private static DozerUtil INSTANCE;
-	
+
 	private DozerBeanMapper mapper;
-	
-	private DozerUtil() { }
-	
+
+	private DozerUtil() {
+	}
+
 	public synchronized static DozerUtil GetINSTANCE() {
 		if (INSTANCE == null) {
 			INSTANCE = new DozerUtil();
 		}
 		return INSTANCE;
 	}
-	
+
 	public DozerBeanMapper getMapper() {
 		if (mapper == null) {
 			mapper = new DozerBeanMapper();

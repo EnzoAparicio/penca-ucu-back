@@ -11,12 +11,12 @@ import uy.edu.ucu.pencaucu.model.TorneoUsuario;
 import uy.edu.ucu.pencaucu.model.Usuario;
 
 @Repository
-public interface ITorneoUsuarioRepo extends JpaRepository<TorneoUsuario, Integer>{
+public interface ITorneoUsuarioRepo extends JpaRepository<TorneoUsuario, Integer> {
 
 	@SuppressWarnings("unchecked")
 	TorneoUsuario save(TorneoUsuario torneoUsuario);
-	
+
 	Optional<TorneoUsuario> findByTorneoAndUsuario(Torneo torneo, Usuario usuario);
-	
+
 	List<TorneoUsuario> findAllByTorneo(Torneo torneo);
 }
