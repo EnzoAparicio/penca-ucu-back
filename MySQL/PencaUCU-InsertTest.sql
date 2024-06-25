@@ -1,49 +1,49 @@
 INSERT INTO usuario (email, contrasenia, nombre, apellido, avatar_path, id_carrera) VALUES
- ('luisa.perez@email.com', 'contrasenia123', 'Luisa', 'Perez', 'avatar_luisa.png', 1),
-('juan.rodriguez@email.com', 'juanitoR78', 'Juan', 'Rodriguez', 'avatar_juan.png', 2),
-('maria.gonzalez@email.com', 'mariagonzalez', 'Maria', 'Gonzalez', 'avatar_maria.png', 3),
-('carlos.fernandez@email.com', 'carlosF2024', 'Carlos', 'Fernandez', 'avatar_carlos.png', 4),
-('ana.martinez@email.com', 'anaMtz89', 'Ana', 'Martinez', 'avatar_ana.png', 5),
-('jose.gutierrez@email.com', 'joseGtz', 'Jose', 'Gutierrez', 'avatar_jose.png', 6),
-('sofia.ramirez@email.com', 'sofiaramirez', 'Sofia', 'Ramirez', 'avatar_sofia.png', 7),
-('daniel.torres@email.com', 'danieltorres', 'Daniel', 'Torres', 'avatar_daniel.png', 8),
-('laura.lopez@email.com', 'lauralopez', 'Laura', 'Lopez', 'avatar_laura.png', 9),
-('pedro.sanchez@email.com', 'pedrosanchez', 'Pedro', 'Sanchez', 'avatar_pedro.png', 10);
+ ('luisa.perez@email.com', 'contrasenia123', 'Luisa', 'Perez', 'avatar_luisa.png', 1);
 
 
 INSERT INTO torneo (nombre, anio) VALUES
-('Torneo Apertura', '2023'),
-('Torneo Clausura', '2023'),
-('Copa Libertadores', '2023'),
-('Copa Sudamericana', '2023'),
-('Torneo Intercontinental', '2023'),
-('Liga Nacional', '2023'),
-('Torneo Apertura', '2024'),
-('Torneo Clausura', '2024'),
-('Copa Libertadores', '2024'),
-('Copa Sudamericana', '2024');
+('Copa America', '2024');
 
 INSERT INTO equipo (nombre, img_bandera, color) VALUES
-('Real Madrid', 'bandera_real_madrid.png', '#FFFFFF'),
-('Barcelona', 'bandera_barcelona.png', '#073597'),
-('Manchester United', 'bandera_manchester_united.png', '#FF0000'),
-('Liverpool', 'bandera_liverpool.png', '#FF0000'),
-('Bayern Munich', 'bandera_bayern_munich.png', '#FF0000'),
-('Juventus', 'bandera_juventus.png', '#FFFFFF'),
-('Paris Saint-Germain', 'bandera_psg.png', '#035690'),
-('Chelsea', 'bandera_chelsea.png', '#0064DC'),
-('Manchester City', 'bandera_manchester_city.png', '#49A4FA'),
-('Atletico Madrid', 'bandera_atletico_madrid.png', '#C90033');
+('Brasil', 'brasil.png', '#009739'),
+('Colombia', 'colombia.png', '#FFCD00'),
+('Argentina', 'argentina.png', '#5F9CD3'),
+('Bolivia', 'bolivia.png', '#F8E600'),
+('Paraguay', 'paraguay.png', '#D52B1E'),
+('Panama', 'panama.png', '#072357'),
+('Peru', 'peru.png', '#C8102E'),
+('Canada', 'canada.png', '#D80621'),
+('México', 'mexico.png', '#006341'),
+('Jamaica', 'jamaica.png', '#009B3A'),
+('Costa Rica, 'costaRica.png', '#FFFFFF'),
+('Ecuador', 'ecuador.png', '#FFFF00'),
+('Venezuela', 'venezuela.png', '#B92034'),
+('Uruguay', 'uruguay.png', '#3878BC'),
+('Estados Unidos', 'usa.png', '#B31942'),
+('Chile', 'chile.png', '#0032A0');
+
 
 INSERT INTO partido (fecha, id_estadio, id_torneo) 
 VALUES 
-('2024-06-12', 1, 9),
-('2024-06-13', 2, 9),
-('2024-06-14', 3, 9),
-('2024-06-15', 4, 9),
-('2024-06-16', 5, 9);
+('2024-06-20', 1, 1),
+('2024-06-21', 3, 1),
+('2024-06-22', 9, 1),
+('2024-06-22', 14, 1),
+('2024-06-23', 3, 1),
+('2024-06-23', 2, 1);
 
 INSERT INTO equipo_partido (tipo_equipo, id_equipo, id_partido)
 VALUES
-(1, 1, 1),
-(2, 2, 1);
+(1, 3, 1),
+(2, 8, 1),
+(1, 7, 2),
+(2, 16, 2),
+(1, 9, 3),
+(2, 10, 3),
+(1, 12, 4),
+(2, 13, 4),
+(1, 15, 5),
+(2, 4, 5),
+(1, 14, 6),
+(2, 6, 6);

@@ -134,14 +134,18 @@ VALUES
 -- Llenar la tabla 'Estadio'
 INSERT INTO estadio (nombre) 
 VALUES 
-('Estadio Centenario'),
-('Estadio Maracanã'),
-('Estadio Monumental'),
-('Estadio Azteca'),
-('Estadio Santiago Bernabéu'),
-('Estadio Camp Nou'),
-('Estadio Wembley'),
-('Estadio Allianz Arena'),
-('Estadio San Siro'),
-('Estadio Old Trafford');
+('Estadio Mercedes-Benz'),
+('Estadio Hard Rock'),
+('Estadio AT&T'),
+('Estadio GEHA Field'),
+('Estadio Q2'),
+('Estadio Bank of America'),
+('Estadio MetLife'),
+('Estadio State Farm'),
+('Estadio NRG'),
+('Estadio SoFi'),
+('Estadio Children’s Mercy Park'),
+('Estadio Allegiant'),
+('Estadio Inter&Co'),
+('Estadio Levi’s®');
 
