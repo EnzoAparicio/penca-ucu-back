@@ -21,4 +21,6 @@ public interface IPrediccionService {
 	HashMap<String, Integer> getEstadisticaPartido(Integer id_partido);
 
 	void checkResultado(PartidoDTO partidoDTO);
+	
+	List<PrediccionDTO> getAllByIdUsuario(Integer idUsuario);
 }

@@ -7,6 +7,8 @@ import org.springframework.stereotype.Repository;
 
 import uy.edu.ucu.pencaucu.model.Partido;
 import uy.edu.ucu.pencaucu.model.Prediccion;
+import uy.edu.ucu.pencaucu.model.Usuario;
+
 import java.util.List;
 
 @Repository
@@ -18,5 +20,7 @@ public interface IPrediccionRepo extends JpaRepository<Prediccion, Integer> {
 	Optional<Prediccion> findById(Integer id_prediccion);
 
 	List<Prediccion> findAllByPartido(Partido partido);
+	
+	List<Prediccion> findAllByIdUsuario(Integer idUsuario);
 
 }
