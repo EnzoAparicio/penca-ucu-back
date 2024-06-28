@@ -110,4 +110,24 @@ public class PrediccionController {
 	public void checkResultado(@RequestBody PartidoDTO partidoDTO) {
 		iPrediccionService.checkResultado(partidoDTO);
 	}
+	
+	/**
+	 * Recibe un id de usuario y devuelve todas sus predicciones.
+	 * 
+	 * @param id_usuario
+	 * @return List<PrediccionDTO>
+	 */
+	@GetMapping("/prediccion/getAllByUsuario/{id_usuario}")
+	public ResponseEntity<List<PrediccionDTO>> getAllByIdUsuario(@PathVariable Integer id_usuario) {
+		try {
+			List<PrediccionDTO> prediccionList = iPrediccionService.getAllByIdUsuario(id_usuario); 
+			if (!prediccionList.isEmpty()) {
+				return ResponseUtil.okResponse(prediccionList);
+			} else {
+				return ResponseUtil.noContent();
+			}
+		} catch (Error e) {
+			return ResponseUtil.internalError();
+		}
+	}
 }
