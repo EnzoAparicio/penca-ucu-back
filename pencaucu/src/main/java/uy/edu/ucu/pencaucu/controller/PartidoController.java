@@ -1,5 +1,6 @@
 package uy.edu.ucu.pencaucu.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -10,8 +11,14 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
+
+import uy.edu.ucu.pencaucu.dto.EquipoPartidoDTO;
 import uy.edu.ucu.pencaucu.dto.PartidoDTO;
+import uy.edu.ucu.pencaucu.model.EquipoPartido;
+import uy.edu.ucu.pencaucu.model.Partido;
+import uy.edu.ucu.pencaucu.service.IEquipoPartidoService;
 import uy.edu.ucu.pencaucu.service.IPartidoService;
+import uy.edu.ucu.pencaucu.util.DozerUtil;
 import uy.edu.ucu.pencaucu.util.ResponseUtil;
 
 @RestController
@@ -19,6 +26,9 @@ public class PartidoController {
 
 	@Autowired
 	private IPartidoService iPartidoService;
+	
+	@Autowired
+	private IEquipoPartidoService iEquipoPartidoService;
 
 	private ResponseEntity<PartidoDTO> checkResponse(PartidoDTO partido) {
 		if (partido.getIdPartido() != null) {
@@ -52,7 +62,21 @@ public class PartidoController {
 	@PutMapping("/partido/update")
 	public ResponseEntity<PartidoDTO> updatePartido(@RequestBody PartidoDTO partidoDTO) {
 		try {
-			return checkResponse(iPartidoService.updatePartido(partidoDTO));
+			PartidoDTO newPartido = iPartidoService.updatePartido(partidoDTO);
+			if (newPartido.getIdPartido() != null) {
+
+				newPartido.setEquipos(partidoDTO.getEquipos());
+				List<EquipoPartido> newRelationList = new ArrayList<EquipoPartido>();
+				
+				for (EquipoPartido relation : newPartido.getEquipos()) {
+					relation.setPartido(DozerUtil.GetINSTANCE().getMapper().map(partidoDTO, Partido.class));
+					EquipoPartidoDTO equipoPartidoDTO = iEquipoPartidoService.updateEquipoPartido(DozerUtil.GetINSTANCE().getMapper().map(relation, EquipoPartidoDTO.class)); 
+					newRelationList.add(DozerUtil.GetINSTANCE().getMapper().map(equipoPartidoDTO, EquipoPartido.class));
+				}
+				
+				newPartido.setEquipos(newRelationList);
+			}
+			return checkResponse(newPartido);
 		} catch (Error e) {
 			return ResponseUtil.internalError();
 		}

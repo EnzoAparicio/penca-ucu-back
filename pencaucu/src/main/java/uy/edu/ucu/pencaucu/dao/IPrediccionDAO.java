@@ -4,6 +4,7 @@ import java.util.List;
 
 import uy.edu.ucu.pencaucu.dto.PartidoDTO;
 import uy.edu.ucu.pencaucu.dto.PrediccionDTO;
+import uy.edu.ucu.pencaucu.model.Usuario;
 
 public interface IPrediccionDAO {
 
@@ -22,4 +23,6 @@ public interface IPrediccionDAO {
 	List<PrediccionDTO> getEstadisticaPartido(Integer id_partido);
 
 	List<PrediccionDTO> getAllPrediccionByPartido(PartidoDTO partidoDTO);
+	
+	List<PrediccionDTO> getAllByIdUsuario(Integer idUsuario);
 }

@@ -14,6 +14,7 @@ import uy.edu.ucu.pencaucu.dto.TorneoDTO;
 import uy.edu.ucu.pencaucu.dto.TorneoUsuarioDTO;
 import uy.edu.ucu.pencaucu.dto.UsuarioDTO;
 import uy.edu.ucu.pencaucu.model.EquipoPartido;
+import uy.edu.ucu.pencaucu.model.Usuario;
 import uy.edu.ucu.pencaucu.service.IPrediccionService;
 
 @Service
@@ -141,5 +142,10 @@ public class PrediccionServiceImpl implements IPrediccionService {
 			torneoUsuarioDTO.setPuntos((pointsToAssign - startingPointsSecurity) + currentPoints);
 			iTorneoUsuarioDAO.updateTorneoUsuario(torneoUsuarioDTO);
 		}
+	}
+
+	@Override
+	public List<PrediccionDTO> getAllByIdUsuario(Integer idUsuario) {
+		return iPrediccionDAO.getAllByIdUsuario(idUsuario);
 	}
 }

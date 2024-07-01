@@ -14,6 +14,7 @@ import uy.edu.ucu.pencaucu.dto.PartidoDTO;
 import uy.edu.ucu.pencaucu.dto.PrediccionDTO;
 import uy.edu.ucu.pencaucu.model.Partido;
 import uy.edu.ucu.pencaucu.model.Prediccion;
+import uy.edu.ucu.pencaucu.model.Usuario;
 import uy.edu.ucu.pencaucu.repo.IPrediccionRepo;
 import uy.edu.ucu.pencaucu.util.DozerUtil;
 
@@ -101,6 +102,13 @@ public class PrediccionDAOImpl implements IPrediccionDAO {
 	public List<PrediccionDTO> getAllPrediccionByPartido(PartidoDTO partidoDTO) {
 		Partido partido = DozerUtil.GetINSTANCE().getMapper().map(partidoDTO, Partido.class);
 		return iPrediccionRepo.findAllByPartido(partido).stream()
+				.map(prediccion -> DozerUtil.GetINSTANCE().getMapper().map(prediccion, PrediccionDTO.class))
+				.collect(Collectors.toList());
+	}
+
+	@Override
+	public List<PrediccionDTO> getAllByIdUsuario(Integer idUsuario) {
+		return iPrediccionRepo.findAllByIdUsuario(idUsuario).stream()
 				.map(prediccion -> DozerUtil.GetINSTANCE().getMapper().map(prediccion, PrediccionDTO.class))
 				.collect(Collectors.toList());
 	}
